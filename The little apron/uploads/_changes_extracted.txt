@@ -1,0 +1,223 @@
+HOME 
+Landscape logo in menu bar
+Oval Contact button (if you can, could you add a bow on the corner of the button?)
+Change eyebrows to the green colour (b9e5ca) or try pink if we can intertwine it elsewhere
+Space out the heading to be 3 lines
+Change hero image to “boxed up cake with The Little Apron sticker”
+Add in a block under the hero before the “What we Offer” - white background and with a button
+Wording: Have an event coming up? 
+Based in Hamilton, we’re your local for custom cakes. Whatever the occasion, we’ve got your cake creations covered - short notice or well in advance. [button to contact page - check availability]. 
+Bow background or cream - add
+Wording: Looking for a cake on a budget? We know cakes can get expensive, so we’ve created options to suit different budgets without compromising on style or taste. Have a look through our options or contact us to chat about what you’re after [button to signature cakes#budget - budget-friendly options]. 
+Move the green banner before the footer, underneath budget block
+Change the words to a definition quote in italics - 
+“The Little Apron Cakes: Handmade cakes designed to make every celebration feel a little more special. Birthdays, weddings, gender reveals, baby showers - you name it, we have cake for it.”
+FOOTER
+Edit my phone number - 027 347 0648
+Edit my email - hello@thelittleapron.co.nz
+Social links
+In my green colour, grey or the pink (if we’re intertwining pink) in scripted/handwritten front can you add Baked by Hand,
+With Love
+For You
+OUR STORY
+Hi, I’m Cushla [handwritten font]
+Chief baker, decorator, administrator, content creator and more for The Little Apron. There was once a time, when I was just a little girl learning to bake.
+Where it started [photo of me on the step ladder]
+*Arrow* 
+And it grew to something more, when I wanted to take classes but there weren’t many around, so we reached out. There were many people who took the time to teach me properly.
+[fondant making birthday event, fondant cakes, fire truck cake, owls, Mums cake]
+Then, at 15, I landed my dream first job at a dessert restaurant called The Sugar Shed.
+[photo of Liv and I, testing the food, some of the cakes we created with Sugar Shed in background)
+That’s where I learnt the art of buttercream cakes 
+*Arrow* 
+I saved up my first few paychecks and bought my very first stand mixer. [photo of me with my stand mixer
+For the last 5 years, this has all lived under CushsCreations.
+[photo of cush in CushCreations apron]
+Then The Little Apron was born, representing a new chapter and most importantly a new apron. From being that kid in the kitchen, to learning, to working, to where I am now. The brand signifies the journey I’ve been on, those involved and the love I have for it.
+[photo of cush in The Little Apron apron]
+SWEET STUFF
+Custom cakes, cupcakes and more
+Explore our range of cakes and cupcakes, or do-it-yourself. Whether you’re planning something extra special or keeping it sweet and simple, The Little Apron is here to make every celebration that little bit sweeter. 
+[in their own little blocks to click through to the corresponding pages]
+Signature cakes
+Our most-loved cake styles with set pricing, designed to make celebrations effortless
+Cupcakes
+Perfect for birthdays, school celebrations, gifting, and little sweet cravings or even that little something extra when the cake is just not enough. 
+DIY kits
+The perfect hands-on activity for little bakers and busy families. All the fun of decorating, without the stress of baking. 
+[one full block]
+Have another cake design in mind?
+Let’s make something special together. We’d love to help bring your cake to life.
+[custom cake enquiry form]
+[background image with a tile in the middle with the headings and button on it]
+SIGNATURE CAKES
+Canvas
+From $40.00Description
+Price
+4” 2 layered - $40
+4” 4 layered - $60
+6” 2 layered - $75
+6” 4 layered - $100
+8” - $220
+[Size drop down]
+4” 4 layered 
+6” 4 layered
+8” 4 layered
+[Cake flavour drop down]
+Vanilla
+Chocolate
+Banana
+Lemon
+Carrot
+Raspberry white choc
+Unicorn
+Description
+Price
+<w:left w:space="0" w:sz="0" w:val="nil"/><w:bottom w:space="0" w:sz="0" w:val="nil"/><w:right w:space="0" w:sz="0" w:val="nil"/><w:between w:space="0" w:sz="0" w:val="nil"/></w:pBdr><w:shd w:fill="auto" w:val="clear"/><w:spacing w:after="0" w:before="0" w:line="276" w:lineRule="auto"/><w:ind w:left="720" w:right="0" w:hanging="360"/><w:jc w:val="left"/></w:pPr><w:r w:rsidDel="00000000" w:rsidR="00000000" w:rsidRPr="00000000"><w:rPr><w:rtl w:val="0"/></w:rPr><w:t xml:space="preserve">4” 4 layered - $115
+<w:left w:space="0" w:sz="0" w:val="nil"/><w:bottom w:space="0" w:sz="0" w:val="nil"/><w:right w:space="0" w:sz="0" w:val="nil"/><w:between w:space="0" w:sz="0" w:val="nil"/></w:pBdr><w:shd w:fill="auto" w:val="clear"/><w:spacing w:after="0" w:before="0" w:line="276" w:lineRule="auto"/><w:ind w:left="720" w:right="0" w:hanging="360"/><w:jc w:val="left"/></w:pPr><w:r w:rsidDel="00000000" w:rsidR="00000000" w:rsidRPr="00000000"><w:rPr><w:rtl w:val="0"/></w:rPr><w:t xml:space="preserve">6” 4 layered - $190
+<w:left w:space="0" w:sz="0" w:val="nil"/><w:bottom w:space="0" w:sz="0" w:val="nil"/><w:right w:space="0" w:sz="0" w:val="nil"/><w:between w:space="0" w:sz="0" w:val="nil"/></w:pBdr><w:shd w:fill="auto" w:val="clear"/><w:spacing w:after="0" w:before="0" w:line="276" w:lineRule="auto"/><w:ind w:left="720" w:right="0" w:hanging="360"/><w:jc w:val="left"/></w:pPr><w:r w:rsidDel="00000000" w:rsidR="00000000" w:rsidRPr="00000000"><w:rPr><w:rtl w:val="0"/></w:rPr><w:t xml:space="preserve">8”4 layered - $240
+[Size drop down]
+4” 4 layered 
+6” 4 layered
+8” 4 layered
+[Cake flavour drop down]
+Vanilla
+Chocolate
+Banana
+Lemon
+Carrot
+Raspberry white choc
+[piping colour drop down]
+Pink
+Blue
+Green
+Mix of pastels
+Other (email us with your order number)
+Drip
+Description
+Price
+4” 4 layered - $105
+6” 4 layered - $180
+8” 4 layered - $210
+Floral
+Description
+Price
+4” 4 layered - $110
+6” 4 layered - $180
+8” 4 layered - $225
+Vintage piped (round)
+Description
+Price
+4” 4 layered - $100
+6” 4 layered - $170
+8” 4 layered - $215
+[Size drop down]
+4” 4 layered 
+6” 4 layered
+8” 4 layered 
+[Cake flavour drop down]
+Vanilla
+Chocolate
+Banana
+Lemon
+Carrot
+Raspberry white choc
+[piping colour drop down]
+Pink
+Blue
+Green
+Other (email us with your order number)
+Vintage piped (heart)
+Description
+Price
+6” 4 layered - $170
+8” 4 layered - $215
+[Size drop down]
+6” 4 layered
+8” 4 layered
+[Cake flavour drop down]
+Vanilla
+Chocolate
+Banana
+Lemon
+Carrot
+Raspberry white choc
+[piping colour drop down]
+Pink
+Blue
+Green
+Other (email us with your order number)
+Vintage bow (round)
+Description
+Price
+4” 4 layered - $105
+6” 4 layered - $175
+8” 4 layered - $220
+[Size drop down]
+4” 4 layered
+6” 4 layered
+8” 4 layered 
+[Cake flavour drop down]
+Vanilla
+Chocolate
+Banana
+Lemon
+Carrot
+Raspberry white choc
+[piping colour drop down]
+Pink
+Blue
+Green
+Other (email us with your order number)
+Vintage bow (heart)
+Description
+Price
+6” 4 layered - $175
+8” 4 layered - $220
+[Size drop down]
+6” 4 layered
+8” 4 layered 
+[Cake flavour drop down]
+Vanilla
+Chocolate
+Banana
+Lemon
+Carrot
+Raspberry white choc
+[piping colour drop down]
+Pink
+Blue
+Green
+Other (email us with your order number)
+Chocolate lover
+Description
+Ganache, choc on top and choc icing
+Price
+4” 4 layered - $120
+6” 4 layered - $190
+8” 4 layered - $225
+Baby Bean
+Description
+Price
+Hearts &amp; Buttercream
+Description
+Price
+4” 4 layered - $100
+6” 4 layered - $170
+8” 4 layered - $215
+Mini me
+Description 
+4 inch cakes…
+Price
+On a budget?
+Include blocks for: 
+Cupcakes
+DIY cake kit
+Canvas cake
+Cheaper cake options 100&gt; 
+ORDER
+Can we somehow reduce the length of the form? Like they click “more” or something to see the entire thing?
+Add in a block after the form before the footer linking back to the Our Story
+Get to know your baker
+Follow along on socials
+Link to Instagram showcasing some of my latest posts
