@@ -37,3 +37,6 @@ Thumbs.db
 
 # Design export / raw uploads (not part of the built site)
 The little apron/
+
+# Local agent worktrees (scratch space, never committed)
+.claude/worktrees/
