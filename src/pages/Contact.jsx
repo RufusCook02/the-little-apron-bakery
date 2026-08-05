@@ -139,6 +139,7 @@ export default function Contact({ sent, handleSubmit }) {
                   <input
                     required
                     type="text"
+                    name="name"
                     style={{
                       width: '100%',
                       padding: '13px 16px',
@@ -172,6 +173,7 @@ export default function Contact({ sent, handleSubmit }) {
                     <input
                       required
                       type="email"
+                      name="email"
                       style={{
                         width: '100%',
                         padding: '13px 16px',
@@ -196,6 +198,7 @@ export default function Contact({ sent, handleSubmit }) {
                     </label>
                     <input
                       type="tel"
+                      name="phone"
                       style={{
                         width: '100%',
                         padding: '13px 16px',
@@ -222,6 +225,7 @@ export default function Contact({ sent, handleSubmit }) {
                   <textarea
                     required
                     rows="5"
+                    name="message"
                     placeholder="Tell us what you're after…"
                     style={{
                       width: '100%',

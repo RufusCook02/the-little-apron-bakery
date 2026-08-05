@@ -277,6 +277,7 @@ export default function Workshops({ sent, handleSubmit }) {
                 <input
                   required
                   type="text"
+                  name="name"
                   placeholder="Your name"
                   style={{
                     width: '100%',
@@ -304,6 +305,7 @@ export default function Workshops({ sent, handleSubmit }) {
                 <input
                   required
                   type="email"
+                  name="email"
                   placeholder="you@email.com"
                   style={{
                     width: '100%',
@@ -330,6 +332,7 @@ export default function Workshops({ sent, handleSubmit }) {
                 </label>
                 <select
                   required
+                  name="workshopInterest"
                   style={{
                     width: '100%',
                     padding: '13px 16px',

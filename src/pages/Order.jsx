@@ -148,6 +148,7 @@ export default function Order({ orderOpen, setOrderOpen, sent, handleSubmit }) {
                   <input
                     required
                     type="text"
+                    name="firstName"
                     style={{
                       width: '100%',
                       padding: '13px 16px',
@@ -173,6 +174,7 @@ export default function Order({ orderOpen, setOrderOpen, sent, handleSubmit }) {
                   <input
                     required
                     type="text"
+                    name="lastName"
                     style={{
                       width: '100%',
                       padding: '13px 16px',
@@ -198,6 +200,7 @@ export default function Order({ orderOpen, setOrderOpen, sent, handleSubmit }) {
                   <input
                     required
                     type="email"
+                    name="email"
                     style={{
                       width: '100%',
                       padding: '13px 16px',
@@ -222,6 +225,7 @@ export default function Order({ orderOpen, setOrderOpen, sent, handleSubmit }) {
                   </label>
                   <input
                     type="tel"
+                    name="phone"
                     style={{
                       width: '100%',
                       padding: '13px 16px',
@@ -247,6 +251,7 @@ export default function Order({ orderOpen, setOrderOpen, sent, handleSubmit }) {
                   <input
                     required
                     type="date"
+                    name="collectionDate"
                     style={{
                       width: '100%',
                       padding: '13px 16px',
@@ -270,6 +275,7 @@ export default function Order({ orderOpen, setOrderOpen, sent, handleSubmit }) {
                     Cake size
                   </label>
                   <select
+                    name="cakeSize"
                     style={{
                       width: '100%',
                       padding: '13px 16px',
@@ -299,6 +305,7 @@ export default function Order({ orderOpen, setOrderOpen, sent, handleSubmit }) {
                     Cake flavour
                   </label>
                   <select
+                    name="cakeFlavour"
                     style={{
                       width: '100%',
                       padding: '13px 16px',
@@ -356,6 +363,7 @@ export default function Order({ orderOpen, setOrderOpen, sent, handleSubmit }) {
                       </label>
                       <input
                         type="text"
+                        name="occasion"
                         placeholder="Birthday, wedding…"
                         style={{
                           width: '100%',
@@ -381,6 +389,7 @@ export default function Order({ orderOpen, setOrderOpen, sent, handleSubmit }) {
                       </label>
                       <input
                         type="number"
+                        name="guests"
                         min="1"
                         style={{
                           width: '100%',
@@ -406,6 +415,7 @@ export default function Order({ orderOpen, setOrderOpen, sent, handleSubmit }) {
                       </label>
                       <input
                         type="text"
+                        name="venue"
                         style={{
                           width: '100%',
                           padding: '13px 16px',
@@ -430,6 +440,7 @@ export default function Order({ orderOpen, setOrderOpen, sent, handleSubmit }) {
                       </label>
                       <input
                         type="text"
+                        name="dietary"
                         style={{
                           width: '100%',
                           padding: '13px 16px',
@@ -454,6 +465,7 @@ export default function Order({ orderOpen, setOrderOpen, sent, handleSubmit }) {
                       </label>
                       <textarea
                         rows="4"
+                        name="design"
                         placeholder="Flowers, colours, theme, inspo…"
                         style={{
                           width: '100%',

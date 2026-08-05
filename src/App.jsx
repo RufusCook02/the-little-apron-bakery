@@ -51,8 +51,22 @@ export default function App() {
     return () => window.removeEventListener('hashchange', onHash)
   }, [])
 
-  const handleSubmit = (name) => (e) => {
+  const handleSubmit = (name) => async (e) => {
     e.preventDefault()
+    const fields = Object.fromEntries(
+      [...new FormData(e.target).entries()].filter(
+        ([, value]) => !(value instanceof File),
+      ),
+    )
+    try {
+      await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ form: name, fields }),
+      })
+    } catch (err) {
+      console.error('Failed to send enquiry', err)
+    }
     setSent((s) => ({ ...s, [name]: true }))
     try {
       window.scrollTo({ top: 0, behavior: 'smooth' })
