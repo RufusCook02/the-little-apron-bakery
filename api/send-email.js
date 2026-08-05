@@ -55,7 +55,7 @@ export default async function handler(req, res) {
     if (!brevoRes.ok) {
       const detail = await brevoRes.text()
       console.error('Brevo API error', brevoRes.status, detail)
-      return res.status(502).json({ error: 'Failed to send email', detail })
+      return res.status(502).json({ error: 'Failed to send email' })
     }
 
     return res.status(200).json({ ok: true })
