@@ -6,6 +6,15 @@ const FORMS = {
 
 const MAX_ATTACHMENTS = 5
 const MAX_BODY_BYTES = 5 * 1024 * 1024 // ~5MB defensive cap; Vercel's own limit is 4.5MB by default
+const ALLOWED_ATTACHMENT_EXTENSIONS = [
+  '.jpg',
+  '.jpeg',
+  '.png',
+  '.webp',
+  '.heic',
+  '.heif',
+]
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -49,7 +58,10 @@ export default async function handler(req, res) {
           a &&
           typeof a === 'object' &&
           typeof a.name === 'string' &&
-          typeof a.content === 'string',
+          typeof a.content === 'string' &&
+          ALLOWED_ATTACHMENT_EXTENSIONS.some((ext) =>
+            a.name.toLowerCase().endsWith(ext),
+          ),
       )
     if (!isValid) {
       return res.status(400).json({ error: 'Invalid attachments' })
@@ -87,7 +99,10 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         sender: { email: fromEmail, name: 'The Little Apron website' },
         to: [{ email: toEmail }],
-        replyTo: fields.email ? { email: fields.email } : undefined,
+        replyTo:
+          typeof fields.email === 'string' && EMAIL_RE.test(fields.email.trim())
+            ? { email: fields.email.trim() }
+            : undefined,
         subject: FORMS[form],
         htmlContent: `<table>${rows}</table>`,
         ...(validAttachments && validAttachments.length
