@@ -48,6 +48,8 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [orderOpen, setOrderOpen] = useState(false)
   const [sent, setSent] = useState({})
+  const [submitting, setSubmitting] = useState({})
+  const [submitError, setSubmitError] = useState({})
 
   useEffect(() => {
     const onHash = () => {
@@ -78,6 +80,9 @@ export default function App() {
       .map(([, value]) => value)
       .filter((value) => value instanceof File && value.size > 0)
 
+    setSubmitting((s) => ({ ...s, [name]: true }))
+    setSubmitError((s) => ({ ...s, [name]: null }))
+
     try {
       const attachments = await Promise.all(
         files.map(async (file) => ({
@@ -85,7 +90,7 @@ export default function App() {
           content: await fileToBase64(file),
         })),
       )
-      await fetch('/api/send-email', {
+      const res = await fetch('/api/send-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -95,13 +100,23 @@ export default function App() {
           ...(attachments.length ? { attachments } : {}),
         }),
       })
+      if (!res.ok) {
+        throw new Error(`Request failed with status ${res.status}`)
+      }
+      setSent((s) => ({ ...s, [name]: true }))
+      try {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      } catch {}
     } catch (err) {
       console.error('Failed to send enquiry', err)
+      setSubmitError((s) => ({
+        ...s,
+        [name]:
+          'Something went wrong sending your message. Please try again, or reach us directly by phone or email.',
+      }))
+    } finally {
+      setSubmitting((s) => ({ ...s, [name]: false }))
     }
-    setSent((s) => ({ ...s, [name]: true }))
-    try {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    } catch {}
   }
 
   const Page = PAGES[route] || Home
@@ -130,6 +145,8 @@ export default function App() {
           orderOpen={orderOpen}
           setOrderOpen={setOrderOpen}
           sent={sent}
+          submitting={submitting}
+          submitError={submitError}
           handleSubmit={handleSubmit}
         />
       </main>

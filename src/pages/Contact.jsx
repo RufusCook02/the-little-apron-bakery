@@ -1,7 +1,14 @@
 import { useEffect, useRef } from 'react'
 
-export default function Contact({ sent, handleSubmit }) {
+export default function Contact({
+  sent,
+  submitting,
+  submitError,
+  handleSubmit,
+}) {
   const contactSent = !!sent?.contact
+  const isSubmitting = !!submitting?.contact
+  const errorMessage = submitError?.contact
   const tsRef = useRef(null)
 
   useEffect(() => {
@@ -260,12 +267,30 @@ export default function Contact({ sent, handleSubmit }) {
                     }}
                   />
                 </div>
+                {errorMessage && (
+                  <p
+                    role="alert"
+                    style={{
+                      fontFamily: "'Mulish'",
+                      fontSize: 13.5,
+                      color: '#b23b3b',
+                      marginTop: -4,
+                    }}
+                  >
+                    {errorMessage}
+                  </p>
+                )}
                 <button
                   type="submit"
                   className="btn-submit"
-                  style={{ marginTop: 6 }}
+                  disabled={isSubmitting}
+                  style={{
+                    marginTop: 6,
+                    opacity: isSubmitting ? 0.7 : 1,
+                    cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                  }}
                 >
-                  Send message
+                  {isSubmitting ? 'Sending…' : 'Send message'}
                 </button>
               </form>
             )}

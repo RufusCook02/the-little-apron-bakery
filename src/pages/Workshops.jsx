@@ -1,7 +1,14 @@
 import { useEffect, useRef } from 'react'
 
-export default function Workshops({ sent, handleSubmit }) {
+export default function Workshops({
+  sent,
+  submitting,
+  submitError,
+  handleSubmit,
+}) {
   const workshopSent = !!sent?.workshop
+  const isSubmitting = !!submitting?.workshop
+  const errorMessage = submitError?.workshop
   const tsRef = useRef(null)
 
   useEffect(() => {
@@ -370,12 +377,29 @@ export default function Workshops({ sent, handleSubmit }) {
                   <option>Both</option>
                 </select>
               </div>
+              {errorMessage && (
+                <p
+                  role="alert"
+                  style={{
+                    fontFamily: "'Mulish'",
+                    fontSize: 13.5,
+                    color: '#b23b3b',
+                  }}
+                >
+                  {errorMessage}
+                </p>
+              )}
               <button
                 type="submit"
                 className="btn-submit"
-                style={{ marginTop: 6 }}
+                disabled={isSubmitting}
+                style={{
+                  marginTop: 6,
+                  opacity: isSubmitting ? 0.7 : 1,
+                  cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                }}
               >
-                Register interest
+                {isSubmitting ? 'Sending…' : 'Register interest'}
               </button>
             </form>
           )}

@@ -3,8 +3,17 @@ import { useEffect, useRef, useState } from 'react'
 const MAX_FILES = 5
 const MAX_TOTAL_BYTES = 4 * 1024 * 1024 // ~4MB combined, leaving headroom under Vercel's 4.5MB request limit
 
-export default function Order({ orderOpen, setOrderOpen, sent, handleSubmit }) {
+export default function Order({
+  orderOpen,
+  setOrderOpen,
+  sent,
+  submitting,
+  submitError,
+  handleSubmit,
+}) {
   const orderSent = !!sent?.order
+  const isSubmitting = !!submitting?.order
+  const errorMessage = submitError?.order
   const tsRef = useRef(null)
   const [fileError, setFileError] = useState('')
 
@@ -581,12 +590,32 @@ export default function Order({ orderOpen, setOrderOpen, sent, handleSubmit }) {
               >
                 {orderOpen ? '– Show fewer details' : '+ Add more details'}
               </button>
+              {errorMessage && (
+                <p
+                  role="alert"
+                  style={{
+                    fontFamily: "'Mulish'",
+                    fontSize: 13.5,
+                    color: '#b23b3b',
+                    marginTop: 14,
+                  }}
+                >
+                  {errorMessage}
+                </p>
+              )}
               <button
                 type="submit"
                 className="btn-submit"
-                style={{ marginTop: 14, fontSize: 14, padding: 17 }}
+                disabled={isSubmitting}
+                style={{
+                  marginTop: 14,
+                  fontSize: 14,
+                  padding: 17,
+                  opacity: isSubmitting ? 0.7 : 1,
+                  cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                }}
               >
-                Send enquiry
+                {isSubmitting ? 'Sending…' : 'Send enquiry'}
               </button>
             </form>
           )}
