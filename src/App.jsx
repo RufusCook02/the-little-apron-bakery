@@ -41,7 +41,11 @@ export default function App() {
     const onHash = () => {
       setRoute(readRoute())
       setMenuOpen(false)
-      try { window.scrollTo({ top: 0, left: 0, behavior: 'auto' }) } catch { window.scrollTo(0, 0) }
+      try {
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+      } catch {
+        window.scrollTo(0, 0)
+      }
     }
     window.addEventListener('hashchange', onHash)
     return () => window.removeEventListener('hashchange', onHash)
@@ -49,16 +53,31 @@ export default function App() {
 
   const handleSubmit = (name) => (e) => {
     e.preventDefault()
-    setSent(s => ({ ...s, [name]: true }))
-    try { window.scrollTo({ top: 0, behavior: 'smooth' }) } catch {}
+    setSent((s) => ({ ...s, [name]: true }))
+    try {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } catch {}
   }
 
   const Page = PAGES[route] || Home
 
   return (
     <div style={{ overflowX: 'hidden' }}>
-      <div style={{ background: '#4f6f66', color: '#dff1e7', fontFamily: "'Mulish'", fontSize: 12.5, letterSpacing: '.16em', textTransform: 'uppercase', textAlign: 'center', padding: '9px 16px', fontWeight: 500 }}>
-        Handmade in Hamilton, New Zealand &nbsp;·&nbsp; Custom cakes, cupcakes &amp; baking workshops
+      <div
+        style={{
+          background: '#4f6f66',
+          color: '#dff1e7',
+          fontFamily: "'Mulish'",
+          fontSize: 12.5,
+          letterSpacing: '.16em',
+          textTransform: 'uppercase',
+          textAlign: 'center',
+          padding: '9px 16px',
+          fontWeight: 500,
+        }}
+      >
+        Handmade in Hamilton, New Zealand &nbsp;·&nbsp; Custom cakes, cupcakes
+        &amp; baking workshops
       </div>
       <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <main>
