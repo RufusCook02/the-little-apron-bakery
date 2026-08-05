@@ -1,4 +1,5 @@
 import { sigPreview } from '../data/cakes.js'
+import WaveDivider from '../components/WaveDivider.jsx'
 
 export default function Home() {
   return (
@@ -59,12 +60,7 @@ export default function Home() {
       </section>
 
       {/* Wave: white → sage */}
-      <div style={{ lineHeight: 0, background: '#ffffff' }}>
-        <svg viewBox="0 0 1200 48" preserveAspectRatio="none" style={{ display: 'block', width: '100%', height: 42 }}>
-          <path d="M0,24 C50.0,13.4 50.0,13.4 100.0,24.6 C150.0,32.7 150.0,32.7 200.0,23.5 C250.0,15.8 250.0,15.8 300.0,21.6 C350.0,37.2 350.0,37.2 400.0,24.4 C450.0,10.1 450.0,10.1 500.0,26.4 C550.0,33.3 550.0,33.3 600.0,22.3 C650.0,13.6 650.0,13.6 700.0,25.2 C750.0,33.4 750.0,33.4 800.0,24.2 C850.0,14.5 850.0,14.5 900.0,25.1 C950.0,36.9 950.0,36.9 1000.0,23.7 C1050.0,10.4 1050.0,10.4 1100.0,23.7 C1150.0,35.3 1150.0,35.3 1200.0,24.0 L1200,48 L0,48 Z" fill="#f3f9f3" />
-          <path d="M0,24 C50.0,13.4 50.0,13.4 100.0,24.6 C150.0,32.7 150.0,32.7 200.0,23.5 C250.0,15.8 250.0,15.8 300.0,21.6 C350.0,37.2 350.0,37.2 400.0,24.4 C450.0,10.1 450.0,10.1 500.0,26.4 C550.0,33.3 550.0,33.3 600.0,22.3 C650.0,13.6 650.0,13.6 700.0,25.2 C750.0,33.4 750.0,33.4 800.0,24.2 C850.0,14.5 850.0,14.5 900.0,25.1 C950.0,36.9 950.0,36.9 1000.0,23.7 C1050.0,10.4 1050.0,10.4 1100.0,23.7 C1150.0,35.3 1150.0,35.3 1200.0,24.0" fill="none" stroke="#7fa99a" strokeWidth="2.4" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
-        </svg>
-      </div>
+      <WaveDivider background="#ffffff" fill="#f3f9f3" stroke="#7fa99a" />
 
       {/* WHAT WE OFFER */}
       <section style={{ background: '#f3f9f3', padding: '90px 0' }}>
@@ -95,12 +91,7 @@ export default function Home() {
       </section>
 
       {/* Wave: sage → white */}
-      <div style={{ lineHeight: 0, background: '#f3f9f3' }}>
-        <svg viewBox="0 0 1200 48" preserveAspectRatio="none" style={{ display: 'block', width: '100%', height: 42 }}>
-          <path d="M0,24 C100.0,6.4 100.0,6.4 200.0,21.6 C300.0,45.8 300.0,45.8 400.0,22.2 C500.0,-0.7 500.0,-0.7 600.0,23.6 C700.0,42.6 700.0,42.6 800.0,24.2 C900.0,4.1 900.0,4.1 1000.0,24.4 C1100.0,39.4 1100.0,39.4 1200.0,24.0 L1200,48 L0,48 Z" fill="#ffffff" />
-          <path d="M0,24 C100.0,6.4 100.0,6.4 200.0,21.6 C300.0,45.8 300.0,45.8 400.0,22.2 C500.0,-0.7 500.0,-0.7 600.0,23.6 C700.0,42.6 700.0,42.6 800.0,24.2 C900.0,4.1 900.0,4.1 1000.0,24.4 C1100.0,39.4 1100.0,39.4 1200.0,24.0" fill="none" stroke="#9cc4b3" strokeWidth="2.8" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
-        </svg>
-      </div>
+      <WaveDivider background="#f3f9f3" fill="#ffffff" stroke="#9cc4b3" />
 
       {/* SIGNATURE PREVIEW */}
       <section style={{ background: '#fff', padding: '90px 0' }}>
@@ -142,12 +133,7 @@ export default function Home() {
       </section>
 
       {/* Wave: white → dark green */}
-      <div style={{ lineHeight: 0, background: '#ffffff' }}>
-        <svg viewBox="0 0 1200 48" preserveAspectRatio="none" style={{ display: 'block', width: '100%', height: 42 }}>
-          <path d="M0,24 C75.0,8.6 75.0,8.6 150.0,24.3 C225.0,36.0 225.0,36.0 300.0,22.7 C375.0,9.0 375.0,9.0 450.0,24.0 C525.0,35.7 525.0,35.7 600.0,25.9 C675.0,7.7 675.0,7.7 750.0,23.6 C825.0,37.6 825.0,37.6 900.0,25.4 C975.0,7.1 975.0,7.1 1050.0,21.9 C1125.0,39.5 1125.0,39.5 1200.0,24.0 L1200,48 L0,48 Z" fill="#4f6f66" />
-          <path d="M0,24 C75.0,8.6 75.0,8.6 150.0,24.3 C225.0,36.0 225.0,36.0 300.0,22.7 C375.0,9.0 375.0,9.0 450.0,24.0 C525.0,35.7 525.0,35.7 600.0,25.9 C675.0,7.7 675.0,7.7 750.0,23.6 C825.0,37.6 825.0,37.6 900.0,25.4 C975.0,7.1 975.0,7.1 1050.0,21.9 C1125.0,39.5 1125.0,39.5 1200.0,24.0" fill="none" stroke="#b9e5ca" strokeWidth="2.6" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
-        </svg>
-      </div>
+      <WaveDivider background="#ffffff" fill="#4f6f66" stroke="#b9e5ca" />
 
       {/* QUOTE BANNER */}
       <section style={{ background: '#4f6f66', padding: '34px 0' }}>

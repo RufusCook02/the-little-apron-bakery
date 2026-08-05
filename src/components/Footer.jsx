@@ -5,24 +5,13 @@ export default function Footer() {
     <footer style={{ background: '#3f5750', color: '#cfe0d8', padding: '70px 0 30px' }}>
       <div
         className="gfooter"
-        style={{ maxWidth: 1200, margin: '0 auto', padding: '0 28px', display: 'grid', gridTemplateColumns: 'repeat(4,auto)', justifyContent: 'center', columnGap: 72, rowGap: 36 }}
+        style={{ maxWidth: 1200, margin: '0 auto', padding: '0 28px', display: 'grid', gridTemplateColumns: 'repeat(3,auto)', justifyContent: 'center', columnGap: 72, rowGap: 36 }}
       >
         <div>
           <img src="/assets/logo-landscape-light.png" alt="The Little Apron" style={{ height: 46, width: 'auto', objectFit: 'contain', marginBottom: 16 }} />
           <p style={{ fontFamily: "'Caveat',cursive", fontSize: 34, fontWeight: 600, color: '#b9e5ca', lineHeight: 1.05, marginBottom: 18 }}>
             Baked by Hand,<br />With Love,<br />For You
           </p>
-        </div>
-
-        <div>
-          <div style={{ fontFamily: "'Mulish'", textTransform: 'uppercase', letterSpacing: '.16em', fontSize: 12, fontWeight: 700, color: '#8fb0a4', marginBottom: 16 }}>Quick links</div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 11, fontFamily: "'Mulish'", fontSize: 14.5 }}>
-            <a href="#home" className="footer-link">Home</a>
-            <a href="#our-story" className="footer-link">Our Story</a>
-            <a href="#sweet-stuff" className="footer-link">Sweet Stuff</a>
-            <a href="#workshops" className="footer-link">Workshops</a>
-            <a href="#contact" className="footer-link">Contact</a>
-          </div>
         </div>
 
         <div>

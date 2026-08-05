@@ -144,9 +144,20 @@ input:focus, select:focus, textarea:focus {
   .gshed { grid-template-columns: 1fr !important; }
   .pad-lg { padding: 46px 24px !important; }
   .pad-md { padding: 34px 22px !important; }
+  .gfooter {
+    grid-template-columns: repeat(2, auto) !important;
+    justify-content: start !important;
+    column-gap: 48px !important;
+    row-gap: 32px !important;
+  }
 }
 
 @media (max-width: 560px) {
   .g4 { grid-template-columns: repeat(2,1fr) !important; }
-  .gfooter { grid-template-columns: auto !important; }
+  .gfooter {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: 28px !important;
+    row-gap: 28px !important;
+  }
+  .gfooter > *:first-child { grid-column: 1 / -1; }
 }
