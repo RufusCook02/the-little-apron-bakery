@@ -166,7 +166,7 @@ export default function Home() {
             kits&nbsp;·&nbsp;Workshops&nbsp;·&nbsp;Hamilton NZ&nbsp;·
           </span>
           <span>
-            Fresh baked&nbsp;·&nbsp;Handmade with love&nbsp;·&nbsp;Custom
+            Freshly baked&nbsp;·&nbsp;Handmade with love&nbsp;·&nbsp;Custom
             cakes&nbsp;·&nbsp;Cupcakes&nbsp;·&nbsp;DIY
             kits&nbsp;·&nbsp;Workshops&nbsp;·&nbsp;Hamilton NZ&nbsp;·&nbsp;
           </span>
