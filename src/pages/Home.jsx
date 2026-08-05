@@ -75,11 +75,11 @@ export default function Home() {
               and satisfy a sweet tooth.
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 14 }}>
-              <a href="#order" className="btn-primary">
-                Order a cake
+              <a href="#signature" className="btn-primary">
+                View signature cakes
               </a>
-              <a href="#sweet-stuff" className="btn-outline">
-                Browse the menu
+              <a href="#order" className="btn-outline">
+                Enquire about a custom cake
               </a>
             </div>
           </div>
@@ -173,8 +173,125 @@ export default function Home() {
         </div>
       </div>
 
+      {/* SIGNATURE PREVIEW */}
+      <section style={{ background: '#fff', padding: '90px 0' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 28px' }}>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'flex-end',
+              flexWrap: 'wrap',
+              gap: 18,
+              marginBottom: 42,
+            }}
+          >
+            <div>
+              <span
+                style={{
+                  fontFamily: "'Mulish'",
+                  textTransform: 'uppercase',
+                  letterSpacing: '.22em',
+                  fontSize: 13,
+                  fontWeight: 700,
+                  color: '#6f9486',
+                }}
+              >
+                Our most-loved
+              </span>
+              <h2
+                style={{
+                  fontFamily: "'Cormorant Garamond',serif",
+                  fontWeight: 600,
+                  color: '#3f5750',
+                  fontSize: 'clamp(30px,4vw,46px)',
+                  lineHeight: 1.1,
+                  marginTop: 12,
+                }}
+              >
+                Signature cakes
+              </h2>
+            </div>
+            <a href="#signature" className="text-link-green">
+              View all styles →
+            </a>
+          </div>
+          <div
+            className="g4"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(4,1fr)',
+              gap: 22,
+            }}
+          >
+            {sigPreview.map((cake, i) => (
+              <a
+                key={i}
+                href="#signature"
+                className="card-hover"
+                style={{
+                  display: 'block',
+                  borderRadius: 18,
+                  overflow: 'hidden',
+                  background: '#f3f9f3',
+                  border: '1px solid rgba(79,111,102,.1)',
+                }}
+              >
+                <img
+                  src={cake.img}
+                  alt={cake.name}
+                  style={{
+                    width: '100%',
+                    aspectRatio: '4/5',
+                    objectFit: 'cover',
+                  }}
+                />
+                <div style={{ padding: '18px 20px' }}>
+                  <h3
+                    style={{
+                      fontFamily: "'Cormorant Garamond',serif",
+                      fontWeight: 600,
+                      color: '#3f5750',
+                      fontSize: 23,
+                    }}
+                  >
+                    {cake.name}
+                  </h3>
+                  <p
+                    style={{
+                      fontFamily: "'Mulish'",
+                      color: '#7fa99a',
+                      fontWeight: 700,
+                      fontSize: 14,
+                      letterSpacing: '.04em',
+                      marginTop: 4,
+                    }}
+                  >
+                    From {cake.from}
+                  </p>
+                </div>
+              </a>
+            ))}
+          </div>
+          <p
+            style={{
+              fontFamily: "'Mulish'",
+              color: '#5e6d67',
+              fontSize: 16,
+              textAlign: 'center',
+              marginTop: 32,
+            }}
+          >
+            Don't see your style?{' '}
+            <a href="#order" className="text-link-green">
+              We do custom too →
+            </a>
+          </p>
+        </div>
+      </section>
+
       {/* EVENT BLOCK */}
-      <section style={{ background: '#fff', padding: '84px 0' }}>
+      <section style={{ background: '#fff', padding: '20px 0 84px' }}>
         <div
           style={{
             maxWidth: 760,
@@ -414,114 +531,51 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Wave: sage → white */}
-      <WaveDivider background="#f3f9f3" fill="#ffffff" stroke="#9cc4b3" />
+      {/* Wave: sage → dark green */}
+      <WaveDivider background="#f3f9f3" fill="#4f6f66" stroke="#b9e5ca" />
 
-      {/* SIGNATURE PREVIEW */}
-      <section style={{ background: '#fff', padding: '90px 0' }}>
-        <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 28px' }}>
+      {/* QUOTE BANNER */}
+      <section style={{ background: '#4f6f66', padding: '34px 0' }}>
+        <div
+          style={{
+            maxWidth: 680,
+            margin: '0 auto',
+            padding: '0 32px',
+            textAlign: 'center',
+          }}
+        >
           <div
             style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'flex-end',
-              flexWrap: 'wrap',
-              gap: 18,
-              marginBottom: 42,
+              fontFamily: "'Caveat',cursive",
+              color: '#b9e5ca',
+              fontSize: 46,
+              lineHeight: 0.4,
+              height: 18,
             }}
           >
-            <div>
-              <span
-                style={{
-                  fontFamily: "'Mulish'",
-                  textTransform: 'uppercase',
-                  letterSpacing: '.22em',
-                  fontSize: 13,
-                  fontWeight: 700,
-                  color: '#6f9486',
-                }}
-              >
-                Our most-loved
-              </span>
-              <h2
-                style={{
-                  fontFamily: "'Cormorant Garamond',serif",
-                  fontWeight: 600,
-                  color: '#3f5750',
-                  fontSize: 'clamp(30px,4vw,46px)',
-                  lineHeight: 1.1,
-                  marginTop: 12,
-                }}
-              >
-                Signature cakes
-              </h2>
-            </div>
-            <a href="#signature" className="text-link-green">
-              View all styles →
-            </a>
+            "
           </div>
-          <div
-            className="g4"
+          <p
             style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(4,1fr)',
-              gap: 22,
+              fontFamily: "'Cormorant Garamond',serif",
+              fontStyle: 'italic',
+              color: '#eaf6ee',
+              fontSize: 'clamp(17px,2vw,21px)',
+              lineHeight: 1.5,
             }}
           >
-            {sigPreview.map((cake, i) => (
-              <a
-                key={i}
-                href="#signature"
-                className="card-hover"
-                style={{
-                  display: 'block',
-                  borderRadius: 18,
-                  overflow: 'hidden',
-                  background: '#f3f9f3',
-                  border: '1px solid rgba(79,111,102,.1)',
-                }}
-              >
-                <img
-                  src={cake.img}
-                  alt={cake.name}
-                  style={{
-                    width: '100%',
-                    aspectRatio: '4/5',
-                    objectFit: 'cover',
-                  }}
-                />
-                <div style={{ padding: '18px 20px' }}>
-                  <h3
-                    style={{
-                      fontFamily: "'Cormorant Garamond',serif",
-                      fontWeight: 600,
-                      color: '#3f5750',
-                      fontSize: 23,
-                    }}
-                  >
-                    {cake.name}
-                  </h3>
-                  <p
-                    style={{
-                      fontFamily: "'Mulish'",
-                      color: '#7fa99a',
-                      fontWeight: 700,
-                      fontSize: 14,
-                      letterSpacing: '.04em',
-                      marginTop: 4,
-                    }}
-                  >
-                    From {cake.from}
-                  </p>
-                </div>
-              </a>
-            ))}
-          </div>
+            Every cake is designed to make a celebration feel a little more
+            special. Birthdays, weddings, gender reveals, baby showers — you
+            name it, we have cake for it.
+          </p>
         </div>
       </section>
 
+      {/* Wave: dark green → white */}
+      <WaveDivider background="#4f6f66" fill="#ffffff" stroke="#cfe9d8" />
+
       {/* BUDGET BLOCK */}
-      <section style={{ background: '#fff', padding: '20px 0 92px' }}>
+      <section style={{ background: '#fff', padding: '84px 0 92px' }}>
         <div style={{ maxWidth: 920, margin: '0 auto', padding: '0 28px' }}>
           <div
             className="pad-lg"
@@ -590,46 +644,6 @@ export default function Home() {
               See budget-friendly options →
             </a>
           </div>
-        </div>
-      </section>
-
-      {/* Wave: white → dark green */}
-      <WaveDivider background="#ffffff" fill="#4f6f66" stroke="#b9e5ca" />
-
-      {/* QUOTE BANNER */}
-      <section style={{ background: '#4f6f66', padding: '34px 0' }}>
-        <div
-          style={{
-            maxWidth: 680,
-            margin: '0 auto',
-            padding: '0 32px',
-            textAlign: 'center',
-          }}
-        >
-          <div
-            style={{
-              fontFamily: "'Caveat',cursive",
-              color: '#b9e5ca',
-              fontSize: 46,
-              lineHeight: 0.4,
-              height: 18,
-            }}
-          >
-            "
-          </div>
-          <p
-            style={{
-              fontFamily: "'Cormorant Garamond',serif",
-              fontStyle: 'italic',
-              color: '#eaf6ee',
-              fontSize: 'clamp(17px,2vw,21px)',
-              lineHeight: 1.5,
-            }}
-          >
-            Every cake is designed to make a celebration feel a little more
-            special. Birthdays, weddings, gender reveals, baby showers — you
-            name it, we have cake for it.
-          </p>
         </div>
       </section>
     </div>
