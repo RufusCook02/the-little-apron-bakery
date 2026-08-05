@@ -34,7 +34,7 @@ input,
 select,
 textarea {
   font-family: inherit;
-  font-size: 15px;
+  font-size: 16px;
   color: #3f5750;
 }
 ::selection {

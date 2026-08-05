@@ -233,6 +233,7 @@ export default function SweetStuff() {
               }}
             />
             <div
+              className="pad-lg"
               style={{
                 position: 'relative',
                 padding: 56,

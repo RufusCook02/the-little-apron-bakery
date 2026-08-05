@@ -254,7 +254,7 @@ export default function OurStory() {
 
           {/* Sugar Shed */}
           <div
-            className="gshed"
+            className="gshed pad-lg"
             style={{
               background: '#eef7f0',
               borderRadius: 30,
@@ -495,7 +495,7 @@ export default function OurStory() {
 
           {/* The Little Apron */}
           <div
-            className="gshed"
+            className="gshed pad-lg"
             style={{
               background: '#4f6f66',
               borderRadius: 30,

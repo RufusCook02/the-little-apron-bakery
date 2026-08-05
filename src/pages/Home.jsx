@@ -524,6 +524,7 @@ export default function Home() {
       <section style={{ background: '#fff', padding: '20px 0 92px' }}>
         <div style={{ maxWidth: 920, margin: '0 auto', padding: '0 28px' }}>
           <div
+            className="pad-lg"
             style={{
               position: 'relative',
               background: '#eef7f0',
