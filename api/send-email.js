@@ -10,10 +10,23 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' })
   }
 
-  const { form, fields } = req.body || {}
+  const { form, fields, meta } = req.body || {}
 
   if (!FORMS[form] || !fields || typeof fields !== 'object') {
     return res.status(400).json({ error: 'Invalid request' })
+  }
+
+  // Lightweight spam mitigation: a filled-in honeypot field, or a submission
+  // faster than a human could plausibly complete the form, are both strong
+  // bot signals. Respond exactly as if the email sent so bots (and the
+  // frontend UX) don't learn they were blocked, but skip Brevo entirely.
+  const MIN_SUBMIT_MS = 1500
+  const honeypot =
+    typeof meta?.honeypot === 'string' ? meta.honeypot.trim() : ''
+  const elapsedMs = typeof meta?.elapsedMs === 'number' ? meta.elapsedMs : null
+
+  if (honeypot !== '' || (elapsedMs !== null && elapsedMs < MIN_SUBMIT_MS)) {
+    return res.status(200).json({ ok: true })
   }
 
   const apiKey = process.env.BREVO_API_KEY

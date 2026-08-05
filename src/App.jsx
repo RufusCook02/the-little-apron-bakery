@@ -53,16 +53,25 @@ export default function App() {
 
   const handleSubmit = (name) => async (e) => {
     e.preventDefault()
-    const fields = Object.fromEntries(
+    const allFields = Object.fromEntries(
       [...new FormData(e.target).entries()].filter(
         ([, value]) => !(value instanceof File),
       ),
     )
+    // Honeypot ("website") and mount-timestamp ("ts") are spam signals only -
+    // strip them out of the real fields so they never appear in the email
+    // sent to the business owner, and send them alongside as `meta` instead.
+    const { website: honeypot, ts, ...fields } = allFields
+    const elapsedMs = ts ? Date.now() - Number(ts) : null
     try {
       await fetch('/api/send-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ form: name, fields }),
+        body: JSON.stringify({
+          form: name,
+          fields,
+          meta: { honeypot: honeypot || '', elapsedMs },
+        }),
       })
     } catch (err) {
       console.error('Failed to send enquiry', err)

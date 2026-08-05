@@ -1,5 +1,12 @@
+import { useEffect, useRef } from 'react'
+
 export default function Contact({ sent, handleSubmit }) {
   const contactSent = !!sent?.contact
+  const tsRef = useRef(null)
+
+  useEffect(() => {
+    if (tsRef.current) tsRef.current.value = String(Date.now())
+  }, [])
 
   return (
     <div className="la-page">
@@ -114,6 +121,7 @@ export default function Contact({ sent, handleSubmit }) {
               <form
                 onSubmit={handleSubmit('contact')}
                 style={{
+                  position: 'relative',
                   background: '#f6fbf3',
                   border: '1px solid rgba(79,111,102,.12)',
                   borderRadius: 22,
@@ -123,6 +131,21 @@ export default function Contact({ sent, handleSubmit }) {
                   gap: 16,
                 }}
               >
+                <input type="hidden" name="ts" ref={tsRef} defaultValue="" />
+                <input
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  style={{
+                    position: 'absolute',
+                    left: '-9999px',
+                    width: 1,
+                    height: 1,
+                    overflow: 'hidden',
+                  }}
+                />
                 <div>
                   <label
                     style={{

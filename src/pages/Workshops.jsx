@@ -1,5 +1,12 @@
+import { useEffect, useRef } from 'react'
+
 export default function Workshops({ sent, handleSubmit }) {
   const workshopSent = !!sent?.workshop
+  const tsRef = useRef(null)
+
+  useEffect(() => {
+    if (tsRef.current) tsRef.current.value = String(Date.now())
+  }, [])
 
   return (
     <div className="la-page">
@@ -252,6 +259,7 @@ export default function Workshops({ sent, handleSubmit }) {
             <form
               onSubmit={handleSubmit('workshop')}
               style={{
+                position: 'relative',
                 background: '#fff',
                 borderRadius: 20,
                 padding: '34px 34px 38px',
@@ -260,6 +268,21 @@ export default function Workshops({ sent, handleSubmit }) {
                 gap: 18,
               }}
             >
+              <input type="hidden" name="ts" ref={tsRef} defaultValue="" />
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                style={{
+                  position: 'absolute',
+                  left: '-9999px',
+                  width: 1,
+                  height: 1,
+                  overflow: 'hidden',
+                }}
+              />
               <div>
                 <label
                   style={{
