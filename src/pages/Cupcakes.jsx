@@ -83,7 +83,7 @@ export default function Cupcakes() {
                 textAlign: 'center',
               }}
             >
-              <h3
+              <h2
                 style={{
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
@@ -93,7 +93,7 @@ export default function Cupcakes() {
                 }}
               >
                 Box of 6
-              </h3>
+              </h2>
               <p
                 style={{
                   fontFamily: "'Mulish'",
@@ -113,7 +113,7 @@ export default function Cupcakes() {
                 textAlign: 'center',
               }}
             >
-              <h3
+              <h2
                 style={{
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
@@ -123,7 +123,7 @@ export default function Cupcakes() {
                 }}
               >
                 Box of 12
-              </h3>
+              </h2>
               <p
                 style={{
                   fontFamily: "'Mulish'",
@@ -143,7 +143,7 @@ export default function Cupcakes() {
                 textAlign: 'center',
               }}
             >
-              <h3
+              <h2
                 style={{
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
@@ -153,7 +153,7 @@ export default function Cupcakes() {
                 }}
               >
                 Box of 24
-              </h3>
+              </h2>
               <p
                 style={{
                   fontFamily: "'Mulish'",
@@ -175,7 +175,7 @@ export default function Cupcakes() {
               padding: '36px 40px',
             }}
           >
-            <h3
+            <h2
               style={{
                 fontFamily: "'Cormorant Garamond',serif",
                 fontWeight: 600,
@@ -194,7 +194,7 @@ export default function Cupcakes() {
               >
                 — plus $10
               </span>
-            </h3>
+            </h2>
             <div
               style={{
                 display: 'grid',

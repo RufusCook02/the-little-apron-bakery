@@ -123,7 +123,7 @@ export default function Order({
                 alt=""
                 style={{ width: 64, height: 'auto', margin: '0 auto 16px' }}
               />
-              <h3
+              <h2
                 style={{
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
@@ -133,7 +133,7 @@ export default function Order({
                 }}
               >
                 Enquiry received — yay!
-              </h3>
+              </h2>
               <p
                 style={{
                   fontFamily: "'Mulish'",
@@ -159,7 +159,7 @@ export default function Order({
                 padding: '38px 38px 40px',
               }}
             >
-              <h3
+              <h2
                 style={{
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
@@ -169,7 +169,7 @@ export default function Order({
                 }}
               >
                 The essentials
-              </h3>
+              </h2>
               <input type="hidden" name="ts" ref={tsRef} defaultValue="" />
               <input
                 type="text"
@@ -195,6 +195,7 @@ export default function Order({
               >
                 <div>
                   <label
+                    htmlFor="order-firstName"
                     style={{
                       fontFamily: "'Mulish'",
                       fontWeight: 600,
@@ -210,6 +211,7 @@ export default function Order({
                     required
                     type="text"
                     name="firstName"
+                    id="order-firstName"
                     style={{
                       width: '100%',
                       padding: '13px 16px',
@@ -221,6 +223,7 @@ export default function Order({
                 </div>
                 <div>
                   <label
+                    htmlFor="order-lastName"
                     style={{
                       fontFamily: "'Mulish'",
                       fontWeight: 600,
@@ -236,6 +239,7 @@ export default function Order({
                     required
                     type="text"
                     name="lastName"
+                    id="order-lastName"
                     style={{
                       width: '100%',
                       padding: '13px 16px',
@@ -247,6 +251,7 @@ export default function Order({
                 </div>
                 <div>
                   <label
+                    htmlFor="order-email"
                     style={{
                       fontFamily: "'Mulish'",
                       fontWeight: 600,
@@ -262,6 +267,7 @@ export default function Order({
                     required
                     type="email"
                     name="email"
+                    id="order-email"
                     style={{
                       width: '100%',
                       padding: '13px 16px',
@@ -273,6 +279,7 @@ export default function Order({
                 </div>
                 <div>
                   <label
+                    htmlFor="order-phone"
                     style={{
                       fontFamily: "'Mulish'",
                       fontWeight: 600,
@@ -287,6 +294,7 @@ export default function Order({
                   <input
                     type="tel"
                     name="phone"
+                    id="order-phone"
                     style={{
                       width: '100%',
                       padding: '13px 16px',
@@ -298,6 +306,7 @@ export default function Order({
                 </div>
                 <div>
                   <label
+                    htmlFor="order-collectionDate"
                     style={{
                       fontFamily: "'Mulish'",
                       fontWeight: 600,
@@ -313,6 +322,7 @@ export default function Order({
                     required
                     type="date"
                     name="collectionDate"
+                    id="order-collectionDate"
                     style={{
                       width: '100%',
                       padding: '13px 16px',
@@ -324,6 +334,7 @@ export default function Order({
                 </div>
                 <div>
                   <label
+                    htmlFor="order-cakeSize"
                     style={{
                       fontFamily: "'Mulish'",
                       fontWeight: 600,
@@ -337,6 +348,7 @@ export default function Order({
                   </label>
                   <select
                     name="cakeSize"
+                    id="order-cakeSize"
                     style={{
                       width: '100%',
                       padding: '13px 16px',
@@ -354,6 +366,7 @@ export default function Order({
                 </div>
                 <div style={{ gridColumn: '1/-1' }}>
                   <label
+                    htmlFor="order-cakeFlavour"
                     style={{
                       fontFamily: "'Mulish'",
                       fontWeight: 600,
@@ -367,6 +380,7 @@ export default function Order({
                   </label>
                   <select
                     name="cakeFlavour"
+                    id="order-cakeFlavour"
                     style={{
                       width: '100%',
                       padding: '13px 16px',
@@ -390,7 +404,7 @@ export default function Order({
 
               {orderOpen && (
                 <>
-                  <h3
+                  <h2
                     style={{
                       fontFamily: "'Cormorant Garamond',serif",
                       fontWeight: 600,
@@ -400,7 +414,7 @@ export default function Order({
                     }}
                   >
                     A few more details
-                  </h3>
+                  </h2>
                   <div
                     className="g2"
                     style={{
@@ -411,6 +425,7 @@ export default function Order({
                   >
                     <div>
                       <label
+                        htmlFor="order-occasion"
                         style={{
                           fontFamily: "'Mulish'",
                           fontWeight: 600,
@@ -425,6 +440,7 @@ export default function Order({
                       <input
                         type="text"
                         name="occasion"
+                        id="order-occasion"
                         placeholder="Birthday, wedding…"
                         style={{
                           width: '100%',
@@ -437,6 +453,7 @@ export default function Order({
                     </div>
                     <div>
                       <label
+                        htmlFor="order-guests"
                         style={{
                           fontFamily: "'Mulish'",
                           fontWeight: 600,
@@ -451,6 +468,7 @@ export default function Order({
                       <input
                         type="number"
                         name="guests"
+                        id="order-guests"
                         min="1"
                         style={{
                           width: '100%',
@@ -463,6 +481,7 @@ export default function Order({
                     </div>
                     <div style={{ gridColumn: '1/-1' }}>
                       <label
+                        htmlFor="order-venue"
                         style={{
                           fontFamily: "'Mulish'",
                           fontWeight: 600,
@@ -477,6 +496,7 @@ export default function Order({
                       <input
                         type="text"
                         name="venue"
+                        id="order-venue"
                         style={{
                           width: '100%',
                           padding: '13px 16px',
@@ -488,6 +508,7 @@ export default function Order({
                     </div>
                     <div style={{ gridColumn: '1/-1' }}>
                       <label
+                        htmlFor="order-dietary"
                         style={{
                           fontFamily: "'Mulish'",
                           fontWeight: 600,
@@ -502,6 +523,7 @@ export default function Order({
                       <input
                         type="text"
                         name="dietary"
+                        id="order-dietary"
                         style={{
                           width: '100%',
                           padding: '13px 16px',
@@ -513,6 +535,7 @@ export default function Order({
                     </div>
                     <div style={{ gridColumn: '1/-1' }}>
                       <label
+                        htmlFor="order-design"
                         style={{
                           fontFamily: "'Mulish'",
                           fontWeight: 600,
@@ -527,6 +550,7 @@ export default function Order({
                       <textarea
                         rows="4"
                         name="design"
+                        id="order-design"
                         placeholder="Flowers, colours, theme, inspo…"
                         style={{
                           width: '100%',
@@ -540,6 +564,7 @@ export default function Order({
                     </div>
                     <div style={{ gridColumn: '1/-1' }}>
                       <label
+                        htmlFor="order-inspirationImages"
                         style={{
                           fontFamily: "'Mulish'",
                           fontWeight: 600,
@@ -554,7 +579,9 @@ export default function Order({
                       <input
                         type="file"
                         name="inspirationImages"
+                        id="order-inspirationImages"
                         multiple
+                        accept="image/jpeg,image/png,image/webp,image/heic,image/heif,.jpg,.jpeg,.png,.webp,.heic,.heif"
                         style={{
                           width: '100%',
                           padding: '11px 14px',

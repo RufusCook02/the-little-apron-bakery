@@ -103,7 +103,7 @@ export default function Contact({
                   alt=""
                   style={{ width: 54, height: 'auto', margin: '0 auto 14px' }}
                 />
-                <h3
+                <h2
                   style={{
                     fontFamily: "'Cormorant Garamond',serif",
                     fontWeight: 600,
@@ -113,7 +113,7 @@ export default function Contact({
                   }}
                 >
                   Message sent!
-                </h3>
+                </h2>
                 <p
                   style={{
                     fontFamily: "'Mulish'",
@@ -155,6 +155,7 @@ export default function Contact({
                 />
                 <div>
                   <label
+                    htmlFor="contact-name"
                     style={{
                       fontFamily: "'Mulish'",
                       fontWeight: 600,
@@ -170,6 +171,7 @@ export default function Contact({
                     required
                     type="text"
                     name="name"
+                    id="contact-name"
                     style={{
                       width: '100%',
                       padding: '13px 16px',
@@ -189,6 +191,7 @@ export default function Contact({
                 >
                   <div>
                     <label
+                      htmlFor="contact-email"
                       style={{
                         fontFamily: "'Mulish'",
                         fontWeight: 600,
@@ -204,6 +207,7 @@ export default function Contact({
                       required
                       type="email"
                       name="email"
+                      id="contact-email"
                       style={{
                         width: '100%',
                         padding: '13px 16px',
@@ -215,6 +219,7 @@ export default function Contact({
                   </div>
                   <div>
                     <label
+                      htmlFor="contact-phone"
                       style={{
                         fontFamily: "'Mulish'",
                         fontWeight: 600,
@@ -229,6 +234,7 @@ export default function Contact({
                     <input
                       type="tel"
                       name="phone"
+                      id="contact-phone"
                       style={{
                         width: '100%',
                         padding: '13px 16px',
@@ -241,6 +247,7 @@ export default function Contact({
                 </div>
                 <div>
                   <label
+                    htmlFor="contact-message"
                     style={{
                       fontFamily: "'Mulish'",
                       fontWeight: 600,
@@ -256,6 +263,7 @@ export default function Contact({
                     required
                     rows="5"
                     name="message"
+                    id="contact-message"
                     placeholder="Tell us what you're after…"
                     style={{
                       width: '100%',
@@ -304,7 +312,7 @@ export default function Contact({
               color: '#eaf6ee',
             }}
           >
-            <h3
+            <h2
               style={{
                 fontFamily: "'Cormorant Garamond',serif",
                 fontWeight: 600,
@@ -314,7 +322,7 @@ export default function Contact({
               }}
             >
               Reach us directly
-            </h3>
+            </h2>
             <div
               style={{
                 display: 'flex',

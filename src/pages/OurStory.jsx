@@ -69,7 +69,7 @@ export default function OurStory() {
           >
             Our story
           </span>
-          <p
+          <h1
             style={{
               fontFamily: "'Caveat',cursive",
               fontSize: 52,
@@ -80,7 +80,7 @@ export default function OurStory() {
             }}
           >
             Hi, I'm Cushla
-          </p>
+          </h1>
           <p
             style={{
               fontFamily: "'Mulish'",
@@ -410,11 +410,11 @@ export default function OurStory() {
                   lineHeight: 1.78,
                 }}
               >
-                I saved up my first few paychecks and bought my very first stand
-                mixer — that little mint green machine that started it all. For
-                years, baking remained something I did for family and friends:
-                birthday cakes, celebration cakes, cupcakes for special moments,
-                each one made with love.
+                I saved up my first few pay cheques and bought my very first
+                stand mixer — that little mint green machine that started it
+                all. For years, baking remained something I did for family and
+                friends: birthday cakes, celebration cakes, cupcakes for special
+                moments, each one made with love.
               </p>
             </div>
           </div>

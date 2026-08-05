@@ -84,7 +84,7 @@ export default function SweetStuff() {
               style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover' }}
             />
             <div style={{ padding: '28px 28px 32px' }}>
-              <h3
+              <h2
                 style={{
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
@@ -94,7 +94,7 @@ export default function SweetStuff() {
                 }}
               >
                 Signature Cakes
-              </h3>
+              </h2>
               <p
                 style={{
                   fontFamily: "'Mulish'",
@@ -127,7 +127,7 @@ export default function SweetStuff() {
               style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover' }}
             />
             <div style={{ padding: '28px 28px 32px' }}>
-              <h3
+              <h2
                 style={{
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
@@ -137,7 +137,7 @@ export default function SweetStuff() {
                 }}
               >
                 Cupcakes
-              </h3>
+              </h2>
               <p
                 style={{
                   fontFamily: "'Mulish'",
@@ -171,7 +171,7 @@ export default function SweetStuff() {
               style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover' }}
             />
             <div style={{ padding: '28px 28px 32px' }}>
-              <h3
+              <h2
                 style={{
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
@@ -181,7 +181,7 @@ export default function SweetStuff() {
                 }}
               >
                 DIY Kits
-              </h3>
+              </h2>
               <p
                 style={{
                   fontFamily: "'Mulish'",

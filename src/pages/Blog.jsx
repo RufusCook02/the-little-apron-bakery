@@ -141,7 +141,7 @@ export default function Blog() {
                   >
                     {post.category}
                   </div>
-                  <h3
+                  <h2
                     style={{
                       fontFamily: "'Cormorant Garamond',serif",
                       fontWeight: 600,
@@ -152,7 +152,7 @@ export default function Blog() {
                     }}
                   >
                     {post.title}
-                  </h3>
+                  </h2>
                   <p
                     style={{
                       fontFamily: "'Mulish'",

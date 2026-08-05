@@ -116,7 +116,7 @@ export default function SignatureCakes() {
                   flex: 1,
                 }}
               >
-                <h3
+                <h2
                   style={{
                     fontFamily: "'Cormorant Garamond',serif",
                     fontWeight: 600,
@@ -126,7 +126,7 @@ export default function SignatureCakes() {
                   }}
                 >
                   {cake.name}
-                </h3>
+                </h2>
                 <p
                   style={{
                     fontFamily: "'Mulish'",

@@ -137,7 +137,7 @@ export default function Workshops({
               padding: '34px 36px',
             }}
           >
-            <h3
+            <h2
               style={{
                 fontFamily: "'Cormorant Garamond',serif",
                 fontWeight: 600,
@@ -147,7 +147,7 @@ export default function Workshops({
               }}
             >
               What to expect
-            </h3>
+            </h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 13 }}>
               {[
                 'Step-by-step decorating guidance',
@@ -292,6 +292,7 @@ export default function Workshops({
               />
               <div>
                 <label
+                  htmlFor="workshop-name"
                   style={{
                     fontFamily: "'Mulish'",
                     fontWeight: 600,
@@ -308,6 +309,7 @@ export default function Workshops({
                   required
                   type="text"
                   name="name"
+                  id="workshop-name"
                   placeholder="Your name"
                   style={{
                     width: '100%',
@@ -320,6 +322,7 @@ export default function Workshops({
               </div>
               <div>
                 <label
+                  htmlFor="workshop-email"
                   style={{
                     fontFamily: "'Mulish'",
                     fontWeight: 600,
@@ -336,6 +339,7 @@ export default function Workshops({
                   required
                   type="email"
                   name="email"
+                  id="workshop-email"
                   placeholder="you@email.com"
                   style={{
                     width: '100%',
@@ -348,6 +352,7 @@ export default function Workshops({
               </div>
               <div>
                 <label
+                  htmlFor="workshop-interest"
                   style={{
                     fontFamily: "'Mulish'",
                     fontWeight: 600,
@@ -363,6 +368,7 @@ export default function Workshops({
                 <select
                   required
                   name="workshopInterest"
+                  id="workshop-interest"
                   style={{
                     width: '100%',
                     padding: '13px 16px',
