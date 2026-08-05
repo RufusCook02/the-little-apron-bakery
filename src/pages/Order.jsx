@@ -1,5 +1,12 @@
+import { useEffect, useRef } from 'react'
+
 export default function Order({ orderOpen, setOrderOpen, sent, handleSubmit }) {
   const orderSent = !!sent?.order
+  const tsRef = useRef(null)
+
+  useEffect(() => {
+    if (tsRef.current) tsRef.current.value = String(Date.now())
+  }, [])
 
   return (
     <div className="la-page">
@@ -107,6 +114,7 @@ export default function Order({ orderOpen, setOrderOpen, sent, handleSubmit }) {
             <form
               onSubmit={handleSubmit('order')}
               style={{
+                position: 'relative',
                 background: '#f6fbf3',
                 border: '1px solid rgba(79,111,102,.12)',
                 borderRadius: 24,
@@ -124,6 +132,21 @@ export default function Order({ orderOpen, setOrderOpen, sent, handleSubmit }) {
               >
                 The essentials
               </h3>
+              <input type="hidden" name="ts" ref={tsRef} defaultValue="" />
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                style={{
+                  position: 'absolute',
+                  left: '-9999px',
+                  width: 1,
+                  height: 1,
+                  overflow: 'hidden',
+                }}
+              />
               <div
                 className="g2"
                 style={{
