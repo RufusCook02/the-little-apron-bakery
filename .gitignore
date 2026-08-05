@@ -34,3 +34,6 @@ Thumbs.db
 
 # Vite
 *.local
+
+# Design export / raw uploads (not part of the built site)
+The little apron/
