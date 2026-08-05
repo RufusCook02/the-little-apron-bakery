@@ -4,16 +4,44 @@ const FORMS = {
   workshop: 'New workshop interest registration',
 }
 
+const MAX_ATTACHMENTS = 5
+const MAX_BODY_BYTES = 5 * 1024 * 1024 // ~5MB defensive cap; Vercel's own limit is 4.5MB by default
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST')
     return res.status(405).json({ error: 'Method not allowed' })
   }
 
-  const { form, fields } = req.body || {}
+  const contentLength =
+    Number(req.headers['content-length'] || 0) ||
+    Buffer.byteLength(JSON.stringify(req.body || {}))
+  if (contentLength > MAX_BODY_BYTES) {
+    return res.status(413).json({ error: 'Request body too large' })
+  }
+
+  const { form, fields, attachments } = req.body || {}
 
   if (!FORMS[form] || !fields || typeof fields !== 'object') {
     return res.status(400).json({ error: 'Invalid request' })
+  }
+
+  let validAttachments
+  if (attachments !== undefined) {
+    const isValid =
+      Array.isArray(attachments) &&
+      attachments.length <= MAX_ATTACHMENTS &&
+      attachments.every(
+        (a) =>
+          a &&
+          typeof a === 'object' &&
+          typeof a.name === 'string' &&
+          typeof a.content === 'string',
+      )
+    if (!isValid) {
+      return res.status(400).json({ error: 'Invalid attachments' })
+    }
+    validAttachments = attachments
   }
 
   const apiKey = process.env.BREVO_API_KEY
@@ -49,6 +77,14 @@ export default async function handler(req, res) {
         replyTo: fields.email ? { email: fields.email } : undefined,
         subject: FORMS[form],
         htmlContent: `<table>${rows}</table>`,
+        ...(validAttachments && validAttachments.length
+          ? {
+              attachment: validAttachments.map((a) => ({
+                name: a.name,
+                content: a.content,
+              })),
+            }
+          : {}),
       }),
     })
 

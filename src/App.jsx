@@ -18,6 +18,18 @@ function readRoute() {
   return r || 'home'
 }
 
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    reader.onload = () => {
+      const result = String(reader.result || '')
+      resolve(result.slice(result.indexOf(',') + 1))
+    }
+    reader.onerror = () => reject(reader.error)
+    reader.readAsDataURL(file)
+  })
+}
+
 const PAGES = {
   home: Home,
   'our-story': OurStory,
@@ -53,16 +65,29 @@ export default function App() {
 
   const handleSubmit = (name) => async (e) => {
     e.preventDefault()
+    const entries = [...new FormData(e.target).entries()]
     const fields = Object.fromEntries(
-      [...new FormData(e.target).entries()].filter(
-        ([, value]) => !(value instanceof File),
-      ),
+      entries.filter(([, value]) => !(value instanceof File)),
     )
+    const files = entries
+      .map(([, value]) => value)
+      .filter((value) => value instanceof File && value.size > 0)
+
     try {
+      const attachments = await Promise.all(
+        files.map(async (file) => ({
+          name: file.name,
+          content: await fileToBase64(file),
+        })),
+      )
       await fetch('/api/send-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ form: name, fields }),
+        body: JSON.stringify({
+          form: name,
+          fields,
+          ...(attachments.length ? { attachments } : {}),
+        }),
       })
     } catch (err) {
       console.error('Failed to send enquiry', err)

@@ -1,5 +1,36 @@
+import { useState } from 'react'
+
+const MAX_FILES = 5
+const MAX_TOTAL_BYTES = 4 * 1024 * 1024 // ~4MB combined, leaving headroom under Vercel's 4.5MB request limit
+
 export default function Order({ orderOpen, setOrderOpen, sent, handleSubmit }) {
   const orderSent = !!sent?.order
+  const [fileError, setFileError] = useState('')
+
+  const onSubmit = (e) => {
+    const input = e.target.elements?.inspirationImages
+    const files = input?.files ? Array.from(input.files) : []
+
+    if (files.length > MAX_FILES) {
+      e.preventDefault()
+      setFileError(
+        `Please attach up to ${MAX_FILES} images (you selected ${files.length}).`,
+      )
+      return
+    }
+
+    const totalBytes = files.reduce((sum, f) => sum + f.size, 0)
+    if (totalBytes > MAX_TOTAL_BYTES) {
+      e.preventDefault()
+      setFileError(
+        'Your images add up to more than 4MB combined — please remove one or choose smaller files.',
+      )
+      return
+    }
+
+    setFileError('')
+    handleSubmit('order')(e)
+  }
 
   return (
     <div className="la-page">
@@ -105,7 +136,7 @@ export default function Order({ orderOpen, setOrderOpen, sent, handleSubmit }) {
             </div>
           ) : (
             <form
-              onSubmit={handleSubmit('order')}
+              onSubmit={onSubmit}
               style={{
                 background: '#f6fbf3',
                 border: '1px solid rgba(79,111,102,.12)',
@@ -492,6 +523,7 @@ export default function Order({ orderOpen, setOrderOpen, sent, handleSubmit }) {
                       </label>
                       <input
                         type="file"
+                        name="inspirationImages"
                         multiple
                         style={{
                           width: '100%',
@@ -503,6 +535,18 @@ export default function Order({ orderOpen, setOrderOpen, sent, handleSubmit }) {
                           color: '#6a7872',
                         }}
                       />
+                      {fileError && (
+                        <p
+                          style={{
+                            fontFamily: "'Mulish'",
+                            fontSize: 12.5,
+                            color: '#b23b3b',
+                            marginTop: 6,
+                          }}
+                        >
+                          {fileError}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </>
