@@ -45,7 +45,7 @@ export default [
     },
   },
   {
-    files: ['api/**/*.js'],
+    files: ['api/**/*.js', 'scripts/**/*.{js,mjs}'],
     languageOptions: {
       ecmaVersion: 2020,
       sourceType: 'module',
