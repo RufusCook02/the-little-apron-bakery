@@ -11,7 +11,7 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "prepare": "husky"
+    "prepare": "git config core.hooksPath .githooks"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

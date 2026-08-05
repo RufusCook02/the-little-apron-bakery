@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+import lintStaged from 'lint-staged'
+
+const passed = await lintStaged()
+process.exit(passed ? 0 : 1)
