@@ -11,6 +11,9 @@ import Workshops from './pages/Workshops.jsx'
 import Order from './pages/Order.jsx'
 import Contact from './pages/Contact.jsx'
 import Blog from './pages/Blog.jsx'
+import Faqs from './pages/Faqs.jsx'
+import Terms from './pages/Terms.jsx'
+import CakeCare from './pages/CakeCare.jsx'
 
 function readRoute() {
   const h = (typeof location !== 'undefined' ? location.hash : '') || ''
@@ -41,6 +44,9 @@ const PAGES = {
   order: Order,
   contact: Contact,
   blog: Blog,
+  faqs: Faqs,
+  terms: Terms,
+  'cake-care': CakeCare,
 }
 
 export default function App() {

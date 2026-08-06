@@ -85,13 +85,13 @@ export default function Footer() {
         <div className="la-footer-col">
           <div className="la-footer-heading">Help</div>
           <div className="la-footer-links">
-            <a href="#" className="footer-link">
+            <a href="#faqs" className="footer-link">
               FAQs
             </a>
-            <a href="#" className="footer-link">
+            <a href="#terms" className="footer-link">
               Ts &amp; Cs
             </a>
-            <a href="#" className="footer-link">
+            <a href="#cake-care" className="footer-link">
               Cake Care
             </a>
           </div>
