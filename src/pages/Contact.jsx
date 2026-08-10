@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { SOCIALS, externalLinkProps } from '../data/socials'
 
 export default function Contact({
   sent,
@@ -410,15 +411,16 @@ export default function Contact({
                   fontSize: 15,
                 }}
               >
-                <a href="#" className="footer-link">
-                  Instagram
-                </a>
-                <a href="#" className="footer-link">
-                  Facebook
-                </a>
-                <a href="#" className="footer-link">
-                  TikTok
-                </a>
+                {Object.entries(SOCIALS).map(([key, social]) => (
+                  <a
+                    key={key}
+                    href={social.url}
+                    className="footer-link"
+                    {...externalLinkProps}
+                  >
+                    {social.label}
+                  </a>
+                ))}
               </div>
             </div>
           </div>

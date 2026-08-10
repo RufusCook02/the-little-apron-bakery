@@ -1,3 +1,5 @@
+import { SOCIALS, externalLinkProps } from '../data/socials'
+
 const posts = [
   {
     img: '/assets/cakes/vintage-bow.jpg',
@@ -178,7 +180,11 @@ export default function Blog() {
             >
               Want the latest from the kitchen in the meantime?
             </p>
-            <a href="#" className="btn-primary">
+            <a
+              href={SOCIALS.instagram.url}
+              className="btn-primary"
+              {...externalLinkProps}
+            >
               Follow on Instagram
             </a>
           </div>

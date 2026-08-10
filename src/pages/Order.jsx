@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { SOCIALS, externalLinkProps } from '../data/socials'
 
 const MAX_FILES = 5
 const MAX_TOTAL_BYTES = 4 * 1024 * 1024 // ~4MB combined, leaving headroom under Vercel's 4.5MB request limit
@@ -724,9 +725,10 @@ export default function Order({
                 Our Story
               </a>
               <a
-                href="#"
+                href={SOCIALS.instagram.url}
                 className="btn-outline"
                 style={{ fontSize: 13, padding: '15px 30px' }}
+                {...externalLinkProps}
               >
                 Follow on Instagram
               </a>
