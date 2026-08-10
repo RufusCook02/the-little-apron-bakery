@@ -61,15 +61,27 @@ export default function App() {
     const onHash = () => {
       setRoute(readRoute())
       setMenuOpen(false)
-      try {
-        window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
-      } catch {
-        window.scrollTo(0, 0)
-      }
     }
     window.addEventListener('hashchange', onHash)
     return () => window.removeEventListener('hashchange', onHash)
   }, [])
+
+  useEffect(() => {
+    // Real in-page anchors (an element whose id matches the hash) should get
+    // the browser's native scroll-into-view. Anything else is a route change,
+    // so jump to the top. Waiting a frame lets the new page's DOM commit
+    // first — scrolling before that lands is what was making this silently
+    // no-op on mobile Safari.
+    const hash = (typeof location !== 'undefined' ? location.hash : '')
+      .replace(/^#\/?/, '')
+      .trim()
+    if (hash && document.getElementById(hash)) return
+
+    const raf = requestAnimationFrame(() => {
+      requestAnimationFrame(() => window.scrollTo(0, 0))
+    })
+    return () => cancelAnimationFrame(raf)
+  }, [route])
 
   const handleSubmit = (name) => async (e) => {
     e.preventDefault()
