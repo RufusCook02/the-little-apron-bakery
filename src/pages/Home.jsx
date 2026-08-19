@@ -290,6 +290,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Wave: white → white (squiggle break) */}
+      <WaveDivider background="#ffffff" fill="#ffffff" stroke="#7fa99a" />
+
       {/* EVENT BLOCK */}
       <section style={{ background: '#fff', padding: '20px 0 84px' }}>
         <div
