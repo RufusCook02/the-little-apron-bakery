@@ -2,6 +2,17 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## How changes ship
+
+`main` auto-deploys to production, so it is never a working branch.
+
+- Branch before editing; never commit or push to `main` (a PreToolUse hook blocks the push).
+- Every implemented change ships as a PR. Open it, never merge it — the human merges.
+- Visual changes carry screenshots at 390 / 820 / 1440 via `npm run screenshot`, sent in chat.
+- Vercel posts a preview URL on every PR automatically; reference it in the PR body.
+
+Follow the `ship` skill for the full procedure.
+
 ## Commands
 
 - `npm run dev` — start Vite dev server
@@ -10,6 +21,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run lint` / `npm run lint:fix` — ESLint over the repo
 - `npm run format` / `npm run format:check` — Prettier
 - `npm run optimize-images` — one-off Sharp-based compression pass over `public/assets/`; not wired into build or CI, run manually after adding new photos
+- `npm run screenshot -- --route home` — capture a route at 390/820/1440 into `.screenshots/` (gitignored); drives the machine's installed Chrome/Edge via `puppeteer-core`, set `CHROME_PATH` to override. `--selector` clips around one element, `--url` targets a deployed site instead of localhost
 
 There is no test suite — no test script exists, and CI (`.github/workflows/ci.yml`) only runs `lint`, `format:check`, and `build` on push/PR to `main`.
 

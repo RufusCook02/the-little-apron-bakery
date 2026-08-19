@@ -40,3 +40,9 @@ The little apron/
 
 # Local agent worktrees (scratch space, never committed)
 .claude/worktrees/
+
+# Per-machine Claude Code permissions — the repo is public, keep it local
+.claude/settings.local.json
+
+# PR review screenshots, regenerated on demand
+.screenshots/

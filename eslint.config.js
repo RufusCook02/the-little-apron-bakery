@@ -47,7 +47,8 @@ export default [
   {
     files: ['api/**/*.js', 'scripts/**/*.{js,mjs}'],
     languageOptions: {
-      ecmaVersion: 2020,
+      // 2022 for top-level await in the ESM scripts; these run on Node, not in the browser.
+      ecmaVersion: 2022,
       sourceType: 'module',
       globals: globals.node,
     },
