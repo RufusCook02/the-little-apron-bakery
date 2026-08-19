@@ -1,6 +1,21 @@
-// Gentle wave — 4 cycles across 1200px, amplitude ±9 from center (y=24)
-const WAVE_PATH =
-  'M0,24 C50,15 100,15 150,24 C200,33 250,33 300,24 C350,15 400,15 450,24 C500,33 550,33 600,24 C650,15 700,15 750,24 C800,33 850,33 900,24 C950,15 1000,15 1050,24 C1100,33 1150,33 1200,24'
+// Gentle wave — 9 half-cycles (4.5 cycles) across 1200px, so a peak lands on the
+// horizontal centre (x=600) and the curve is mirror-symmetric about it.
+// Each half-cycle is a cubic with both control points at the extremum, which puts
+// the rendered peak ~6.75 units from the centre line (y=24), not the full ±9.
+const HALVES = 9
+const HALF_WIDTH = 1200 / HALVES
+const MID = 24
+const AMP = 9
+
+const WAVE_PATH = Array.from({ length: HALVES }, (_, i) => {
+  const start = i * HALF_WIDTH
+  // Even half-cycles bulge up (peak), odd ones bulge down (trough).
+  const y = i % 2 === 0 ? MID - AMP : MID + AMP
+  const c1 = (start + HALF_WIDTH / 3).toFixed(1)
+  const c2 = (start + (HALF_WIDTH * 2) / 3).toFixed(1)
+  const end = (start + HALF_WIDTH).toFixed(1)
+  return `C${c1},${y} ${c2},${y} ${end},${MID}`
+}).join(' ')
 
 export default function WaveDivider({
   background,
@@ -8,16 +23,17 @@ export default function WaveDivider({
   stroke,
   strokeWidth = 2.5,
 }) {
+  const path = `M0,${MID} ${WAVE_PATH}`
   return (
     <div style={{ lineHeight: 0, background }}>
       <svg
+        className="wave-divider"
         viewBox="0 0 1200 48"
         preserveAspectRatio="none"
-        style={{ display: 'block', width: '100%', height: 42 }}
       >
-        <path d={`${WAVE_PATH} L1200,48 L0,48 Z`} fill={fill} />
+        <path d={`${path} L1200,48 L0,48 Z`} fill={fill} />
         <path
-          d={WAVE_PATH}
+          d={path}
           fill="none"
           stroke={stroke}
           strokeWidth={strokeWidth}
