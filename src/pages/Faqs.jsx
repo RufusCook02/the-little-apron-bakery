@@ -73,10 +73,6 @@ const faqs = [
       </>
     ),
   },
-  {
-    q: 'What is included in a DIY Cake Kit?',
-    a: 'A freshly baked cake ready to decorate, buttercream piping bags, your choice of decorating colours, and simple instructions — everything you need to decorate at home.',
-  },
 ]
 
 export default function Faqs() {

@@ -377,7 +377,7 @@ export default function SignatureCakes() {
               </p>
             </a>
             <a
-              href="#diy"
+              href="#workshops"
               className="card-hover-sm"
               style={{
                 display: 'block',
@@ -407,7 +407,7 @@ export default function SignatureCakes() {
                   marginBottom: 8,
                 }}
               >
-                DIY Cake Kit
+                Workshops
               </h3>
               <p
                 style={{
@@ -417,7 +417,8 @@ export default function SignatureCakes() {
                   lineHeight: 1.6,
                 }}
               >
-                Decorate at home — the cake is baked, you bring the fun.
+                Hands-on decorating classes for kids and adults — register your
+                interest.
               </p>
             </a>
             <a
