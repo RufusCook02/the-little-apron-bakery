@@ -100,17 +100,6 @@ export default function Header({ menuOpen, setMenuOpen }) {
           </a>
           <a href="#order" className="order-nav-btn">
             Order Now
-            <img
-              src="/assets/bow.png"
-              alt=""
-              style={{
-                position: 'absolute',
-                top: -19,
-                right: -12,
-                width: 42,
-                height: 'auto',
-              }}
-            />
           </a>
         </nav>
       </div>
