@@ -162,13 +162,13 @@ export default function Home() {
         >
           <span>
             Freshly baked&nbsp;·&nbsp;Handmade with love&nbsp;·&nbsp;Custom
-            cakes&nbsp;·&nbsp;Cupcakes&nbsp;·&nbsp;DIY
-            kits&nbsp;·&nbsp;Workshops&nbsp;·&nbsp;Hamilton NZ&nbsp;·
+            cakes&nbsp;·&nbsp;Cupcakes&nbsp;·&nbsp;Workshops&nbsp;·&nbsp;Hamilton
+            NZ&nbsp;·
           </span>
           <span>
             Freshly baked&nbsp;·&nbsp;Handmade with love&nbsp;·&nbsp;Custom
-            cakes&nbsp;·&nbsp;Cupcakes&nbsp;·&nbsp;DIY
-            kits&nbsp;·&nbsp;Workshops&nbsp;·&nbsp;Hamilton NZ&nbsp;·&nbsp;
+            cakes&nbsp;·&nbsp;Cupcakes&nbsp;·&nbsp;Workshops&nbsp;·&nbsp;Hamilton
+            NZ&nbsp;·&nbsp;
           </span>
         </div>
       </div>
@@ -486,7 +486,7 @@ export default function Home() {
               </p>
             </a>
             <a
-              href="#diy"
+              href="#workshops"
               className="card-hover"
               style={{
                 display: 'block',
@@ -516,7 +516,7 @@ export default function Home() {
                   marginBottom: 10,
                 }}
               >
-                DIY Cake Kits
+                Workshops
               </h3>
               <p
                 style={{
@@ -526,8 +526,7 @@ export default function Home() {
                   lineHeight: 1.7,
                 }}
               >
-                When you don't have the time, but want to add your special
-                touch.
+                Hands-on classes to learn the art of baking and decorating.
               </p>
             </a>
           </div>
@@ -641,7 +640,7 @@ export default function Home() {
             >
               Cakes can get expensive — so we've created options to suit
               different budgets without compromising on style or taste, from
-              cupcakes to DIY kits to a simple canvas cake.
+              cupcakes to a simple canvas cake.
             </p>
             <a href="#sweet-stuff" className="btn-primary">
               See budget-friendly options →

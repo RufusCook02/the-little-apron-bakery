@@ -6,7 +6,6 @@ import OurStory from './pages/OurStory.jsx'
 import SweetStuff from './pages/SweetStuff.jsx'
 import SignatureCakes from './pages/SignatureCakes.jsx'
 import Cupcakes from './pages/Cupcakes.jsx'
-import DiyKits from './pages/DiyKits.jsx'
 import Workshops from './pages/Workshops.jsx'
 import Order from './pages/Order.jsx'
 import Contact from './pages/Contact.jsx'
@@ -39,7 +38,6 @@ const PAGES = {
   'sweet-stuff': SweetStuff,
   signature: SignatureCakes,
   cupcakes: Cupcakes,
-  diy: DiyKits,
   workshops: Workshops,
   order: Order,
   contact: Contact,
