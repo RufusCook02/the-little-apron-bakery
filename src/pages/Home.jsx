@@ -87,7 +87,7 @@ export default function Home() {
             <div
               style={{
                 position: 'absolute',
-                inset: '-14px -14px auto auto',
+                inset: '-24px -14px auto auto',
                 width: 'auto',
                 zIndex: 2,
                 animation: 'laBob 5s ease-in-out infinite',
