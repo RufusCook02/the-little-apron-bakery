@@ -585,12 +585,11 @@ export default function Home() {
                 margin: '0 auto 28px',
               }}
             >
-              Cakes can get expensive — so we've created options to suit
-              different budgets without compromising on style or taste, from
-              cupcakes to a simple canvas cake.
+              Cakes can get expensive. Let us know your budget and we'll suggest
+              something that suits, without compromising on style or taste.
             </p>
-            <a href="#sweet-stuff" className="btn-primary">
-              See budget-friendly options →
+            <a href="#contact" className="btn-primary">
+              Chat to us about your budget →
             </a>
           </div>
         </div>
