@@ -249,7 +249,6 @@ textarea:focus {
 }
 
 .order-nav-btn {
-  position: relative;
   display: inline-flex;
   align-items: center;
   background: #4f6f66;
@@ -431,10 +430,6 @@ textarea:focus {
     margin-top: 16px;
     padding: 16px !important;
     border-bottom: none !important;
-    position: static !important;
-  }
-  .la-nav .order-nav-btn img {
-    display: none !important;
   }
 
   .g2,
