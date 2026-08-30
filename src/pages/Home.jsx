@@ -638,12 +638,11 @@ export default function Home() {
                 margin: '0 auto 28px',
               }}
             >
-              Cakes can get expensive — so we'll work with what you've got. Tell
-              us your budget and what you're celebrating, and we'll suggest
+              Cakes can get expensive. Let us know your budget and we'll suggest
               something that suits, without compromising on style or taste.
             </p>
             <a href="#contact" className="btn-primary">
-              Talk to us about your budget →
+              Chat to us about your budget →
             </a>
           </div>
         </div>
