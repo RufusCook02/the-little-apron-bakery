@@ -47,10 +47,10 @@ export default function SweetStuff() {
               lineHeight: 1.78,
             }}
           >
-            Explore our range of cakes and cupcakes, or do-it-yourself. Whether
-            you're planning something extra special or keeping it sweet and
-            simple, The Little Apron is here to make every celebration that
-            little bit sweeter.
+            Explore our range of cakes, cupcakes and workshops. Whether you're
+            planning something extra special or keeping it sweet and simple, The
+            Little Apron is here to make every celebration that little bit
+            sweeter.
           </p>
         </div>
       </section>
@@ -155,7 +155,7 @@ export default function SweetStuff() {
             </div>
           </a>
           <a
-            href="#diy"
+            href="#workshops"
             className="card-hover-lg"
             style={{
               display: 'block',
@@ -166,8 +166,8 @@ export default function SweetStuff() {
             }}
           >
             <img
-              src="/assets/cakes/canvas.jpg"
-              alt="DIY kits"
+              src="/assets/cakes/vintage-piped.jpg"
+              alt="Cake decorating workshops"
               style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover' }}
             />
             <div style={{ padding: '28px 28px 32px' }}>
@@ -180,7 +180,7 @@ export default function SweetStuff() {
                   marginBottom: 8,
                 }}
               >
-                DIY Kits
+                Workshops
               </h2>
               <p
                 style={{
@@ -191,11 +191,9 @@ export default function SweetStuff() {
                   marginBottom: 16,
                 }}
               >
-                The perfect hands-on activity for little bakers and busy
-                families. All the fun of decorating, without the stress of
-                baking.
+                Hands-on classes to learn the art of baking and decorating.
               </p>
-              <span className="text-link-green">Shop DIY kits →</span>
+              <span className="text-link-green">See workshops →</span>
             </div>
           </a>
         </div>
