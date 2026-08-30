@@ -417,8 +417,7 @@ export default function SignatureCakes() {
                   lineHeight: 1.6,
                 }}
               >
-                Hands-on decorating classes for kids and adults — register your
-                interest.
+                Hands-on classes to learn the art of baking and decorating.
               </p>
             </a>
             <a

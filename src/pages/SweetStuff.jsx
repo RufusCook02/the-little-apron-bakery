@@ -191,8 +191,7 @@ export default function SweetStuff() {
                   marginBottom: 16,
                 }}
               >
-                Hands-on decorating classes for kids, beginners, and anyone who
-                loves getting creative with cake.
+                Hands-on classes to learn the art of baking and decorating.
               </p>
               <span className="text-link-green">See workshops →</span>
             </div>
