@@ -153,7 +153,7 @@ export default function App() {
         }}
       >
         Handmade in Hamilton, New Zealand &nbsp;·&nbsp; Custom cakes, cupcakes
-        &amp; baking workshops
+        &amp; workshops
       </div>
       <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <main>

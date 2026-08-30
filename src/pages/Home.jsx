@@ -213,7 +213,7 @@ export default function Home() {
               </h2>
             </div>
             <a href="#signature" className="text-link-green">
-              View all styles →
+              View all signature designs →
             </a>
           </div>
           <div
@@ -273,69 +273,6 @@ export default function Home() {
               </a>
             ))}
           </div>
-          <p
-            style={{
-              fontFamily: "'Mulish'",
-              color: '#5e6d67',
-              fontSize: 16,
-              textAlign: 'center',
-              marginTop: 32,
-            }}
-          >
-            Don't see your style?{' '}
-            <a href="#order" className="text-link-green">
-              We do custom too →
-            </a>
-          </p>
-        </div>
-      </section>
-
-      {/* Wave: white → white (squiggle break) */}
-      <WaveDivider background="#ffffff" fill="#ffffff" stroke="#7fa99a" />
-
-      {/* EVENT BLOCK */}
-      <section style={{ background: '#fff', padding: '20px 0 84px' }}>
-        <div
-          style={{
-            maxWidth: 760,
-            margin: '0 auto',
-            padding: '0 28px',
-            textAlign: 'center',
-          }}
-        >
-          <img
-            src="/assets/bow.png"
-            alt=""
-            style={{ width: 58, height: 'auto', margin: '0 auto 14px' }}
-          />
-          <h2
-            style={{
-              fontFamily: "'Cormorant Garamond',serif",
-              fontWeight: 600,
-              color: '#3f5750',
-              fontSize: 'clamp(32px,4.5vw,50px)',
-              lineHeight: 1.1,
-              marginBottom: 20,
-            }}
-          >
-            Have an event coming up?
-          </h2>
-          <p
-            style={{
-              fontFamily: "'Mulish'",
-              color: '#5e6d67',
-              fontSize: 18,
-              lineHeight: 1.75,
-              marginBottom: 30,
-            }}
-          >
-            Based in Hamilton, we're your local for custom cakes. Whatever the
-            occasion, we've got your cake creations covered — short notice or
-            well in advance.
-          </p>
-          <a href="#contact" className="btn-primary">
-            Check availability
-          </a>
         </div>
       </section>
 
@@ -569,6 +506,16 @@ export default function Home() {
             Every cake is designed to make a celebration feel a little more
             special. Birthdays, weddings, gender reveals, baby showers — you
             name it, we have cake for it.
+          </p>
+          <p
+            style={{
+              fontFamily: "'Caveat',cursive",
+              color: '#b9e5ca',
+              fontSize: 22,
+              marginTop: 14,
+            }}
+          >
+            — Cushla, The Little Apron
           </p>
         </div>
       </section>
