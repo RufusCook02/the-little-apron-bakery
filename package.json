@@ -32,7 +32,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^17.3.0",
     "prettier": "^3.9.6",
-    "puppeteer-core": "^25.8.0",
+    "puppeteer-core": "^25.9.0",
     "sharp": "^0.35.4",
     "vite": "^5.4.2"
   },
