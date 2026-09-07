@@ -4,6 +4,9 @@
 // runtime head from drifting apart.
 
 import { SITE } from '../data/routes.js'
+import { schemaJson, hasSchema } from './schema.js'
+
+const SCHEMA_ID = 'ld-schema'
 
 export function metaFor(route) {
   const url = `${SITE.origin}${route.path}`
@@ -51,6 +54,11 @@ export function headHtml(route) {
   if (canonical) {
     lines.push(`<link rel="canonical" href="${escapeHtml(canonical)}" />`)
   }
+  if (hasSchema(route)) {
+    lines.push(
+      `<script type="application/ld+json" id="${SCHEMA_ID}">${schemaJson(route)}</script>`,
+    )
+  }
 
   return lines.join('\n    ')
 }
@@ -92,5 +100,20 @@ export function applyHead(route) {
   // back out to a real page.
   if (!route.noindex) {
     document.head.querySelector('meta[name="robots"]')?.remove()
+  }
+
+  // Keep the JSON-LD in step with the page, so a client-side navigation never
+  // leaves the previous page's structured data behind.
+  let ld = document.getElementById(SCHEMA_ID)
+  if (hasSchema(route)) {
+    if (!ld) {
+      ld = document.createElement('script')
+      ld.type = 'application/ld+json'
+      ld.id = SCHEMA_ID
+      document.head.appendChild(ld)
+    }
+    ld.textContent = schemaJson(route)
+  } else if (ld) {
+    ld.remove()
   }
 }

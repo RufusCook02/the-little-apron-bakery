@@ -15,11 +15,11 @@ import { fileURLToPath } from 'node:url'
 const root = fileURLToPath(new URL('..', import.meta.url))
 const dist = join(root, 'dist')
 
-const { render, PAGES } = await import(
+// All of this comes from the compiled SSR bundle rather than from src/, so the
+// script never has to parse JSX itself.
+const { render, headHtml, PAGES, ROUTES, NOT_FOUND, SITE, faqs } = await import(
   new URL('../dist-ssr/entry-server.js', import.meta.url)
 )
-const { ROUTES, NOT_FOUND, SITE } = await import('../src/data/routes.js')
-const { headHtml } = await import('../src/lib/head.js')
 
 // A page added to one map but not the other would be silently unreachable and
 // unprerendered. Fail the build instead.
@@ -79,6 +79,26 @@ for (const route of ROUTES) {
 
 // Vercel serves dist/404.html with a 404 status for unmatched paths.
 emit(NOT_FOUND, join(dist, '404.html'))
+
+// FAQ answers still awaiting confirmation from Cushla render on the page but
+// must never be asserted as structured data. This checks the emitted JSON-LD
+// rather than trusting the filter in schema.js, so removing that filter fails
+// the build instead of quietly publishing unverified terms to search engines.
+const faqsHtml = readFileSync(join(dist, 'faqs.html'), 'utf8')
+const ldJson =
+  /<script type="application\/ld\+json" id="ld-schema">([\s\S]*?)<\/script>/.exec(
+    faqsHtml,
+  )?.[1] ?? ''
+for (const faq of faqs) {
+  if (!faq.unconfirmed) continue
+  const answer = faq.schemaAnswer ?? faq.a
+  if (typeof answer !== 'string') continue
+  if (ldJson.includes(answer.slice(0, 40))) {
+    throw new Error(
+      `Unconfirmed FAQ answer leaked into the /faqs JSON-LD: "${faq.q}"`,
+    )
+  }
+}
 
 // No lastmod/changefreq/priority: Google ignores the last two, and a build-date
 // lastmod on every deploy is a false freshness signal.

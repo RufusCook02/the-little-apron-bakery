@@ -26,6 +26,7 @@ export const SITE = {
 export const ROUTES = [
   {
     key: 'home',
+    label: 'Home',
     path: '/',
     title: 'The Little Apron — Handmade Cakes, Hamilton NZ',
     description:
@@ -33,6 +34,7 @@ export const ROUTES = [
   },
   {
     key: 'our-story',
+    label: 'Our Story',
     path: '/our-story',
     title: 'Our Story — The Little Apron',
     description:
@@ -40,6 +42,7 @@ export const ROUTES = [
   },
   {
     key: 'sweet-stuff',
+    label: 'Sweet Stuff',
     path: '/sweet-stuff',
     title: 'Custom Cakes, Cupcakes & More — The Little Apron',
     description:
@@ -47,6 +50,8 @@ export const ROUTES = [
   },
   {
     key: 'signature',
+    label: 'Signature Cakes',
+    parent: 'sweet-stuff',
     path: '/signature',
     title: 'Signature Cakes & Pricing — The Little Apron',
     description:
@@ -54,6 +59,8 @@ export const ROUTES = [
   },
   {
     key: 'cupcakes',
+    label: 'Cupcakes',
+    parent: 'sweet-stuff',
     path: '/cupcakes',
     title: 'Cupcakes by the Box — The Little Apron',
     description:
@@ -61,6 +68,8 @@ export const ROUTES = [
   },
   {
     key: 'workshops',
+    label: 'Workshops',
+    parent: 'sweet-stuff',
     path: '/workshops',
     title: 'Cake Decorating Workshops — The Little Apron',
     description:
@@ -68,6 +77,7 @@ export const ROUTES = [
   },
   {
     key: 'order',
+    label: 'Order',
     path: '/order',
     title: 'Order a Custom Cake — The Little Apron',
     description:
@@ -75,6 +85,7 @@ export const ROUTES = [
   },
   {
     key: 'contact',
+    label: 'Contact',
     path: '/contact',
     title: 'Contact — The Little Apron',
     description:
@@ -82,6 +93,7 @@ export const ROUTES = [
   },
   {
     key: 'blog',
+    label: 'Blog',
     path: '/blog',
     title: 'Stories from the Kitchen — The Little Apron',
     description:
@@ -89,6 +101,7 @@ export const ROUTES = [
   },
   {
     key: 'faqs',
+    label: 'FAQs',
     path: '/faqs',
     title: 'Frequently Asked Questions — The Little Apron',
     description:
@@ -96,6 +109,7 @@ export const ROUTES = [
   },
   {
     key: 'terms',
+    label: 'Terms & Conditions',
     path: '/terms',
     title: 'Terms & Conditions — The Little Apron',
     description:
@@ -103,6 +117,7 @@ export const ROUTES = [
   },
   {
     key: 'cake-care',
+    label: 'Cake Care',
     path: '/cake-care',
     title: 'Cake Care — The Little Apron',
     description:

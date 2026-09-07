@@ -31,3 +31,6 @@ jobs:
           test -s dist/sitemap.xml
           grep -q 'rel="canonical" href="https://the-little-apron-bakery.vercel.app/our-story"' dist/our-story.html
           grep -q 'Where it started' dist/our-story.html
+          grep -q '"@type":"Organization"' dist/index.html
+          grep -q '"@type":"Product"' dist/signature.html
+          grep -q '"@type":"FAQPage"' dist/faqs.html

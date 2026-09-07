@@ -14,5 +14,11 @@ export function render(path) {
   return renderToString(<App initialPath={path} />)
 }
 
-// Re-exported so the prerender script can check the page map against ROUTES.
+// Everything scripts/prerender.mjs needs comes through this bundle rather than
+// being imported from src/ directly. Vite compiles it, so the prerender script
+// doesn't have to care that some modules under src/ contain JSX — which plain
+// Node cannot parse.
 export { PAGES } from './pages/registry.js'
+export { ROUTES, NOT_FOUND, SITE } from './data/routes.js'
+export { headHtml } from './lib/head.js'
+export { faqs } from './data/faqs.jsx'
