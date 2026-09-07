@@ -36,16 +36,21 @@ copy, spacing, or component structure.
 
 **Skip screenshots when** the change can't be seen: `api/`, `.github/`, `scripts/`,
 `eslint`/`prettier`/`vite` config, `CLAUDE.md`, or docs. Say in the PR that there's nothing
-visual to show — don't shoot an unrelated homepage to fill space.
+visual to show — don't shoot an unrelated homepage to fill space. Docs being on this list
+means "no screenshot needed", **not** "skip the doc update" — see step 4.
+
+For any change that alters layout, confirm at 390px that the page doesn't scroll
+sideways (`document.documentElement.scrollWidth === clientWidth`) before opening the PR.
 
 ### Which routes
 
-Routes are the hash-route keys of `PAGES` in [src/App.jsx](src/App.jsx) — `home`,
-`our-story`, `sweet-stuff`, `signature`, `cupcakes`, `diy`, `workshops`, `order`,
-`contact`, `blog`, `faqs`, `terms`, `cake-care`. Map each changed page component to its
-key and shoot **every** affected route. A change to a shared component
-(`Header`, `Footer`, `WaveDivider`) affects every page — shoot `home` plus one other page
-that uses it, and say in the PR that the rest share the same component.
+Route keys are defined in [src/data/routes.js](src/data/routes.js) — that file is the
+source of truth, so read it rather than trusting a list here. Map each changed page
+component to its key (via `PAGES` in [src/pages/registry.js](src/pages/registry.js)) and
+shoot **every** affected route. `not-found` is also shootable even though it isn't in
+`ROUTES`. A change to a shared component (`Header`, `Footer`, `WaveDivider`) affects every
+page — shoot `home` plus one other page that uses it, and say in the PR that the rest
+share the same component.
 
 ### Capturing
 
@@ -56,14 +61,27 @@ raw shell), then:
 npm run screenshot -- --route home
 ```
 
+An unknown route key now throws with the list of valid ones, rather than silently
+capturing the home page.
+
 Add `--selector "svg.wave-divider"` to frame a specific element in context instead of
 capturing the full page — better for a small change on a long page. Output lands in
 `.screenshots/` (gitignored).
 
+To shoot the **built** output rather than the dev server — the only way to see prerendered
+HTML, and worth doing for anything touching routing, metadata or the build — start the
+`preview` config instead and pass `--url http://localhost:4173`.
+
 Send the images to the user with `SendUserFile` in the same turn you open the PR. Don't
 rely on the PR carrying them — it won't.
 
-## 4. Open the PR
+## 4. Update the docs, then open the PR
+
+Before pushing, check whether the change invalidates anything in
+[CLAUDE.md](CLAUDE.md), [README.md](README.md) or this skill file — route lists, npm
+scripts, the build pipeline, architecture notes, the conventions section. If it does,
+update it **on the same branch**. Docs that describe how the code used to work are worse
+than no docs, and a follow-up PR to fix them never gets written.
 
 ```bash
 git push -u origin <branch>

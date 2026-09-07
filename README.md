@@ -3,7 +3,7 @@
 A responsive marketing and ordering site for a Hamilton, NZ home bakery — built
 end to end from the design brief through to production deployment.
 
-🔗 **Live site:** https://the-little-apron-bakery.vercel.app
+🔗 **Live site:** https://thelittleapron.co.nz
 
 🚧 Actively maintained — content and pages are still being added as the business
 grows.
@@ -23,6 +23,9 @@ grows.
 - **12 pages** — home, our story, sweet stuff, signature cakes, cupcakes,
   workshops, order, contact, blog, FAQs, cake care, terms
 - **Responsive layout** built mobile-first and reviewed at 390 / 820 / 1440px
+- **Prerendered for search** — every page is a real URL emitted as static HTML
+  at build time, with its own title, meta description and canonical, so
+  crawlers that don't run JavaScript still see the full content
 - **Three working forms** — custom cake orders (with reference-photo upload),
   workshop bookings, and general contact — all delivering email through a single
   serverless function
@@ -37,8 +40,9 @@ grows.
 
 ## Tech stack
 
-- **React 18** + **Vite 5** — no router; lightweight hash-based routing in
-  `App.jsx`
+- **React 18** + **Vite 5** — no router library; real paths driven by a small
+  History API router in `App.jsx`, with every route prerendered to static HTML
+  at build time so crawlers see full content without running JavaScript
 - **Plain CSS** — global classes in `src/index.css` plus per-component inline
   styles; no CSS framework
 - **Vercel serverless function** (`api/send-email.js`) sending via the Brevo
@@ -62,8 +66,8 @@ submission fails.
 | Script                    | Does                                                 |
 | ------------------------- | ---------------------------------------------------- |
 | `npm run dev`             | Vite dev server                                      |
-| `npm run build`           | Production build to `dist/`                          |
-| `npm run preview`         | Serve the production build                           |
+| `npm run build`           | Client + SSR bundles, then prerender, to `dist/`     |
+| `npm run preview`         | Serve the built `dist/` (the prerendered HTML)       |
 | `npm run lint`            | ESLint over the repo                                 |
 | `npm run format`          | Prettier                                             |
 | `npm run optimize-images` | One-off Sharp compression pass over `public/assets/` |
@@ -76,10 +80,12 @@ api/            Vercel serverless function (email sending)
 public/assets/  Images, referenced by literal path
 scripts/        Image optimisation + screenshot tooling
 src/
-  App.jsx       Hash routing + shared form submission handler
+  App.jsx       Client-side routing + shared form submission handler
+  entry-server.jsx  Prerender entry (build-time only)
   components/   Header, Footer, WaveDivider
-  data/         Cake and social-link data
-  pages/        One component per route
+  data/         routes.js (paths + per-page metadata), cakes, socials
+  lib/          head.js (metadata), navigation.js (link interception)
+  pages/        One component per route, plus registry.js
 ```
 
 ## How changes ship

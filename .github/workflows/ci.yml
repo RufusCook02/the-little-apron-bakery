@@ -21,3 +21,13 @@ jobs:
       - run: npm run lint
       - run: npm run format:check
       - run: npm run build
+
+      # The prerender step failing silently would ship an empty shell to every
+      # crawler while the site still looked fine in a browser.
+      - name: Verify prerender output
+        run: |
+          test -s dist/our-story.html
+          test -s dist/404.html
+          test -s dist/sitemap.xml
+          grep -q 'rel="canonical" href="https://thelittleapron.co.nz/our-story"' dist/our-story.html
+          grep -q 'Where it started' dist/our-story.html

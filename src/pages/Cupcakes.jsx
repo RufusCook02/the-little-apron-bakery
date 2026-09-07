@@ -228,7 +228,7 @@ export default function Cupcakes() {
             cake.
           </p>
           <div style={{ textAlign: 'center', marginTop: 26 }}>
-            <a href="#order" className="btn-primary">
+            <a href="/order" className="btn-primary">
               Order cupcakes
             </a>
           </div>

@@ -68,7 +68,7 @@ export default function SweetStuff() {
           }}
         >
           <a
-            href="#signature"
+            href="/signature"
             className="card-hover-lg"
             style={{
               display: 'block',
@@ -111,7 +111,7 @@ export default function SweetStuff() {
             </div>
           </a>
           <a
-            href="#cupcakes"
+            href="/cupcakes"
             className="card-hover-lg"
             style={{
               display: 'block',
@@ -155,7 +155,7 @@ export default function SweetStuff() {
             </div>
           </a>
           <a
-            href="#workshops"
+            href="/workshops"
             className="card-hover-lg"
             style={{
               display: 'block',
@@ -262,7 +262,7 @@ export default function SweetStuff() {
                 Let's make something special together. We'd love to help bring
                 your cake to life.
               </p>
-              <a href="#order" className="btn-white">
+              <a href="/order" className="btn-white">
                 Custom cake enquiry
               </a>
             </div>
