@@ -75,10 +75,10 @@ export default function Home() {
               and satisfy a sweet tooth.
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 14 }}>
-              <a href="#signature" className="btn-primary">
+              <a href="/signature" className="btn-primary">
                 View signature cakes
               </a>
-              <a href="#order" className="btn-outline">
+              <a href="/order" className="btn-outline">
                 Enquire about a custom cake
               </a>
             </div>
@@ -212,7 +212,7 @@ export default function Home() {
                 Signature cakes
               </h2>
             </div>
-            <a href="#signature" className="text-link-green">
+            <a href="/signature" className="text-link-green">
               View all signature designs →
             </a>
           </div>
@@ -227,7 +227,7 @@ export default function Home() {
             {sigPreview.map((cake, i) => (
               <a
                 key={i}
-                href="#signature"
+                href="/signature"
                 className="card-hover"
                 style={{
                   display: 'block',
@@ -335,7 +335,7 @@ export default function Home() {
             }}
           >
             <a
-              href="#signature"
+              href="/signature"
               className="card-hover"
               style={{
                 display: 'block',
@@ -379,7 +379,7 @@ export default function Home() {
               </p>
             </a>
             <a
-              href="#cupcakes"
+              href="/cupcakes"
               className="card-hover"
               style={{
                 display: 'block',
@@ -423,7 +423,7 @@ export default function Home() {
               </p>
             </a>
             <a
-              href="#workshops"
+              href="/workshops"
               className="card-hover"
               style={{
                 display: 'block',
@@ -588,7 +588,7 @@ export default function Home() {
               Cakes can get expensive. Let us know your budget and we'll suggest
               something that suits, without compromising on style or taste.
             </p>
-            <a href="#contact" className="btn-primary">
+            <a href="/contact" className="btn-primary">
               Chat to us about your budget →
             </a>
           </div>

@@ -9,6 +9,8 @@ export default [
   {
     ignores: [
       'dist',
+      // Build output of `npm run build:ssr` — bundled React, not our source.
+      'dist-ssr',
       'node_modules',
       'The little apron/**',
       '.claude/worktrees/**',

@@ -1,24 +1,10 @@
 import { useState, useEffect } from 'react'
 import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
-import Home from './pages/Home.jsx'
-import OurStory from './pages/OurStory.jsx'
-import SweetStuff from './pages/SweetStuff.jsx'
-import SignatureCakes from './pages/SignatureCakes.jsx'
-import Cupcakes from './pages/Cupcakes.jsx'
-import Workshops from './pages/Workshops.jsx'
-import Order from './pages/Order.jsx'
-import Contact from './pages/Contact.jsx'
-import Blog from './pages/Blog.jsx'
-import Faqs from './pages/Faqs.jsx'
-import Terms from './pages/Terms.jsx'
-import CakeCare from './pages/CakeCare.jsx'
-
-function readRoute() {
-  const h = (typeof location !== 'undefined' ? location.hash : '') || ''
-  const r = h.replace(/^#\/?/, '').trim()
-  return r || 'home'
-}
+import { ROUTE_BY_PATH, NOT_FOUND, normalisePath } from './data/routes.js'
+import { PAGES } from './pages/registry.js'
+import { applyHead } from './lib/head.js'
+import { resolveNavClick } from './lib/navigation.js'
 
 function fileToBase64(file) {
   return new Promise((resolve, reject) => {
@@ -32,53 +18,69 @@ function fileToBase64(file) {
   })
 }
 
-const PAGES = {
-  home: Home,
-  'our-story': OurStory,
-  'sweet-stuff': SweetStuff,
-  signature: SignatureCakes,
-  cupcakes: Cupcakes,
-  workshops: Workshops,
-  order: Order,
-  contact: Contact,
-  blog: Blog,
-  faqs: Faqs,
-  terms: Terms,
-  'cake-care': CakeCare,
-}
-
-export default function App() {
-  const [route, setRoute] = useState(readRoute)
+// `initialPath` is passed in by both entry points — src/main.jsx on the client
+// and src/entry-server.jsx during the prerender — so the first render is
+// identical on both sides by construction, with no `typeof window` branch.
+export default function App({ initialPath = '/' }) {
+  const [path, setPath] = useState(() => normalisePath(initialPath))
   const [menuOpen, setMenuOpen] = useState(false)
   const [orderOpen, setOrderOpen] = useState(false)
   const [sent, setSent] = useState({})
   const [submitting, setSubmitting] = useState({})
   const [submitError, setSubmitError] = useState({})
 
+  // Every link on the site is a real anchor to a real path, so navigation is
+  // intercepted here rather than routed through per-link onClick handlers —
+  // which means each link still works with JS disabled, serving the
+  // prerendered file for that path directly.
   useEffect(() => {
-    const onHash = () => {
-      setRoute(readRoute())
+    const onClick = (e) => {
+      const url = resolveNavClick(e)
+      if (!url) return
+      e.preventDefault()
+
+      const next = url.pathname + url.search + url.hash
+      const current =
+        window.location.pathname + window.location.search + window.location.hash
+      if (next !== current) window.history.pushState({}, '', next)
+
+      setPath(normalisePath(url.pathname))
       setMenuOpen(false)
     }
-    window.addEventListener('hashchange', onHash)
-    return () => window.removeEventListener('hashchange', onHash)
+    const onPop = () => {
+      setPath(normalisePath(window.location.pathname))
+      setMenuOpen(false)
+    }
+
+    document.addEventListener('click', onClick)
+    window.addEventListener('popstate', onPop)
+    return () => {
+      document.removeEventListener('click', onClick)
+      window.removeEventListener('popstate', onPop)
+    }
   }, [])
 
   useEffect(() => {
-    // Real in-page anchors (an element whose id matches the hash) should get
-    // the browser's native scroll-into-view. Anything else is a route change,
-    // so jump to the top. Waiting a frame lets the new page's DOM commit
-    // first — scrolling before that lands is what was making this silently
-    // no-op on mobile Safari.
-    const hash = (typeof location !== 'undefined' ? location.hash : '')
-      .replace(/^#\/?/, '')
-      .trim()
-    if (hash && document.getElementById(hash)) return
+    // Real in-page anchors (an element whose id matches the hash) should scroll
+    // into view. Anything else is a route change, so jump to the top. Waiting a
+    // frame lets the new page's DOM commit first — scrolling before that lands
+    // is what was making this silently no-op on mobile Safari.
+    const hash = window.location.hash.slice(1)
+    const target = hash ? document.getElementById(hash) : null
 
     const raf = requestAnimationFrame(() => {
-      requestAnimationFrame(() => window.scrollTo(0, 0))
+      requestAnimationFrame(() => {
+        if (target) target.scrollIntoView()
+        else window.scrollTo(0, 0)
+      })
     })
     return () => cancelAnimationFrame(raf)
+  }, [path])
+
+  const route = ROUTE_BY_PATH[path] || NOT_FOUND
+
+  useEffect(() => {
+    applyHead(route)
   }, [route])
 
   const handleSubmit = (name) => async (e) => {
@@ -135,7 +137,7 @@ export default function App() {
     }
   }
 
-  const Page = PAGES[route] || Home
+  const Page = PAGES[route.key]
 
   return (
     <div style={{ overflowX: 'hidden' }}>

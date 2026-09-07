@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="la-footer">
       <div className="la-footer-inner">
         <div className="la-footer-brand">
-          <a href="#home" className="la-footer-logo">
+          <a href="/" className="la-footer-logo">
             <img
               src="/assets/logo-landscape-light.png"
               alt="The Little Apron"
@@ -84,16 +84,16 @@ export default function Footer() {
         <div className="la-footer-col">
           <div className="la-footer-heading">Explore</div>
           <div className="la-footer-links">
-            <a href="#order" className="footer-link">
+            <a href="/order" className="footer-link">
               Order
             </a>
-            <a href="#sweet-stuff" className="footer-link">
+            <a href="/sweet-stuff" className="footer-link">
               Sweet Stuff
             </a>
-            <a href="#workshops" className="footer-link">
+            <a href="/workshops" className="footer-link">
               Workshops
             </a>
-            <a href="#contact" className="footer-link">
+            <a href="/contact" className="footer-link">
               Contact
             </a>
           </div>
@@ -102,13 +102,13 @@ export default function Footer() {
         <div className="la-footer-col">
           <div className="la-footer-heading">Help</div>
           <div className="la-footer-links">
-            <a href="#faqs" className="footer-link">
+            <a href="/faqs" className="footer-link">
               FAQs
             </a>
-            <a href="#terms" className="footer-link">
+            <a href="/terms" className="footer-link">
               Ts &amp; Cs
             </a>
-            <a href="#cake-care" className="footer-link">
+            <a href="/cake-care" className="footer-link">
               Cake Care
             </a>
           </div>
@@ -116,7 +116,11 @@ export default function Footer() {
       </div>
 
       <div className="la-footer-bar">
-        <span>© {year} The Little Apron · Hamilton, NZ</span>
+        {/* Prerendered at build time, re-rendered at view time — those differ
+            across a New Year boundary. The client value is the correct one. */}
+        <span suppressHydrationWarning>
+          © {year} The Little Apron · Hamilton, NZ
+        </span>
       </div>
     </footer>
   )

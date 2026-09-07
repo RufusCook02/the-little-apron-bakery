@@ -4,9 +4,9 @@
 // no bundled browser download. Set CHROME_PATH to override detection.
 //
 //   npm run screenshot                          # home, all viewports, full page
-//   npm run screenshot -- --route signature     # a specific hash route
+//   npm run screenshot -- --route signature     # a route key from src/data/routes.js
 //   npm run screenshot -- --selector "svg.wave-divider"   # clip around an element
-//   npm run screenshot -- --url https://the-little-apron-bakery.vercel.app
+//   npm run screenshot -- --url https://thelittleapron.co.nz
 //
 // Writes .screenshots/<route>-<viewport>.png (gitignored).
 
@@ -17,6 +17,11 @@
 import { existsSync, mkdirSync, readdirSync, rmSync } from 'node:fs'
 import { join } from 'node:path'
 import puppeteer from 'puppeteer-core'
+import { ROUTE_BY_KEY, NOT_FOUND } from '../src/data/routes.js'
+
+// The 404 isn't in ROUTES (it must stay out of the sitemap), but it's still a
+// page you may need to show in a PR.
+const SHOOTABLE = { ...ROUTE_BY_KEY, [NOT_FOUND.key]: NOT_FOUND }
 
 const VIEWPORTS = [
   { name: 'mobile', width: 390, height: 844, scale: 2, mobile: true },
@@ -102,7 +107,17 @@ async function clipFor(page, selector, viewportHeight) {
 }
 
 const args = parseArgs(process.argv.slice(2))
-const target = `${args.url.replace(/\/$/, '')}/#${args.route === 'home' ? '' : args.route}`
+
+// Route keys are the same ones they have always been; they now resolve to real
+// paths rather than hash fragments. An unknown key used to silently shoot the
+// home page, because the router fell through to it.
+const route = SHOOTABLE[args.route]
+if (!route) {
+  throw new Error(
+    `Unknown route "${args.route}". Known routes: ${Object.keys(SHOOTABLE).join(', ')}`,
+  )
+}
+const target = `${args.url.replace(/\/$/, '')}${route.path}`
 
 // Clear only this route's previous shots. Wiping the whole directory would mean
 // a run that fails part-way destroys the images from other routes too.

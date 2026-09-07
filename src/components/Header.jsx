@@ -21,10 +21,7 @@ export default function Header({ menuOpen, setMenuOpen }) {
           gap: 24,
         }}
       >
-        <a
-          href="#home"
-          style={{ display: 'flex', alignItems: 'center', gap: 12 }}
-        >
+        <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <img
             src="/assets/logo-landscape.png"
             alt="The Little Apron"
@@ -79,26 +76,26 @@ export default function Header({ menuOpen, setMenuOpen }) {
             whiteSpace: 'nowrap',
           }}
         >
-          <a href="#our-story" className="nav-link">
+          <a href="/our-story" className="nav-link">
             Our Story
           </a>
           <span className="la-div" />
-          <a href="#sweet-stuff" className="nav-link">
+          <a href="/sweet-stuff" className="nav-link">
             Sweet Stuff
           </a>
           <span className="la-div" />
-          <a href="#workshops" className="nav-link">
+          <a href="/workshops" className="nav-link">
             Workshops
           </a>
           <span className="la-div" />
-          <a href="#blog" className="nav-link">
+          <a href="/blog" className="nav-link">
             Blog
           </a>
           <span className="la-div" />
-          <a href="#contact" className="nav-link">
+          <a href="/contact" className="nav-link">
             Contact
           </a>
-          <a href="#order" className="order-nav-btn">
+          <a href="/order" className="order-nav-btn">
             Order Now
           </a>
         </nav>

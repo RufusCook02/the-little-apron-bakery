@@ -10,7 +10,7 @@ const faqs = [
     a: (
       <>
         Fill out our{' '}
-        <a href="#order" style={linkStyle}>
+        <a href="/order" style={linkStyle}>
           enquiry form
         </a>{' '}
         with your date, size, flavour, and any design ideas or inspiration
@@ -54,7 +54,7 @@ const faqs = [
     a: (
       <>
         Contact us as early as you can. See our{' '}
-        <a href="#terms" style={linkStyle}>
+        <a href="/terms" style={linkStyle}>
           Terms &amp; Conditions
         </a>{' '}
         for our cancellation policy.
@@ -66,7 +66,7 @@ const faqs = [
     a: (
       <>
         Workshops are launching soon for both kids and adults —{' '}
-        <a href="#workshops" style={linkStyle}>
+        <a href="/workshops" style={linkStyle}>
           register your interest
         </a>{' '}
         to be first to know when dates open.

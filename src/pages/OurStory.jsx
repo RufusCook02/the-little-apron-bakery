@@ -613,7 +613,7 @@ export default function OurStory() {
           textAlign: 'center',
         }}
       >
-        <a href="#order" className="btn-primary">
+        <a href="/order" className="btn-primary">
           Let's make your cake
         </a>
       </section>

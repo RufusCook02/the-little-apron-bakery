@@ -718,7 +718,7 @@ export default function Order({
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 14 }}>
               <a
-                href="#our-story"
+                href="/our-story"
                 className="btn-primary"
                 style={{ fontSize: 13, padding: '15px 30px' }}
               >

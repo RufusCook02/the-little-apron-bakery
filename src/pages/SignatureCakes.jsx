@@ -164,7 +164,7 @@ export default function SignatureCakes() {
                     </div>
                   ))}
                 </div>
-                <a href="#order" className="btn-sm-green">
+                <a href="/order" className="btn-sm-green">
                   Order this style
                 </a>
               </div>
@@ -332,7 +332,7 @@ export default function SignatureCakes() {
             }}
           >
             <a
-              href="#cupcakes"
+              href="/cupcakes"
               className="card-hover-sm"
               style={{
                 display: 'block',
@@ -377,7 +377,7 @@ export default function SignatureCakes() {
               </p>
             </a>
             <a
-              href="#workshops"
+              href="/workshops"
               className="card-hover-sm"
               style={{
                 display: 'block',
@@ -421,7 +421,7 @@ export default function SignatureCakes() {
               </p>
             </a>
             <a
-              href="#order"
+              href="/order"
               className="card-hover-sm"
               style={{
                 display: 'block',
