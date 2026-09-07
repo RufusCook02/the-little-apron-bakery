@@ -58,7 +58,9 @@ Spam mitigation in the API handler mirrors the frontend's honeypot/timestamp fie
 
 **Deployment:** Vercel, auto-deploys `main` via GitHub integration. `vercel.json` pins the framework and sets immutable long-cache headers on `/assets/*`. `cleanUrls` serves `dist/our-story.html` at `/our-story` and redirects the `.html` form back to it; `trailingSlash: false` redirects `/our-story/` to `/our-story`. Between them each page has exactly one reachable URL, which is what the canonical tags assert. There are deliberately **no rewrites** — every route is a real file, and a catch-all SPA rewrite would swallow `dist/404.html` and turn every typo into a 200 serving the home page. The repo is public specifically so GitHub branch protection on `main` (required `build` status check, no force-push/delete) is available for free.
 
-The canonical production domain is `https://thelittleapron.co.nz`, set once as `SITE.origin` in `src/data/routes.js` and used for every canonical, `og:url`, sitemap entry and `robots.txt` reference.
+The canonical production domain is `https://the-little-apron-bakery.vercel.app`, set once as `SITE.origin` in `src/data/routes.js` and used for every canonical, `og:url` and sitemap entry.
+
+**Moving to the custom domain:** `thelittleapron.co.nz` is the intended eventual home but is not attached to the Vercel project yet. Canonicalising to a domain that doesn't resolve would point Google at a host that doesn't serve the site, so the switch has to happen _after_ the domain is live, not before. When it is: change `SITE.origin`, then the three places the domain is written outside application code — `public/robots.txt`, the live-site link in `README.md`, and the canonical assertion in `.github/workflows/ci.yml`. Nothing else hardcodes it. Keep serving the old `.vercel.app` host afterwards so the redirect chain stays intact.
 
 ## Conventions
 

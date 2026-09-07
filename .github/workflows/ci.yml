@@ -29,5 +29,5 @@ jobs:
           test -s dist/our-story.html
           test -s dist/404.html
           test -s dist/sitemap.xml
-          grep -q 'rel="canonical" href="https://thelittleapron.co.nz/our-story"' dist/our-story.html
+          grep -q 'rel="canonical" href="https://the-little-apron-bakery.vercel.app/our-story"' dist/our-story.html
           grep -q 'Where it started' dist/our-story.html

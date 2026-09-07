@@ -8,8 +8,17 @@
 // `key` deliberately matches the old hash-route names, so
 // `npm run screenshot -- --route signature` keeps working.
 
+// `origin` is the canonical production domain. It is the ONLY place the domain
+// is written in application code — every canonical, og:url and sitemap entry
+// derives from it, so moving the site is a one-line change here plus the
+// matching URLs in public/robots.txt, README.md and the CI assertion.
+//
+// When thelittleapron.co.nz is attached to the Vercel project as the
+// production domain, change this to 'https://thelittleapron.co.nz'. Pointing
+// it there before the domain resolves would canonicalise the site to a host
+// that doesn't serve it.
 export const SITE = {
-  origin: 'https://thelittleapron.co.nz',
+  origin: 'https://the-little-apron-bakery.vercel.app',
   name: 'The Little Apron',
   defaultImage: '/assets/logo-landscape.png',
 }

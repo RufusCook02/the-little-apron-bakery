@@ -3,7 +3,7 @@
 A responsive marketing and ordering site for a Hamilton, NZ home bakery — built
 end to end from the design brief through to production deployment.
 
-🔗 **Live site:** https://thelittleapron.co.nz
+🔗 **Live site:** https://the-little-apron-bakery.vercel.app
 
 🚧 Actively maintained — content and pages are still being added as the business
 grows.
