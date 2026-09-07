@@ -42,6 +42,12 @@ Every link on the site is a plain `<a href="/our-story">`. `App.jsx` runs one de
 
 `vite.config.js` sets `appType: 'mpa'` so `npm run preview` serves the prerendered file for each path instead of falling back to `index.html`; a small dev-only plugin restores the history fallback the dev server needs.
 
+**Structured data** lives in `src/lib/schema.js` and is emitted as a single JSON-LD `@graph` into the prerendered head (and kept in step on client navigation). Every indexable page carries `Organization` + `WebSite`; non-home pages add a `BreadcrumbList` built from the optional `parent` key in `routes.js`; `/signature` adds a `Product` per cake from `src/data/cakes.js`; `/faqs` adds an `FAQPage` from `src/data/faqs.jsx`.
+
+It is `Organization`, deliberately, not `LocalBusiness`/`Bakery` — those need a street address and opening hours to be eligible for a local rich result, and the site publishes neither. Upgrading is a one-file change if that ever changes. Note also that Google restricted FAQ rich results to authoritative government and health sites in 2023, so the `FAQPage` markup is valid and useful to machine readers but will not earn a rich result for a bakery.
+
+`scripts/prerender.mjs` gets `render`, `headHtml`, `PAGES` and the route data from the **compiled SSR bundle**, not by importing `src/` directly — that's what lets modules like `src/data/faqs.jsx` contain JSX, which plain Node can't parse.
+
 To add a page: add it to `ROUTES` in `src/data/routes.js` _and_ to `PAGES` in `src/pages/registry.js`, then add a nav link (`/your-route`) in `Header.jsx`/`Footer.jsx`. The build fails if those two maps disagree.
 
 **Form submission is centralized in `App.jsx`**, not per-page. `handleSubmit(name)` is a single handler shared by every form (contact, order, workshop), keyed by a `name` string. It's passed down to the active page as a prop along with `sent`, `submitting`, and `submitError` (all keyed by that same `name`), so each page component just needs to call `handleSubmit('formName')` on its `<form onSubmit>` and read `sent['formName']` etc. for its own UI state — there's no local form state in the page components themselves.
@@ -69,6 +75,8 @@ Things that are easy to break silently, and are expected of every change.
 **Adding a page** — add it to `ROUTES` in `src/data/routes.js` with its own `title` and `description`, _and_ to `PAGES` in `src/pages/registry.js`. The prerender step fails the build if those disagree. Link to it with a real anchor (`<a href="/your-route">`); never a JS-only handler, because a crawler follows hrefs.
 
 **Metadata** — every route carries a unique title and description in `routes.js`; the canonical, `og:*` and `twitter:*` tags are derived from it in `src/lib/head.js`. Don't add page metadata to `index.html` — everything between the `<!--head-start-->` markers is replaced per route at build time. Never hardcode the production origin; use `SITE.origin`.
+
+**Structured data** — only ever assert facts already published on the site. Never invent an address, opening hours, ratings, reviews or prices. Anything carrying a `// Placeholder: confirm … with Cushla` comment is marked `unconfirmed` in its data file and must stay out of JSON-LD: structured data is a stronger claim than body copy, and a wrong one is worse than a missing one. When a price is a "from", emit `lowPrice` without `highPrice` rather than implying a fixed price.
 
 **Keep these docs current.** A change that invalidates anything in `CLAUDE.md`, `README.md` or `.claude/skills/ship/SKILL.md` updates that file _in the same PR_, never as a follow-up. The things that go stale fastest: the route list, the npm scripts and build pipeline, the architecture notes above, and these conventions. All three files described hash routing long after it was replaced, and `SKILL.md` listed a `diy` route that never existed in `PAGES` — that is the failure this rule exists to prevent.
 
