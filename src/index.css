@@ -334,6 +334,65 @@ textarea:focus {
   color: #4f6f66 !important;
 }
 
+/* ── Nav dropdown ── */
+.la-drop {
+  position: relative;
+}
+.la-drop-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.la-drop-caret {
+  transition: transform 0.2s;
+}
+.la-drop:hover .la-drop-caret,
+.la-drop:focus-within .la-drop-caret {
+  transform: rotate(180deg);
+}
+.la-drop-menu {
+  position: absolute;
+  top: 100%;
+  left: -14px;
+  padding-top: 18px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition:
+    opacity 0.2s,
+    transform 0.2s,
+    visibility 0.2s;
+}
+.la-drop:hover .la-drop-menu,
+.la-drop:focus-within .la-drop-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.la-drop-panel {
+  display: flex;
+  flex-direction: column;
+  min-width: 210px;
+  padding: 8px 0;
+  background: rgba(255, 253, 249, 0.98);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(79, 111, 102, 0.14);
+  border-radius: 14px;
+  box-shadow: 0 22px 38px -24px rgba(79, 111, 102, 0.45);
+}
+.la-drop-panel .nav-link {
+  padding: 11px 20px;
+  font-size: 12.5px;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  transition:
+    color 0.2s,
+    background 0.2s;
+}
+.la-drop-panel .nav-link:hover {
+  background: rgba(79, 111, 102, 0.07);
+}
+
 .order-nav-btn {
   display: inline-flex;
   align-items: center;
@@ -562,6 +621,35 @@ textarea:focus {
     padding: 15px 4px !important;
     border-bottom: 1px solid rgba(79, 111, 102, 0.08);
   }
+  .la-nav .la-drop {
+    display: flex;
+    flex-direction: column;
+  }
+  .la-nav .la-drop-caret {
+    display: none;
+  }
+  .la-nav .la-drop-menu {
+    position: static;
+    padding: 0;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+  .la-nav .la-drop-panel {
+    min-width: 0;
+    padding: 0;
+    background: none;
+    backdrop-filter: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .la-nav .la-drop-panel .nav-link {
+    padding: 14px 4px 14px 18px !important;
+    font-size: 13px;
+    color: #7d8a85;
+  }
+
   .la-nav .order-nav-btn {
     background: #4f6f66 !important;
     color: #fff !important;
