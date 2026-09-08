@@ -129,9 +129,37 @@ export default function Header({ menuOpen, setMenuOpen }) {
             Our Story
           </a>
           <span className="la-div" />
-          <a href="/sweet-stuff" className="nav-link">
-            Sweet Stuff
-          </a>
+          <div className="la-drop">
+            <a href="/sweet-stuff" className="nav-link la-drop-trigger">
+              Sweet Stuff
+              <svg
+                className="la-drop-caret"
+                width="10"
+                height="10"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                aria-hidden="true"
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </a>
+            <div className="la-drop-menu">
+              <div className="la-drop-panel">
+                <a href="/signature" className="nav-link">
+                  Signature Cakes
+                </a>
+                <a href="/order" className="nav-link">
+                  Custom Cakes
+                </a>
+                <a href="/cupcakes" className="nav-link">
+                  Cupcakes
+                </a>
+              </div>
+            </div>
+          </div>
           <span className="la-div" />
           <a href="/workshops" className="nav-link">
             Workshops
