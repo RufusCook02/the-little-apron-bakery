@@ -342,7 +342,7 @@ export default function Home() {
             }}
           >
             <a
-              href="/signature"
+              href="/order"
               className="card-hover"
               style={{
                 display: 'block',
