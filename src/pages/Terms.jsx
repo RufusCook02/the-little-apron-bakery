@@ -1,3 +1,5 @@
+import Img from '../components/Img.jsx'
+
 const sections = [
   {
     heading: 'Ordering',
@@ -53,8 +55,9 @@ export default function Terms() {
             textAlign: 'center',
           }}
         >
-          <img
+          <Img
             src="/assets/bow.png"
+            sizes="58px"
             alt=""
             style={{ width: 58, height: 'auto', margin: '0 auto 14px' }}
           />

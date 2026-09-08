@@ -1,0 +1,137 @@
+{
+  "/assets/bow.png": {
+    "w": 504,
+    "h": 464,
+    "widths": [200, 400, 504]
+  },
+  "/assets/brand-mixer.png": {
+    "w": 1448,
+    "h": 1086,
+    "widths": [200, 400, 800, 1200, 1448]
+  },
+  "/assets/cakes/baby-bean.jpg": {
+    "w": 1800,
+    "h": 1800,
+    "widths": [200, 400, 800, 1200, 1600]
+  },
+  "/assets/cakes/baby-gold.jpg": {
+    "w": 1800,
+    "h": 1800,
+    "widths": [200, 400, 800, 1200, 1600]
+  },
+  "/assets/cakes/canvas.jpg": {
+    "w": 1350,
+    "h": 1800,
+    "widths": [200, 400, 800, 1200, 1350]
+  },
+  "/assets/cakes/chocolate.jpg": {
+    "w": 1125,
+    "h": 1147,
+    "widths": [200, 400, 800, 1125]
+  },
+  "/assets/cakes/drip.jpg": {
+    "w": 1350,
+    "h": 1800,
+    "widths": [200, 400, 800, 1200, 1350]
+  },
+  "/assets/cakes/floral.jpg": {
+    "w": 1350,
+    "h": 1800,
+    "widths": [200, 400, 800, 1200, 1350]
+  },
+  "/assets/cakes/pink.jpg": {
+    "w": 1800,
+    "h": 1800,
+    "widths": [200, 400, 800, 1200, 1600]
+  },
+  "/assets/cakes/vintage-bow.jpg": {
+    "w": 1800,
+    "h": 1800,
+    "widths": [200, 400, 800, 1200, 1600]
+  },
+  "/assets/cakes/vintage-piped.jpg": {
+    "w": 1800,
+    "h": 1800,
+    "widths": [200, 400, 800, 1200, 1600]
+  },
+  "/assets/cakes/wedding.jpg": {
+    "w": 1350,
+    "h": 1800,
+    "widths": [200, 400, 800, 1200, 1350]
+  },
+  "/assets/icons/cake.png": {
+    "w": 398,
+    "h": 395,
+    "widths": [200, 398]
+  },
+  "/assets/icons/cupcake.png": {
+    "w": 216,
+    "h": 263,
+    "widths": [200, 216]
+  },
+  "/assets/icons/piping.png": {
+    "w": 364,
+    "h": 320,
+    "widths": [200, 364]
+  },
+  "/assets/icons/slice.png": {
+    "w": 295,
+    "h": 207,
+    "widths": [200, 295]
+  },
+  "/assets/icons/whisk.png": {
+    "w": 284,
+    "h": 263,
+    "widths": [200, 284]
+  },
+  "/assets/logo-landscape-light.png": {
+    "w": 703,
+    "h": 198,
+    "widths": [200, 400, 703]
+  },
+  "/assets/logo-landscape.png": {
+    "w": 703,
+    "h": 198,
+    "widths": [200, 400, 703]
+  },
+  "/assets/story/cushs-creations.jpg": {
+    "w": 1125,
+    "h": 1077,
+    "widths": [200, 400, 800, 1125]
+  },
+  "/assets/story/first-mixer.jpg": {
+    "w": 720,
+    "h": 960,
+    "widths": [200, 400, 720]
+  },
+  "/assets/story/fondant-cake.jpg": {
+    "w": 450,
+    "h": 600,
+    "widths": [200, 400, 450]
+  },
+  "/assets/story/learning.jpg": {
+    "w": 720,
+    "h": 960,
+    "widths": [200, 400, 720]
+  },
+  "/assets/story/little-apron.jpg": {
+    "w": 1647,
+    "h": 1800,
+    "widths": [200, 400, 800, 1200, 1600]
+  },
+  "/assets/story/step-ladder.jpg": {
+    "w": 479,
+    "h": 640,
+    "widths": [200, 400, 479]
+  },
+  "/assets/story/sugar-shed-crew.jpg": {
+    "w": 2048,
+    "h": 1536,
+    "widths": [200, 400, 800, 1200, 1600]
+  },
+  "/assets/story/sugar-shed.jpg": {
+    "w": 1080,
+    "h": 1349,
+    "widths": [200, 400, 800, 1080]
+  }
+}

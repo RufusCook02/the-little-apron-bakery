@@ -1,4 +1,5 @@
 import { SOCIALS, externalLinkProps } from '../data/socials'
+import Img from '../components/Img.jsx'
 
 const posts = [
   {
@@ -38,8 +39,9 @@ export default function Blog() {
             textAlign: 'center',
           }}
         >
-          <img
+          <Img
             src="/assets/bow.png"
+            sizes="58px"
             alt=""
             style={{ width: 58, height: 'auto', margin: '0 auto 14px' }}
           />
@@ -102,8 +104,9 @@ export default function Blog() {
                 }}
               >
                 <div style={{ position: 'relative' }}>
-                  <img
+                  <Img
                     src={post.img}
+                    sizes="(max-width: 900px) 92vw, 350px"
                     alt=""
                     style={{
                       width: '100%',

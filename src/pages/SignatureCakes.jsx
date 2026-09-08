@@ -1,4 +1,5 @@
 import { sig } from '../data/cakes.js'
+import Img from '../components/Img.jsx'
 
 export default function SignatureCakes() {
   return (
@@ -81,8 +82,9 @@ export default function SignatureCakes() {
               }}
             >
               <div style={{ position: 'relative' }}>
-                <img
+                <Img
                   src={cake.img}
+                  sizes="(max-width: 900px) 92vw, 360px"
                   alt={cake.name}
                   style={{
                     width: '100%',
@@ -343,8 +345,9 @@ export default function SignatureCakes() {
                 textAlign: 'center',
               }}
             >
-              <img
+              <Img
                 src="/assets/icons/cupcake.png"
+                sizes="72px"
                 alt=""
                 style={{
                   width: 72,
@@ -388,8 +391,9 @@ export default function SignatureCakes() {
                 textAlign: 'center',
               }}
             >
-              <img
+              <Img
                 src="/assets/icons/piping.png"
+                sizes="72px"
                 alt=""
                 style={{
                   width: 72,
@@ -432,8 +436,9 @@ export default function SignatureCakes() {
                 textAlign: 'center',
               }}
             >
-              <img
+              <Img
                 src="/assets/icons/slice.png"
+                sizes="72px"
                 alt=""
                 style={{
                   width: 72,

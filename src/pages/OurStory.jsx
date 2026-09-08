@@ -1,3 +1,5 @@
+import Img from '../components/Img.jsx'
+
 function Arrow({ seed, flip }) {
   const id = `sk${seed}`
   return (
@@ -125,8 +127,9 @@ export default function OurStory() {
                 boxShadow: '0 24px 46px -28px rgba(79,111,102,.45)',
               }}
             >
-              <img
+              <Img
                 src="/assets/story/step-ladder.jpg"
+                sizes="(max-width: 900px) 92vw, 500px"
                 alt="Little Cushla on the step ladder"
                 style={{
                   width: '100%',
@@ -198,8 +201,9 @@ export default function OurStory() {
                 boxShadow: '0 24px 46px -28px rgba(79,111,102,.45)',
               }}
             >
-              <img
+              <Img
                 src="/assets/story/fondant-cake.jpg"
+                sizes="(max-width: 900px) 92vw, 500px"
                 alt="An early fondant cake"
                 style={{
                   width: '100%',
@@ -313,8 +317,9 @@ export default function OurStory() {
                 gap: 12,
               }}
             >
-              <img
+              <Img
                 src="/assets/story/sugar-shed.jpg"
+                sizes="(max-width: 900px) 92vw, 540px"
                 alt="Cake outside The Sugar Shed"
                 style={{
                   width: '100%',
@@ -324,8 +329,9 @@ export default function OurStory() {
                   gridRow: 'span 2',
                 }}
               />
-              <img
+              <Img
                 src="/assets/story/sugar-shed-crew.jpg"
+                sizes="(max-width: 900px) 45vw, 240px"
                 alt="With the crew"
                 style={{
                   width: '100%',
@@ -334,8 +340,9 @@ export default function OurStory() {
                   borderRadius: 16,
                 }}
               />
-              <img
+              <Img
                 src="/assets/story/learning.jpg"
+                sizes="(max-width: 900px) 45vw, 240px"
                 alt="Decorating"
                 style={{
                   width: '100%',
@@ -367,8 +374,9 @@ export default function OurStory() {
                 boxShadow: '0 24px 46px -28px rgba(79,111,102,.45)',
               }}
             >
-              <img
+              <Img
                 src="/assets/story/first-mixer.jpg"
+                sizes="(max-width: 900px) 92vw, 500px"
                 alt="My very first stand mixer"
                 style={{
                   width: '100%',
@@ -440,8 +448,9 @@ export default function OurStory() {
                 boxShadow: '0 24px 46px -28px rgba(79,111,102,.45)',
               }}
             >
-              <img
+              <Img
                 src="/assets/story/cushs-creations.jpg"
+                sizes="(max-width: 900px) 92vw, 500px"
                 alt="Baking as CushsCreations"
                 style={{
                   width: '100%',
@@ -514,8 +523,9 @@ export default function OurStory() {
                 boxShadow: '0 24px 46px -24px rgba(0,0,0,.4)',
               }}
             >
-              <img
+              <Img
                 src="/assets/story/little-apron.jpg"
+                sizes="(max-width: 900px) 92vw, 500px"
                 alt="Cushla in The Little Apron"
                 style={{
                   width: '100%',

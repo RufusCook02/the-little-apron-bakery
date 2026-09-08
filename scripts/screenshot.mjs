@@ -71,16 +71,42 @@ function findChrome() {
   return found
 }
 
-// Scroll the page once so anything that animates in on scroll has settled
-// before we shoot it.
+// Scroll the page once so anything that animates in on scroll has settled, and
+// so every loading="lazy" image below the fold is actually requested — a
+// full-page screenshot does not trigger them on its own, and they'd come out
+// blank.
 async function settle(page) {
   await page.evaluate(async () => {
+    // index.css sets `scroll-behavior: smooth`, which makes each scrollTo
+    // animate. The steps below would never land, and the loop would finish
+    // near the top of the page having triggered almost nothing.
+    const root = document.documentElement
+    const previous = root.style.scrollBehavior
+    root.style.scrollBehavior = 'auto'
+
     const step = window.innerHeight / 2
     for (let y = 0; y < document.body.scrollHeight; y += step) {
       window.scrollTo(0, y)
       await new Promise((r) => setTimeout(r, 60))
     }
     window.scrollTo(0, 0)
+    root.style.scrollBehavior = previous
+
+    // Give the images the scroll just triggered a chance to arrive. Resolve on
+    // error too, and cap the wait, so one broken file can't hang the run.
+    const pending = [...document.images].filter((img) => !img.complete)
+    await Promise.race([
+      Promise.all(
+        pending.map(
+          (img) =>
+            new Promise((res) => {
+              img.addEventListener('load', res, { once: true })
+              img.addEventListener('error', res, { once: true })
+            }),
+        ),
+      ),
+      new Promise((r) => setTimeout(r, 10000)),
+    ])
   })
   await new Promise((r) => setTimeout(r, 400))
 }

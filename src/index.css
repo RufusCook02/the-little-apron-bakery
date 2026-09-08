@@ -18,6 +18,18 @@ body {
 img {
   display: block;
   max-width: 100%;
+  /* Img.jsx sets intrinsic width/height attributes so the browser can reserve
+     space. Those attributes are presentational hints equivalent to
+     `height: 1350px`, which would beat any `aspect-ratio` the layout sets and
+     render images at full intrinsic height. `height: auto` hands sizing back to
+     CSS. Components that want a fixed height still set it inline, which wins. */
+  height: auto;
+}
+/* Img.jsx wraps every image in <picture>. Without this the <picture> becomes
+   the flex/grid item instead of the <img>, and every layout that sizes its
+   images through a parent breaks. */
+picture {
+  display: contents;
 }
 a {
   text-decoration: none;

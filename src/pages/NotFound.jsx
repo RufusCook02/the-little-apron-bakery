@@ -1,3 +1,5 @@
+import Img from '../components/Img.jsx'
+
 export default function NotFound() {
   return (
     <div className="la-page">
@@ -15,8 +17,9 @@ export default function NotFound() {
             textAlign: 'center',
           }}
         >
-          <img
+          <Img
             src="/assets/bow.png"
+            sizes="58px"
             alt=""
             style={{ width: 58, height: 'auto', margin: '0 auto 14px' }}
           />

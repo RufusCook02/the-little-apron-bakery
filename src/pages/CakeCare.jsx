@@ -1,3 +1,5 @@
+import Img from '../components/Img.jsx'
+
 const sections = [
   {
     heading: 'When you get home',
@@ -43,8 +45,9 @@ export default function CakeCare() {
             textAlign: 'center',
           }}
         >
-          <img
+          <Img
             src="/assets/bow.png"
+            sizes="58px"
             alt=""
             style={{ width: 58, height: 'auto', margin: '0 auto 14px' }}
           />

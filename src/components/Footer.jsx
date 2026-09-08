@@ -1,4 +1,5 @@
 import { SOCIALS, externalLinkProps } from '../data/socials'
+import Img from './Img.jsx'
 
 const year = new Date().getFullYear()
 
@@ -8,8 +9,9 @@ export default function Footer() {
       <div className="la-footer-inner">
         <div className="la-footer-brand">
           <a href="/" className="la-footer-logo">
-            <img
+            <Img
               src="/assets/logo-landscape-light.png"
+              sizes="150px"
               alt="The Little Apron"
             />
           </a>

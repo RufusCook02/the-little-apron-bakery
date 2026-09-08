@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import Img from '../components/Img.jsx'
 
 export default function Workshops({
   sent,
@@ -26,8 +27,9 @@ export default function Workshops({
           overflow: 'hidden',
         }}
       >
-        <img
+        <Img
           src="/assets/bow.png"
+          sizes="120px"
           alt=""
           style={{
             position: 'absolute',
@@ -159,8 +161,9 @@ export default function Workshops({
                   key={i}
                   style={{ display: 'flex', gap: 13, alignItems: 'flex-start' }}
                 >
-                  <img
+                  <Img
                     src="/assets/bow.png"
+                    sizes="28px"
                     alt=""
                     style={{ width: 28, height: 'auto', marginTop: 2 }}
                   />
@@ -235,8 +238,9 @@ export default function Workshops({
                 textAlign: 'center',
               }}
             >
-              <img
+              <Img
                 src="/assets/bow.png"
+                sizes="54px"
                 alt=""
                 style={{ width: 54, height: 'auto', margin: '0 auto 14px' }}
               />

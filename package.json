@@ -16,6 +16,7 @@
     "format:check": "prettier --check .",
     "prepare": "git config core.hooksPath .githooks",
     "optimize-images": "node scripts/optimize-images.mjs",
+    "check-images": "node scripts/check-image-manifest.mjs",
     "screenshot": "node scripts/screenshot.mjs"
   },
   "dependencies": {

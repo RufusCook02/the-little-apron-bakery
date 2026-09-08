@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { SOCIALS, externalLinkProps } from '../data/socials'
+import Img from '../components/Img.jsx'
 
 const MAX_FILES = 5
 const MAX_TOTAL_BYTES = 4 * 1024 * 1024 // ~4MB combined, leaving headroom under Vercel's 4.5MB request limit
@@ -63,8 +64,9 @@ export default function Order({
             textAlign: 'center',
           }}
         >
-          <img
+          <Img
             src="/assets/bow.png"
+            sizes="60px"
             alt=""
             style={{ width: 60, height: 'auto', margin: '0 auto 14px' }}
           />
@@ -119,8 +121,9 @@ export default function Order({
                 textAlign: 'center',
               }}
             >
-              <img
+              <Img
                 src="/assets/bow.png"
+                sizes="64px"
                 alt=""
                 style={{ width: 64, height: 'auto', margin: '0 auto 16px' }}
               />
@@ -672,8 +675,9 @@ export default function Order({
               boxShadow: '0 24px 46px -28px rgba(79,111,102,.45)',
             }}
           >
-            <img
+            <Img
               src="/assets/story/little-apron.jpg"
+              sizes="(max-width: 900px) 92vw, 420px"
               alt="Cushla"
               style={{ width: '100%', aspectRatio: '4/5', objectFit: 'cover' }}
             />
