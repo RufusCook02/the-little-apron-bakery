@@ -56,7 +56,7 @@ export default function Contact({
               fontFamily: "'Cormorant Garamond',serif",
               fontWeight: 600,
               color: '#3f5750',
-              fontSize: 'clamp(40px,5.5vw,64px)',
+              fontSize: 'var(--fs-h1)',
               lineHeight: 1.05,
               margin: '12px 0 16px',
             }}
@@ -112,7 +112,7 @@ export default function Contact({
                     fontFamily: "'Cormorant Garamond',serif",
                     fontWeight: 600,
                     color: '#3f5750',
-                    fontSize: 28,
+                    fontSize: 'var(--fs-h3)',
                     marginBottom: 8,
                   }}
                 >
@@ -321,7 +321,7 @@ export default function Contact({
                 fontFamily: "'Cormorant Garamond',serif",
                 fontWeight: 600,
                 color: '#fff',
-                fontSize: 26,
+                fontSize: 'var(--fs-h3)',
                 marginBottom: 22,
               }}
             >
@@ -348,7 +348,15 @@ export default function Contact({
                 >
                   Phone
                 </div>
-                <a href="tel:0273470648" style={{ color: '#fff' }}>
+                <a
+                  href="tel:0273470648"
+                  style={{
+                    color: '#fff',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    minHeight: 'var(--tap)',
+                  }}
+                >
                   027 347 0648
                 </a>
               </div>
@@ -366,7 +374,12 @@ export default function Contact({
                 </div>
                 <a
                   href="mailto:hello@thelittleapron.co.nz"
-                  style={{ color: '#fff' }}
+                  style={{
+                    color: '#fff',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    minHeight: 'var(--tap)',
+                  }}
                 >
                   hello@thelittleapron.co.nz
                 </a>

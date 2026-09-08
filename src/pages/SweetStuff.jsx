@@ -34,7 +34,7 @@ export default function SweetStuff() {
               fontFamily: "'Cormorant Garamond',serif",
               fontWeight: 600,
               color: '#3f5750',
-              fontSize: 'clamp(38px,5.5vw,64px)',
+              fontSize: 'var(--fs-h1)',
               lineHeight: 1.05,
               margin: '14px 0 16px',
             }}
@@ -92,7 +92,7 @@ export default function SweetStuff() {
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
                   color: '#3f5750',
-                  fontSize: 28,
+                  fontSize: 'var(--fs-h3)',
                   marginBottom: 8,
                 }}
               >
@@ -136,7 +136,7 @@ export default function SweetStuff() {
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
                   color: '#3f5750',
-                  fontSize: 28,
+                  fontSize: 'var(--fs-h3)',
                   marginBottom: 8,
                 }}
               >
@@ -181,7 +181,7 @@ export default function SweetStuff() {
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
                   color: '#3f5750',
-                  fontSize: 28,
+                  fontSize: 'var(--fs-h3)',
                   marginBottom: 8,
                 }}
               >
@@ -249,7 +249,7 @@ export default function SweetStuff() {
                 style={{
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
-                  fontSize: 'clamp(28px,3.6vw,42px)',
+                  fontSize: 'var(--fs-h2)',
                   lineHeight: 1.1,
                   marginBottom: 14,
                 }}

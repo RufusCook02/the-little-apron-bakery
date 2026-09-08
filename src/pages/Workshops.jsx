@@ -65,7 +65,7 @@ export default function Workshops({
               fontFamily: "'Cormorant Garamond',serif",
               fontWeight: 600,
               color: '#fff',
-              fontSize: 'clamp(40px,5.5vw,64px)',
+              fontSize: 'var(--fs-h1)',
               lineHeight: 1.05,
               margin: '14px 0 20px',
             }}
@@ -110,7 +110,7 @@ export default function Workshops({
                 fontFamily: "'Cormorant Garamond',serif",
                 fontWeight: 600,
                 color: '#3f5750',
-                fontSize: 'clamp(28px,3.6vw,42px)',
+                fontSize: 'var(--fs-h2)',
                 lineHeight: 1.1,
                 marginBottom: 16,
               }}
@@ -144,7 +144,7 @@ export default function Workshops({
                 fontFamily: "'Cormorant Garamond',serif",
                 fontWeight: 600,
                 color: '#3f5750',
-                fontSize: 24,
+                fontSize: 'var(--fs-h4)',
                 marginBottom: 18,
               }}
             >
@@ -209,7 +209,7 @@ export default function Workshops({
                 fontFamily: "'Cormorant Garamond',serif",
                 fontWeight: 600,
                 color: '#3f5750',
-                fontSize: 'clamp(26px,3.4vw,38px)',
+                fontSize: 'var(--fs-h2-sm)',
                 lineHeight: 1.12,
                 marginBottom: 12,
               }}
@@ -249,7 +249,7 @@ export default function Workshops({
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
                   color: '#3f5750',
-                  fontSize: 28,
+                  fontSize: 'var(--fs-h3)',
                   marginBottom: 8,
                 }}
               >

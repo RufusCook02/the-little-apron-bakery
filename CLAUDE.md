@@ -61,6 +61,14 @@ Spam mitigation in the API handler mirrors the frontend's honeypot/timestamp fie
 
 **Styling** is global CSS classes in `src/index.css` (nav, buttons, cards, footer, animations) combined with per-component inline `style={{...}}` objects — there's no CSS-in-JS library or module scoping, so shared visual patterns live in `index.css` and one-off layout lives inline.
 
+**Type scale:** headings use the `--fs-*` custom properties defined on `:root` in `index.css` (`--fs-display`, `--fs-h1`, `--fs-h2`, `--fs-h2-sm`, `--fs-h3`, `--fs-h4`), written inline as `fontSize: 'var(--fs-h2)'`. Every clamp minimum is a size that reads at 390px. Before this existed, half the headings used `clamp()` with eight different formulas and the other half were fixed px with no mobile treatment at all.
+
+**Breakpoints** are `900px` (nav collapses to the drawer, multi-column grids go single or two-up), `560px` (footer stacks) and `480px` (the small-phone tier: two-up card grids go single-column, section padding tightens). `--tap: 44px` is the minimum interactive target.
+
+**The mobile nav is a real drawer:** `Header.jsx` owns Escape-to-close, body scroll lock, focus into the panel on open and back to the burger on close, and `aria-expanded`/`aria-controls`; `App.jsx` closes it on navigation. It uses `display: none` when closed deliberately, which keeps it out of the tab order and the accessibility tree.
+
+Do not add `overflow-x: hidden` to fix horizontal scrolling — it hides the symptom, and it makes the wrapping element a scroll container, which breaks the sticky header. Find the element that overhangs and constrain it. All 12 routes are verified clean at 390px.
+
 **Images** in `public/assets/` are referenced by literal string path (e.g. `/assets/logo-landscape.png`), not imported through Vite's module graph — they aren't processed at build time. `scripts/optimize-images.mjs` rewrites files in place at their existing path/filename for this reason: renaming or moving an asset requires manually updating every JSX reference to it.
 
 That script also writes AVIF and WebP derivatives at a ladder of widths (`floral-400.avif`, `floral-800.avif`, …) and regenerates `src/data/image-manifest.json` with each image's intrinsic dimensions. Derivatives are **committed**, not built — AVIF encoding is far too slow to run on every deploy. It also generates the favicons from `assets/logo.png`.
@@ -89,6 +97,10 @@ Things that are easy to break silently, and are expected of every change.
 **Structured data** — only ever assert facts already published on the site. Never invent an address, opening hours, ratings, reviews or prices. Anything carrying a `// Placeholder: confirm … with Cushla` comment is marked `unconfirmed` in its data file and must stay out of JSON-LD: structured data is a stronger claim than body copy, and a wrong one is worse than a missing one. When a price is a "from", emit `lowPrice` without `highPrice` rather than implying a fixed price.
 
 **Images** — render through `src/components/Img.jsx`, never a bare `<img>`, and always pass a `sizes` that reflects the rendered width (it's what lets the browser pick a 400px file instead of a 1600px one). After adding or replacing a photo, run `npm run optimize-images` and commit the derivatives and the updated manifest; CI fails otherwise. `alt` is required — decorative images take `alt=""`. Only genuinely above-the-fold images get `priority`; marking everything priority is the same as marking nothing.
+
+**Type and layout** — use the `--fs-*` scale rather than hardcoding heading sizes. Design at 390px rather than letting the desktop layout reflow, and never paper over overflow with `overflow-x: hidden`. Interactive targets are at least `--tap` (44px); where a visual element must stay small, grow the hit area with a `::after` overlay rather than the element itself — but only when targets aren't stacked closely enough to then collide. Inline links inside a sentence are exempt (WCAG 2.5.8's inline exception) and should be left alone.
+
+**Headings** — exactly one `h1` per page, then `h2`/`h3` in order with nothing skipped. Section headings are real heading elements, not styled `<div>`s. Don't demote a heading for tidiness if it would create a skipped level.
 
 **Keep these docs current.** A change that invalidates anything in `CLAUDE.md`, `README.md` or `.claude/skills/ship/SKILL.md` updates that file _in the same PR_, never as a follow-up. The things that go stale fastest: the route list, the npm scripts and build pipeline, the architecture notes above, and these conventions. All three files described hash routing long after it was replaced, and `SKILL.md` listed a `diy` route that never existed in `PAGES` — that is the failure this rule exists to prevent.
 

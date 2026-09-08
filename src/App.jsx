@@ -140,7 +140,10 @@ export default function App({ initialPath = '/' }) {
   const Page = PAGES[route.key]
 
   return (
-    <div style={{ overflowX: 'hidden' }}>
+    <div>
+      <a href="#main" className="skip-link">
+        Skip to content
+      </a>
       <div
         style={{
           background: '#4f6f66',
@@ -158,7 +161,7 @@ export default function App({ initialPath = '/' }) {
         &amp; workshops
       </div>
       <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-      <main>
+      <main id="main">
         <Page
           orderOpen={orderOpen}
           setOrderOpen={setOrderOpen}
