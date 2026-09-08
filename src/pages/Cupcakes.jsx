@@ -1,3 +1,5 @@
+import Img from '../components/Img.jsx'
+
 export default function Cupcakes() {
   return (
     <div className="la-page">
@@ -15,8 +17,9 @@ export default function Cupcakes() {
             textAlign: 'center',
           }}
         >
-          <img
+          <Img
             src="/assets/icons/cupcake.png"
+            sizes="80px"
             alt=""
             style={{
               width: 80,

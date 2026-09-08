@@ -1,3 +1,4 @@
+import Img from '../components/Img.jsx'
 import { faqs } from '../data/faqs.jsx'
 
 export default function Faqs() {
@@ -17,8 +18,9 @@ export default function Faqs() {
             textAlign: 'center',
           }}
         >
-          <img
+          <Img
             src="/assets/bow.png"
+            sizes="58px"
             alt=""
             style={{ width: 58, height: 'auto', margin: '0 auto 14px' }}
           />

@@ -1,3 +1,5 @@
+import Img from './Img.jsx'
+
 export default function Header({ menuOpen, setMenuOpen }) {
   return (
     <header
@@ -22,8 +24,12 @@ export default function Header({ menuOpen, setMenuOpen }) {
         }}
       >
         <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <img
+          {/* priority: in the initial viewport on every page, so lazy-loading
+              it would only delay the one image every visitor definitely sees. */}
+          <Img
             src="/assets/logo-landscape.png"
+            sizes="165px"
+            priority
             alt="The Little Apron"
             style={{ height: 46, width: 'auto', objectFit: 'contain' }}
           />

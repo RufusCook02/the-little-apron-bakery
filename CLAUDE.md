@@ -23,7 +23,8 @@ Follow the `ship` skill for the full procedure.
   prerendered HTML as production serves it; the dev server never prerenders.
 - `npm run lint` / `npm run lint:fix` — ESLint over the repo
 - `npm run format` / `npm run format:check` — Prettier
-- `npm run optimize-images` — one-off Sharp-based compression pass over `public/assets/`; not wired into build or CI, run manually after adding new photos
+- `npm run optimize-images` — Sharp pass over `public/assets/`: optimises originals in place, writes AVIF/WebP derivatives and the favicons, and regenerates `src/data/image-manifest.json`. Not wired into the build (AVIF encoding is slow) — run it manually after adding photos and commit the output.
+- `npm run check-images` — fails if a referenced image is missing from the manifest or a derivative is absent. Runs in CI.
 - `npm run screenshot -- --route home` — capture a route at 390/820/1440 into `.screenshots/` (gitignored); drives the machine's installed Chrome/Edge via `puppeteer-core`, set `CHROME_PATH` to override. `--selector` clips around one element, `--url` targets a deployed site instead of localhost
 
 There is no test suite — no test script exists. CI (`.github/workflows/ci.yml`) runs `lint`, `format:check` and `build` on push/PR to `main`, then asserts the prerender actually produced content (a page file, the 404, the sitemap, and a real canonical and body copy inside `dist/our-story.html`) — a silently broken prerender would still look fine in a browser while serving an empty shell to every crawler.
@@ -62,6 +63,15 @@ Spam mitigation in the API handler mirrors the frontend's honeypot/timestamp fie
 
 **Images** in `public/assets/` are referenced by literal string path (e.g. `/assets/logo-landscape.png`), not imported through Vite's module graph — they aren't processed at build time. `scripts/optimize-images.mjs` rewrites files in place at their existing path/filename for this reason: renaming or moving an asset requires manually updating every JSX reference to it.
 
+That script also writes AVIF and WebP derivatives at a ladder of widths (`floral-400.avif`, `floral-800.avif`, …) and regenerates `src/data/image-manifest.json` with each image's intrinsic dimensions. Derivatives are **committed**, not built — AVIF encoding is far too slow to run on every deploy. It also generates the favicons from `assets/logo.png`.
+
+`src/components/Img.jsx` consumes all that: it renders a `<picture>` with AVIF/WebP `srcset`, plus `width`/`height`, `loading` and `decoding` on the `<img>`. An image missing from the manifest still renders as a plain `<img>`, so a forgotten `npm run optimize-images` degrades quietly rather than breaking — which is exactly why `npm run check-images` runs in CI to catch it.
+
+Two non-obvious couplings, both of which broke things before they were fixed:
+
+- `index.css` sets `picture { display: contents }`. Without it the `<picture>` becomes the flex/grid item instead of the `<img>`, breaking every layout that sizes images through a parent.
+- `index.css` sets `img { height: auto }`. The intrinsic `height` attribute is a presentational hint equivalent to `height: 1800px`, which otherwise beats any `aspect-ratio` the layout sets and renders images at full intrinsic height. Components wanting a fixed height still set it inline, which wins.
+
 **Deployment:** Vercel, auto-deploys `main` via GitHub integration. `vercel.json` pins the framework and sets immutable long-cache headers on `/assets/*`. `cleanUrls` serves `dist/our-story.html` at `/our-story` and redirects the `.html` form back to it; `trailingSlash: false` redirects `/our-story/` to `/our-story`. Between them each page has exactly one reachable URL, which is what the canonical tags assert. There are deliberately **no rewrites** — every route is a real file, and a catch-all SPA rewrite would swallow `dist/404.html` and turn every typo into a 200 serving the home page. The repo is public specifically so GitHub branch protection on `main` (required `build` status check, no force-push/delete) is available for free.
 
 The canonical production domain is `https://the-little-apron-bakery.vercel.app`, set once as `SITE.origin` in `src/data/routes.js` and used for every canonical, `og:url` and sitemap entry.
@@ -77,6 +87,8 @@ Things that are easy to break silently, and are expected of every change.
 **Metadata** — every route carries a unique title and description in `routes.js`; the canonical, `og:*` and `twitter:*` tags are derived from it in `src/lib/head.js`. Don't add page metadata to `index.html` — everything between the `<!--head-start-->` markers is replaced per route at build time. Never hardcode the production origin; use `SITE.origin`.
 
 **Structured data** — only ever assert facts already published on the site. Never invent an address, opening hours, ratings, reviews or prices. Anything carrying a `// Placeholder: confirm … with Cushla` comment is marked `unconfirmed` in its data file and must stay out of JSON-LD: structured data is a stronger claim than body copy, and a wrong one is worse than a missing one. When a price is a "from", emit `lowPrice` without `highPrice` rather than implying a fixed price.
+
+**Images** — render through `src/components/Img.jsx`, never a bare `<img>`, and always pass a `sizes` that reflects the rendered width (it's what lets the browser pick a 400px file instead of a 1600px one). After adding or replacing a photo, run `npm run optimize-images` and commit the derivatives and the updated manifest; CI fails otherwise. `alt` is required — decorative images take `alt=""`. Only genuinely above-the-fold images get `priority`; marking everything priority is the same as marking nothing.
 
 **Keep these docs current.** A change that invalidates anything in `CLAUDE.md`, `README.md` or `.claude/skills/ship/SKILL.md` updates that file _in the same PR_, never as a follow-up. The things that go stale fastest: the route list, the npm scripts and build pipeline, the architecture notes above, and these conventions. All three files described hash routing long after it was replaced, and `SKILL.md` listed a `diy` route that never existed in `PAGES` — that is the failure this rule exists to prevent.
 

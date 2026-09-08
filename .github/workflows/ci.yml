@@ -20,6 +20,9 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run format:check
+      # Catches an image added without re-running `npm run optimize-images`,
+      # which would otherwise silently serve full-size originals.
+      - run: npm run check-images
       - run: npm run build
 
       # The prerender step failing silently would ship an empty shell to every

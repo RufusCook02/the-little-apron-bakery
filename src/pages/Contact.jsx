@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { SOCIALS, externalLinkProps } from '../data/socials'
+import Img from '../components/Img.jsx'
 
 export default function Contact({
   sent,
@@ -32,8 +33,9 @@ export default function Contact({
             textAlign: 'center',
           }}
         >
-          <img
+          <Img
             src="/assets/bow.png"
+            sizes="58px"
             alt=""
             style={{ width: 58, height: 'auto', margin: '0 auto 14px' }}
           />
@@ -99,8 +101,9 @@ export default function Contact({
                   textAlign: 'center',
                 }}
               >
-                <img
+                <Img
                   src="/assets/bow.png"
+                  sizes="54px"
                   alt=""
                   style={{ width: 54, height: 'auto', margin: '0 auto 14px' }}
                 />

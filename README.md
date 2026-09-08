@@ -35,6 +35,8 @@ grows.
   files, and size-limited below the serverless request ceiling
 - **Signature cake gallery** driven from a single data file, so pricing and
   designs are updated in one place
+- **Responsive images** — AVIF and WebP served at the size they actually
+  render, cutting the home page's image payload by roughly 93%
 - The blog page is scaffolded with placeholder posts marked "coming soon" —
   no live posts yet
 
@@ -63,15 +65,16 @@ Copy `.env.example` to `.env` and fill in the Brevo credentials if you need the
 contact forms to actually send. Without them the site runs fine — only form
 submission fails.
 
-| Script                    | Does                                                 |
-| ------------------------- | ---------------------------------------------------- |
-| `npm run dev`             | Vite dev server                                      |
-| `npm run build`           | Client + SSR bundles, then prerender, to `dist/`     |
-| `npm run preview`         | Serve the built `dist/` (the prerendered HTML)       |
-| `npm run lint`            | ESLint over the repo                                 |
-| `npm run format`          | Prettier                                             |
-| `npm run optimize-images` | One-off Sharp compression pass over `public/assets/` |
-| `npm run screenshot`      | Capture a route at 390 / 820 / 1440px                |
+| Script                    | Does                                               |
+| ------------------------- | -------------------------------------------------- |
+| `npm run dev`             | Vite dev server                                    |
+| `npm run build`           | Client + SSR bundles, then prerender, to `dist/`   |
+| `npm run preview`         | Serve the built `dist/` (the prerendered HTML)     |
+| `npm run lint`            | ESLint over the repo                               |
+| `npm run format`          | Prettier                                           |
+| `npm run optimize-images` | Sharp pass: optimise, AVIF/WebP derivatives, icons |
+| `npm run check-images`    | Fail if the image manifest is out of date          |
+| `npm run screenshot`      | Capture a route at 390 / 820 / 1440px              |
 
 ## Project structure
 

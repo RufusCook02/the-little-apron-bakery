@@ -1,3 +1,5 @@
+import Img from '../components/Img.jsx'
+
 export default function SweetStuff() {
   return (
     <div className="la-page">
@@ -78,8 +80,9 @@ export default function SweetStuff() {
               border: '1px solid rgba(79,111,102,.12)',
             }}
           >
-            <img
+            <Img
               src="/assets/cakes/floral.jpg"
+              sizes="(max-width: 900px) 92vw, 360px"
               alt="Signature cakes"
               style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover' }}
             />
@@ -121,8 +124,9 @@ export default function SweetStuff() {
               border: '1px solid rgba(79,111,102,.12)',
             }}
           >
-            <img
+            <Img
               src="/assets/cakes/pink.jpg"
+              sizes="(max-width: 900px) 92vw, 360px"
               alt="Cupcakes"
               style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover' }}
             />
@@ -165,8 +169,9 @@ export default function SweetStuff() {
               border: '1px solid rgba(79,111,102,.12)',
             }}
           >
-            <img
+            <Img
               src="/assets/cakes/vintage-piped.jpg"
+              sizes="(max-width: 900px) 92vw, 360px"
               alt="Cake decorating workshops"
               style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover' }}
             />
@@ -211,8 +216,9 @@ export default function SweetStuff() {
               alignItems: 'center',
             }}
           >
-            <img
+            <Img
               src="/assets/cakes/wedding.jpg"
+              sizes="(max-width: 1100px) 100vw, 1050px"
               alt=""
               style={{
                 position: 'absolute',

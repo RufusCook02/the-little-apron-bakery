@@ -1,5 +1,6 @@
 import { sigPreview } from '../data/cakes.js'
 import WaveDivider from '../components/WaveDivider.jsx'
+import Img from '../components/Img.jsx'
 
 export default function Home() {
   return (
@@ -93,8 +94,9 @@ export default function Home() {
                 animation: 'laBob 5s ease-in-out infinite',
               }}
             >
-              <img
+              <Img
                 src="/assets/bow.png"
+                sizes="82px"
                 alt=""
                 style={{ width: 82, height: 'auto' }}
               />
@@ -107,8 +109,10 @@ export default function Home() {
                 border: '8px solid #fff',
               }}
             >
-              <img
+              <Img
                 src="/assets/brand-mixer.png"
+                sizes="(max-width: 900px) 92vw, 500px"
+                priority
                 alt="The Little Apron mixer and cake"
                 style={{
                   width: '100%',
@@ -237,8 +241,9 @@ export default function Home() {
                   border: '1px solid rgba(79,111,102,.1)',
                 }}
               >
-                <img
+                <Img
                   src={cake.img}
+                  sizes="(max-width: 900px) 45vw, 270px"
                   alt={cake.name}
                   style={{
                     width: '100%',
@@ -346,8 +351,9 @@ export default function Home() {
                 textAlign: 'center',
               }}
             >
-              <img
+              <Img
                 src="/assets/icons/cake.png"
+                sizes="96px"
                 alt=""
                 style={{
                   width: 96,
@@ -390,8 +396,9 @@ export default function Home() {
                 textAlign: 'center',
               }}
             >
-              <img
+              <Img
                 src="/assets/icons/cupcake.png"
+                sizes="96px"
                 alt=""
                 style={{
                   width: 96,
@@ -434,8 +441,9 @@ export default function Home() {
                 textAlign: 'center',
               }}
             >
-              <img
+              <Img
                 src="/assets/icons/whisk.png"
+                sizes="96px"
                 alt=""
                 style={{
                   width: 96,
@@ -538,8 +546,9 @@ export default function Home() {
               overflow: 'visible',
             }}
           >
-            <img
+            <Img
               src="/assets/bow.png"
+              sizes="96px"
               alt=""
               style={{
                 position: 'absolute',
