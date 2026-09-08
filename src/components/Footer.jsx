@@ -71,7 +71,7 @@ export default function Footer() {
         </div>
 
         <div className="la-footer-col">
-          <div className="la-footer-heading">Get in touch</div>
+          <h2 className="la-footer-heading">Get in touch</h2>
           <div className="la-footer-links">
             <a href="tel:0273470648" className="footer-link">
               027 347 0648
@@ -84,7 +84,7 @@ export default function Footer() {
         </div>
 
         <div className="la-footer-col">
-          <div className="la-footer-heading">Explore</div>
+          <h2 className="la-footer-heading">Explore</h2>
           <div className="la-footer-links">
             <a href="/order" className="footer-link">
               Order
@@ -102,7 +102,7 @@ export default function Footer() {
         </div>
 
         <div className="la-footer-col">
-          <div className="la-footer-heading">Help</div>
+          <h2 className="la-footer-heading">Help</h2>
           <div className="la-footer-links">
             <a href="/faqs" className="footer-link">
               FAQs

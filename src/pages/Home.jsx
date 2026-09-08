@@ -51,7 +51,7 @@ export default function Home() {
                 fontFamily: "'Cormorant Garamond',serif",
                 fontWeight: 600,
                 color: '#3f5750',
-                fontSize: 'clamp(44px,6vw,76px)',
+                fontSize: 'var(--fs-display)',
                 lineHeight: 1.02,
                 letterSpacing: '.005em',
               }}
@@ -88,7 +88,9 @@ export default function Home() {
             <div
               style={{
                 position: 'absolute',
-                inset: '-24px -14px auto auto',
+                // Was -14px on the right, i.e. outside the column. At 390px
+                // that cleared the viewport edge by about 6px.
+                inset: '-24px 0 auto auto',
                 width: 'auto',
                 zIndex: 2,
                 animation: 'laBob 5s ease-in-out infinite',
@@ -208,7 +210,7 @@ export default function Home() {
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
                   color: '#3f5750',
-                  fontSize: 'clamp(30px,4vw,46px)',
+                  fontSize: 'var(--fs-h2)',
                   lineHeight: 1.1,
                   marginTop: 12,
                 }}
@@ -257,7 +259,7 @@ export default function Home() {
                       fontFamily: "'Cormorant Garamond',serif",
                       fontWeight: 600,
                       color: '#3f5750',
-                      fontSize: 23,
+                      fontSize: 'var(--fs-h4)',
                     }}
                   >
                     {cake.name}
@@ -311,7 +313,7 @@ export default function Home() {
                 fontFamily: "'Cormorant Garamond',serif",
                 fontWeight: 600,
                 color: '#3f5750',
-                fontSize: 'clamp(30px,4vw,46px)',
+                fontSize: 'var(--fs-h2)',
                 lineHeight: 1.12,
                 margin: '14px 0 18px',
               }}
@@ -367,7 +369,7 @@ export default function Home() {
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
                   color: '#3f5750',
-                  fontSize: 27,
+                  fontSize: 'var(--fs-h3)',
                   marginBottom: 10,
                 }}
               >
@@ -412,7 +414,7 @@ export default function Home() {
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
                   color: '#3f5750',
-                  fontSize: 27,
+                  fontSize: 'var(--fs-h3)',
                   marginBottom: 10,
                 }}
               >
@@ -457,7 +459,7 @@ export default function Home() {
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
                   color: '#3f5750',
-                  fontSize: 27,
+                  fontSize: 'var(--fs-h3)',
                   marginBottom: 10,
                 }}
               >
@@ -553,10 +555,12 @@ export default function Home() {
               style={{
                 position: 'absolute',
                 top: -26,
-                left: -22,
-                width: 96,
+                // Was -22, which put it past the viewport edge at 390px inside
+                // the section's 20px page padding.
+                left: 0,
+                width: 'clamp(64px, 18vw, 96px)',
                 height: 'auto',
-                transform: 'rotate(-18deg)',
+                transform: 'translateX(-30%) rotate(-18deg)',
                 filter: 'drop-shadow(0 8px 14px rgba(79,111,102,.25))',
               }}
             />
@@ -577,7 +581,7 @@ export default function Home() {
                 fontFamily: "'Cormorant Garamond',serif",
                 fontWeight: 600,
                 color: '#3f5750',
-                fontSize: 'clamp(28px,3.8vw,42px)',
+                fontSize: 'var(--fs-h2)',
                 lineHeight: 1.12,
                 margin: '12px 0 14px',
               }}

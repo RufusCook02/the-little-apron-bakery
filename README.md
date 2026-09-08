@@ -22,7 +22,9 @@ grows.
 
 - **12 pages** — home, our story, sweet stuff, signature cakes, cupcakes,
   workshops, order, contact, blog, FAQs, cake care, terms
-- **Responsive layout** built mobile-first and reviewed at 390 / 820 / 1440px
+- **Responsive layout** built mobile-first and reviewed at 390 / 820 / 1440px,
+  with a shared type scale, a keyboard-accessible mobile drawer, 44px tap
+  targets and no horizontal scroll on any route
 - **Prerendered for search** — every page is a real URL emitted as static HTML
   at build time, with its own title, meta description and canonical, so
   crawlers that don't run JavaScript still see the full content

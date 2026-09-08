@@ -5,8 +5,45 @@
   margin: 0;
   padding: 0;
 }
+
+/* ── Type scale ──
+   One scale for the whole site. Before this, half the headings used clamp()
+   with eight slightly different formulas and the other half were fixed px with
+   no mobile treatment at all, which is what made 390px feel like a shrunken
+   desktop rather than a designed layout. Every clamp minimum here is a size
+   that reads comfortably at 390px. Use these rather than hardcoding sizes. */
+:root {
+  --fs-display: clamp(40px, 6vw, 76px); /* home hero only */
+  --fs-h1: clamp(34px, 5.2vw, 62px);
+  --fs-h2: clamp(26px, 3.6vw, 46px);
+  --fs-h2-sm: clamp(24px, 3vw, 38px);
+  --fs-h3: clamp(21px, 2.6vw, 30px);
+  --fs-h4: clamp(19px, 2.2vw, 24px);
+  --fs-eyebrow: 13px;
+
+  /* Minimum comfortable hit area. WCAG 2.5.8 asks for 24px; 44px is the
+     iOS/Android guidance and what this site targets. */
+  --tap: 44px;
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+/* Respect a system-level request to reduce motion: kill the infinite marquee
+   and bobbing bow, and stop hijacking scrolling. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 body {
   font-family: 'Mulish', sans-serif;
@@ -92,6 +129,38 @@ textarea:focus {
   outline: none;
   border-color: #7fa99a !important;
   box-shadow: 0 0 0 3px rgba(185, 229, 202, 0.45);
+}
+
+/* Links carry no underline here, so without this a keyboard user has only the
+   UA's default outline to go on — near-invisible on the dark green buttons. */
+:where(a, button, summary, [tabindex]):focus-visible {
+  outline: 3px solid #7fa99a;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+/* On the dark footer and dark buttons the green outline has too little
+   contrast, so those switch to a light one. */
+.la-footer :where(a, button):focus-visible,
+:where(.btn-primary, .btn-submit, .btn-sm-green, .order-nav-btn):focus-visible {
+  outline-color: #fffdf9;
+}
+
+/* Skip link — first thing in the tab order, visible only when focused. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: #4f6f66;
+  color: #fff;
+  font-family: 'Mulish', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 14px 22px;
+  border-radius: 0 0 10px 0;
+}
+.skip-link:focus {
+  left: 0;
 }
 
 /* ── Buttons ── */
@@ -253,7 +322,12 @@ textarea:focus {
   background: rgba(79, 111, 102, 0.3);
   flex: none;
 }
+/* Was ~22px tall with no padding at all. The padding is vertical-only so the
+   horizontal rhythm of the desktop nav is unchanged. */
 .nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
   transition: color 0.2s;
 }
 .nav-link:hover {
@@ -281,6 +355,8 @@ textarea:focus {
 
 /* ── Text links ── */
 .text-link-green {
+  position: relative;
+  display: inline-block;
   font-family: 'Mulish', sans-serif;
   font-weight: 600;
   font-size: 13.5px;
@@ -290,25 +366,52 @@ textarea:focus {
   border-bottom: 2px solid #b9e5ca;
   padding-bottom: 4px;
 }
+/* ~26px tall on its own. This grows the hit area to 44px without moving the
+   underline, which is the visual affordance and should stay against the text. */
+.text-link-green::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: var(--tap);
+}
 .text-link-green:hover {
   color: #3d5851;
 }
 
 /* ── Social icons ── */
+/* Was 44x44 but with margin: -8px against an 8px container gap, so adjacent
+   hit areas overlapped by 8px — tapping between two icons hit the wrong one.
+   The negative margin is gone and the container gap does the spacing. */
 .social-icon {
   color: #b9e5ca;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  margin: -8px;
+  width: var(--tap);
+  height: var(--tap);
+  margin: 0 0 0 -10px;
   transition: color 0.2s;
+}
+/* Only the first icon pulls left, to keep the row optically aligned with the
+   logo above it. */
+.social-icon:not(:first-child) {
+  margin-left: 0;
 }
 .social-icon:hover {
   color: #fff;
 }
+
+/* Was ~23px tall stacked at a 12px gap — a 35px pitch, and that includes the
+   phone and email links. Real height rather than a pseudo-element overlay:
+   overlaying 44px on a 35px pitch would just make adjacent targets collide.
+   The container gap drops to 0 to absorb most of the added height. */
 .footer-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
   color: #cfe0d8;
   transition: color 0.2s;
 }
@@ -338,6 +441,11 @@ textarea:focus {
   align-items: flex-start;
   gap: 14px;
   max-width: 320px;
+}
+.la-footer-logo {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
 }
 .la-footer-logo img {
   height: 42px;
@@ -369,9 +477,16 @@ textarea:focus {
 .la-footer-links {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  /* .footer-link is now 44px tall in its own right, which supplies the spacing
+     that this gap used to. */
+  gap: 0;
   font-family: 'Mulish', sans-serif;
   font-size: 14.5px;
+}
+.la-footer-links .la-footer-muted {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
 }
 .la-footer-muted {
   color: #9fb6ac;
@@ -422,15 +537,28 @@ textarea:focus {
     box-shadow: 0 20px 32px -18px rgba(79, 111, 102, 0.45);
     font-size: 14px !important;
     letter-spacing: 0.1em !important;
+    /* display:none (rather than opacity) is deliberate — it keeps the closed
+       menu out of the tab order and the accessibility tree. */
     display: none !important;
+    max-height: calc(100vh - 100%);
+    overflow-y: auto;
   }
   .la-nav.la-open {
     display: flex !important;
+  }
+  /* Backdrop behind the open drawer: makes it read as a layer over the page,
+     and gives "tap outside to close" something to land on. */
+  .la-nav-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 55;
+    background: rgba(63, 87, 80, 0.28);
   }
   .la-div {
     display: none !important;
   }
   .la-nav .nav-link {
+    min-height: var(--tap);
     padding: 15px 4px !important;
     border-bottom: 1px solid rgba(79, 111, 102, 0.08);
   }
@@ -514,10 +642,6 @@ textarea:focus {
     height: 42px;
   }
 
-  .g4 {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-
   .la-footer-inner {
     grid-template-columns: 1fr;
     padding: 0 22px;
@@ -539,5 +663,32 @@ textarea:focus {
   .la-footer-bar {
     padding: 18px 22px 24px;
     text-align: center;
+  }
+}
+
+/* ── Small phones ──
+   The 390px tier the site never had. Two-up card grids leave ~156px per card
+   at this width, which is too narrow for a cake photo and its price list, so
+   they go single-column. Section padding tightens to buy back horizontal room. */
+@media (max-width: 480px) {
+  .g4 {
+    grid-template-columns: 1fr !important;
+  }
+  /* Photo pairs inside a story section: these had no responsive class at all
+     and stayed two-up at ~137px each. */
+  .gpair {
+    grid-template-columns: 1fr !important;
+  }
+  .pad-lg {
+    padding: 36px 20px !important;
+  }
+  .pad-md {
+    padding: 28px 18px !important;
+  }
+  .la-footer-inner {
+    padding: 0 20px;
+  }
+  .la-footer-bar {
+    padding: 18px 20px 24px;
   }
 }

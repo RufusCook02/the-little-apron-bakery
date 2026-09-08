@@ -45,7 +45,7 @@ export default function Cupcakes() {
               fontFamily: "'Cormorant Garamond',serif",
               fontWeight: 600,
               color: '#3f5750',
-              fontSize: 'clamp(40px,5.5vw,64px)',
+              fontSize: 'var(--fs-h1)',
               lineHeight: 1.05,
               margin: '12px 0 16px',
             }}
@@ -91,7 +91,7 @@ export default function Cupcakes() {
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
                   color: '#3f5750',
-                  fontSize: 30,
+                  fontSize: 'var(--fs-h3)',
                   marginBottom: 6,
                 }}
               >
@@ -121,7 +121,7 @@ export default function Cupcakes() {
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
                   color: '#fff',
-                  fontSize: 30,
+                  fontSize: 'var(--fs-h3)',
                   marginBottom: 6,
                 }}
               >
@@ -151,7 +151,7 @@ export default function Cupcakes() {
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
                   color: '#3f5750',
-                  fontSize: 30,
+                  fontSize: 'var(--fs-h3)',
                   marginBottom: 6,
                 }}
               >
@@ -183,7 +183,7 @@ export default function Cupcakes() {
                 fontFamily: "'Cormorant Garamond',serif",
                 fontWeight: 600,
                 color: '#3f5750',
-                fontSize: 24,
+                fontSize: 'var(--fs-h4)',
               }}
             >
               Fillings{' '}

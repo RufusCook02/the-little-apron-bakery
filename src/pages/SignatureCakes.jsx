@@ -35,7 +35,7 @@ export default function SignatureCakes() {
               fontFamily: "'Cormorant Garamond',serif",
               fontWeight: 600,
               color: '#3f5750',
-              fontSize: 'clamp(40px,5.5vw,64px)',
+              fontSize: 'var(--fs-h1)',
               lineHeight: 1.05,
               margin: '14px 0 16px',
             }}
@@ -123,7 +123,7 @@ export default function SignatureCakes() {
                     fontFamily: "'Cormorant Garamond',serif",
                     fontWeight: 600,
                     color: '#3f5750',
-                    fontSize: 26,
+                    fontSize: 'var(--fs-h3)',
                     marginBottom: 8,
                   }}
                 >
@@ -190,7 +190,7 @@ export default function SignatureCakes() {
               fontFamily: "'Cormorant Garamond',serif",
               fontWeight: 600,
               color: '#3f5750',
-              fontSize: 'clamp(26px,3.4vw,38px)',
+              fontSize: 'var(--fs-h2-sm)',
               marginBottom: 26,
             }}
           >
@@ -306,7 +306,7 @@ export default function SignatureCakes() {
                 fontFamily: "'Cormorant Garamond',serif",
                 fontWeight: 600,
                 color: '#3f5750',
-                fontSize: 'clamp(28px,3.8vw,44px)',
+                fontSize: 'var(--fs-h2)',
                 lineHeight: 1.1,
                 margin: '12px 0 14px',
               }}
@@ -361,7 +361,7 @@ export default function SignatureCakes() {
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
                   color: '#3f5750',
-                  fontSize: 23,
+                  fontSize: 'var(--fs-h4)',
                   marginBottom: 8,
                 }}
               >
@@ -407,7 +407,7 @@ export default function SignatureCakes() {
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
                   color: '#3f5750',
-                  fontSize: 23,
+                  fontSize: 'var(--fs-h4)',
                   marginBottom: 8,
                 }}
               >
@@ -452,7 +452,7 @@ export default function SignatureCakes() {
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
                   color: '#3f5750',
-                  fontSize: 23,
+                  fontSize: 'var(--fs-h4)',
                   marginBottom: 8,
                 }}
               >

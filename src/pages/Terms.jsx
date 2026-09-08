@@ -78,7 +78,7 @@ export default function Terms() {
               fontFamily: "'Cormorant Garamond',serif",
               fontWeight: 600,
               color: '#3f5750',
-              fontSize: 'clamp(38px,5.5vw,62px)',
+              fontSize: 'var(--fs-h1)',
               lineHeight: 1.05,
               margin: '12px 0 16px',
             }}
@@ -116,7 +116,7 @@ export default function Terms() {
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
                   color: '#3f5750',
-                  fontSize: 24,
+                  fontSize: 'var(--fs-h4)',
                   marginBottom: 10,
                 }}
               >

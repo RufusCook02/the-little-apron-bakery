@@ -87,7 +87,7 @@ export default function Order({
               fontFamily: "'Cormorant Garamond',serif",
               fontWeight: 600,
               color: '#3f5750',
-              fontSize: 'clamp(38px,5.5vw,62px)',
+              fontSize: 'var(--fs-h1)',
               lineHeight: 1.05,
               margin: '12px 0 16px',
             }}
@@ -132,7 +132,7 @@ export default function Order({
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
                   color: '#3f5750',
-                  fontSize: 32,
+                  fontSize: 'var(--fs-h2)',
                   marginBottom: 10,
                 }}
               >
@@ -168,7 +168,7 @@ export default function Order({
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
                   color: '#3f5750',
-                  fontSize: 24,
+                  fontSize: 'var(--fs-h4)',
                   marginBottom: 22,
                 }}
               >
@@ -413,7 +413,7 @@ export default function Order({
                       fontFamily: "'Cormorant Garamond',serif",
                       fontWeight: 600,
                       color: '#3f5750',
-                      fontSize: 24,
+                      fontSize: 'var(--fs-h4)',
                       margin: '30px 0 18px',
                     }}
                   >
@@ -700,7 +700,7 @@ export default function Order({
                 fontFamily: "'Cormorant Garamond',serif",
                 fontWeight: 600,
                 color: '#3f5750',
-                fontSize: 'clamp(28px,3.6vw,42px)',
+                fontSize: 'var(--fs-h2)',
                 lineHeight: 1.1,
                 margin: '12px 0 16px',
               }}

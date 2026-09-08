@@ -62,7 +62,7 @@ export default function Blog() {
               fontFamily: "'Cormorant Garamond',serif",
               fontWeight: 600,
               color: '#3f5750',
-              fontSize: 'clamp(40px,5.5vw,64px)',
+              fontSize: 'var(--fs-h1)',
               lineHeight: 1.05,
               margin: '12px 0 16px',
             }}
@@ -151,7 +151,7 @@ export default function Blog() {
                       fontFamily: "'Cormorant Garamond',serif",
                       fontWeight: 600,
                       color: '#3f5750',
-                      fontSize: 24,
+                      fontSize: 'var(--fs-h4)',
                       lineHeight: 1.2,
                       marginBottom: 8,
                     }}

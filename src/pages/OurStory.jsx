@@ -6,7 +6,15 @@ function Arrow({ seed, flip }) {
     <div
       style={{ display: 'flex', justifyContent: 'center', margin: '-40px 0' }}
     >
-      <svg width="150" height="128" viewBox="0 0 150 128" fill="none">
+      {/* Fixed 150px wide would push past the viewport edge inside the 20px
+          page padding at 390px; the clamp keeps it inside. */}
+      <svg
+        width="150"
+        height="128"
+        viewBox="0 0 150 128"
+        fill="none"
+        style={{ width: 'clamp(96px, 30vw, 150px)', height: 'auto' }}
+      >
         <filter id={id} x="-25%" y="-25%" width="150%" height="150%">
           <feTurbulence
             type="fractalNoise"
@@ -74,7 +82,7 @@ export default function OurStory() {
           <h1
             style={{
               fontFamily: "'Caveat',cursive",
-              fontSize: 52,
+              fontSize: 'var(--fs-h1)',
               fontWeight: 600,
               color: '#7fa99a',
               lineHeight: 1,
@@ -156,7 +164,7 @@ export default function OurStory() {
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
                   color: '#3f5750',
-                  fontSize: 'clamp(28px,3.6vw,42px)',
+                  fontSize: 'var(--fs-h2)',
                   lineHeight: 1.1,
                   margin: '10px 0 16px',
                 }}
@@ -230,7 +238,7 @@ export default function OurStory() {
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
                   color: '#3f5750',
-                  fontSize: 'clamp(28px,3.6vw,42px)',
+                  fontSize: 'var(--fs-h2)',
                   lineHeight: 1.1,
                   margin: '10px 0 16px',
                 }}
@@ -287,7 +295,7 @@ export default function OurStory() {
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
                   color: '#3f5750',
-                  fontSize: 'clamp(28px,3.6vw,42px)',
+                  fontSize: 'var(--fs-h2)',
                   lineHeight: 1.1,
                   margin: '10px 0 16px',
                 }}
@@ -311,6 +319,7 @@ export default function OurStory() {
               </p>
             </div>
             <div
+              className="gpair"
               style={{
                 display: 'grid',
                 gridTemplateColumns: '1fr 1fr',
@@ -403,7 +412,7 @@ export default function OurStory() {
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
                   color: '#3f5750',
-                  fontSize: 'clamp(28px,3.6vw,42px)',
+                  fontSize: 'var(--fs-h2)',
                   lineHeight: 1.1,
                   margin: '10px 0 16px',
                 }}
@@ -477,7 +486,7 @@ export default function OurStory() {
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
                   color: '#3f5750',
-                  fontSize: 'clamp(28px,3.6vw,42px)',
+                  fontSize: 'var(--fs-h2)',
                   lineHeight: 1.1,
                   margin: '10px 0 16px',
                 }}
@@ -552,7 +561,7 @@ export default function OurStory() {
                   fontFamily: "'Cormorant Garamond',serif",
                   fontWeight: 600,
                   color: '#fff',
-                  fontSize: 'clamp(30px,4vw,46px)',
+                  fontSize: 'var(--fs-h2)',
                   lineHeight: 1.08,
                   margin: '10px 0 16px',
                 }}

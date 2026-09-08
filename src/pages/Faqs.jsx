@@ -41,7 +41,7 @@ export default function Faqs() {
               fontFamily: "'Cormorant Garamond',serif",
               fontWeight: 600,
               color: '#3f5750',
-              fontSize: 'clamp(38px,5.5vw,62px)',
+              fontSize: 'var(--fs-h1)',
               lineHeight: 1.05,
               margin: '12px 0 16px',
             }}
@@ -83,16 +83,29 @@ export default function Faqs() {
                 padding: '18px 22px',
               }}
             >
+              {/* The question is a heading, not just bold text — without this
+                  the page has ten questions and no headings to navigate by.
+                  The h2 goes inside <summary> so the disclosure widget keeps
+                  working; the padding gives it a 44px tap target, which the
+                  parent's padding was providing only ~31px of. */}
               <summary
                 style={{
-                  fontFamily: "'Cormorant Garamond',serif",
-                  fontWeight: 600,
-                  color: '#3f5750',
-                  fontSize: 19,
                   cursor: 'pointer',
+                  margin: '-18px -22px 0',
+                  padding: '18px 22px',
                 }}
               >
-                {item.q}
+                <h2
+                  style={{
+                    display: 'inline',
+                    fontFamily: "'Cormorant Garamond',serif",
+                    fontWeight: 600,
+                    color: '#3f5750',
+                    fontSize: 19,
+                  }}
+                >
+                  {item.q}
+                </h2>
               </summary>
               <p
                 style={{
