@@ -8,17 +8,47 @@ description: Ship a completed change to this site as a reviewable PR — branch,
 `main` auto-deploys to production via Vercel. Every change is reviewed as a PR and merged
 by a human — you open it, you never merge it.
 
-## 1. Branch before you edit
+## 1. Branch off _current_ main, before you edit
 
-Short kebab-case topic branch off current `main`:
+Short kebab-case topic branch, and **pull first** — the local `main` in a long-running
+session is usually stale:
 
 ```bash
 git checkout main && git pull && git checkout -b squiggle-divider
 ```
 
+Then confirm the branch point before writing any code:
+
+```bash
+git fetch origin && git rev-list --left-right --count origin/main...HEAD
+```
+
+The left number is how many commits you're missing; it must be `0`. Don't skip this on
+the assumption that `main` can't have moved — the whole point is that you can't tell
+without looking.
+
+Being behind isn't just a merge-conflict nuisance. A stale base means you write against
+a shape of the code that no longer exists: a nav dropdown was once built entirely with
+`#hash` links four commits after `main` had migrated the whole site to real paths, so
+every link in it was wrong and none of the verification caught it, because it all passed
+against the old base.
+
 If you've already made edits on `main`, `git checkout -b <name>` carries them across —
 do that rather than starting over. A PreToolUse hook blocks pushes to `main`, so if you
 see that denial, you're on the wrong branch.
+
+**If you only notice you're behind later** — mid-change, or after committing — stop and
+rebase before pushing:
+
+```bash
+git fetch origin && git rebase origin/main
+```
+
+Resolve the conflicts against the _new_ code rather than reapplying your version of the
+old, then re-run the quality gates, redo the browser verification and retake the
+screenshots: everything you checked describes the old base and none of it still counts.
+If the branch was already pushed, the rebase needs `git push --force-with-lease` (never
+a bare `--force`), and the PR body may need updating too.
 
 ## 2. Commit
 
