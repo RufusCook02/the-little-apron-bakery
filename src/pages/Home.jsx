@@ -93,7 +93,7 @@ export default function Home() {
                 inset: '-24px 0 auto auto',
                 width: 'auto',
                 zIndex: 2,
-                animation: 'laBob 5s ease-in-out infinite',
+                transform: 'rotate(-4deg)',
               }}
             >
               <Img
