@@ -31,7 +31,7 @@ html {
 }
 
 /* Respect a system-level request to reduce motion: kill the infinite marquee
-   and bobbing bow, and stop hijacking scrolling. */
+   and the scroll-in fades, and stop hijacking scrolling. */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -97,15 +97,6 @@ textarea {
   }
   to {
     transform: translateX(-50%);
-  }
-}
-@keyframes laBob {
-  0%,
-  100% {
-    transform: translateY(0) rotate(-4deg);
-  }
-  50% {
-    transform: translateY(-7px) rotate(-4deg);
   }
 }
 @keyframes laFade {
