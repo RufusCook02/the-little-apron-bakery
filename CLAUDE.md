@@ -7,6 +7,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 `main` auto-deploys to production, so it is never a working branch.
 
 - Branch before editing; never commit or push to `main` (a PreToolUse hook blocks the push).
+- Pull first, and branch off **current** `origin/main` — verify with
+  `git rev-list --left-right --count origin/main...HEAD` (the left number must be `0`).
+  A stale branch point means writing against code that no longer exists, and the
+  verification passes anyway because it's testing the old base. If you discover it late,
+  `git rebase origin/main` and redo the verification and screenshots.
 - Every implemented change ships as a PR. Open it, never merge it — the human merges.
 - Visual changes carry screenshots at 390 / 820 / 1440 via `npm run screenshot`, sent in chat.
 - Vercel posts a preview URL on every PR automatically; reference it in the PR body.
