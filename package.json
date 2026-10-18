@@ -37,7 +37,7 @@
     "prettier": "^3.9.10",
     "lint-staged": "^17.6.0",
     "puppeteer-core": "^25.14.0",
-    "sharp": "^0.35.4",
+    "sharp": "^0.35.5",
     "vite": "^5.4.2"
   },
   "lint-staged": {
