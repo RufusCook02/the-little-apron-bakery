@@ -1,55 +1,5 @@
 import Img from '../components/Img.jsx'
 
-function Arrow({ seed, flip }) {
-  const id = `sk${seed}`
-  return (
-    <div
-      style={{ display: 'flex', justifyContent: 'center', margin: '-40px 0' }}
-    >
-      {/* Fixed 150px wide would push past the viewport edge inside the 20px
-          page padding at 390px; the clamp keeps it inside. */}
-      <svg
-        width="150"
-        height="128"
-        viewBox="0 0 150 128"
-        fill="none"
-        style={{ width: 'clamp(96px, 30vw, 150px)', height: 'auto' }}
-      >
-        <filter id={id} x="-25%" y="-25%" width="150%" height="150%">
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.022"
-            numOctaves="2"
-            seed={seed}
-            result="n"
-          />
-          <feDisplacementMap in="SourceGraphic" in2="n" scale="5" />
-        </filter>
-        <g
-          filter={`url(#${id})`}
-          stroke="#8fbfa8"
-          strokeWidth="6"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          fill="none"
-        >
-          {flip ? (
-            <>
-              <path d="M120,18 C 30,8 12,70 70,114" />
-              <path d="M70,114 l5,-27 M70,114 l-27,-9" />
-            </>
-          ) : (
-            <>
-              <path d="M30,18 C 120,8 138,70 80,114" />
-              <path d="M80,114 l-5,-27 M80,114 l27,-9" />
-            </>
-          )}
-        </g>
-      </svg>
-    </div>
-  )
-}
-
 // Shared by the three Sugar Shed photos. The white border is what reads as a
 // print edge and keeps the overlaps legible where two photos meet.
 const collagePhoto = {
@@ -139,6 +89,7 @@ export default function OurStory() {
           >
             <div
               style={{
+                order: 2,
                 borderRadius: '24px 24px 24px 120px',
                 overflow: 'hidden',
                 border: '7px solid #f3f9f3',
@@ -156,7 +107,7 @@ export default function OurStory() {
                 }}
               />
             </div>
-            <div>
+            <div style={{ order: 1 }}>
               <span
                 style={{
                   fontFamily: "'Mulish'",
@@ -197,9 +148,6 @@ export default function OurStory() {
               </p>
             </div>
           </div>
-
-          <Arrow seed={1} />
-
           {/* Learning the craft */}
           <div
             className="gstory"
@@ -212,7 +160,6 @@ export default function OurStory() {
           >
             <div
               style={{
-                order: 2,
                 borderRadius: '24px 24px 120px 24px',
                 overflow: 'hidden',
                 border: '7px solid #f3f9f3',
@@ -230,7 +177,7 @@ export default function OurStory() {
                 }}
               />
             </div>
-            <div style={{ order: 1 }}>
+            <div>
               <span
                 style={{
                   fontFamily: "'Mulish'",
@@ -271,9 +218,6 @@ export default function OurStory() {
               </p>
             </div>
           </div>
-
-          <Arrow seed={7} flip />
-
           {/* Sugar Shed */}
           <div
             className="gstory"
@@ -375,9 +319,6 @@ export default function OurStory() {
               />
             </div>
           </div>
-
-          <Arrow seed={11} />
-
           {/* First mixer */}
           <div
             className="gstory"
@@ -448,9 +389,6 @@ export default function OurStory() {
               </p>
             </div>
           </div>
-
-          <Arrow seed={5} flip />
-
           {/* CushsCreations */}
           <div
             className="gstory"
@@ -521,9 +459,6 @@ export default function OurStory() {
               </p>
             </div>
           </div>
-
-          <Arrow seed={9} />
-
           {/* The Little Apron */}
           <div
             className="gshed pad-lg"
@@ -626,7 +561,11 @@ export default function OurStory() {
                 style={{
                   fontFamily: "'Caveat',cursive",
                   fontSize: 38,
-                  fontWeight: 600,
+                  // 400 is the lightest cut Caveat has; index.html loads
+                  // 400-700. The inherited 1.6 body line-height leaves a big
+                  // gap between the wrapped lines of a 38px script face.
+                  fontWeight: 400,
+                  lineHeight: 1.15,
                   color: '#b9e5ca',
                   marginTop: 22,
                 }}
