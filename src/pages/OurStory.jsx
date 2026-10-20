@@ -43,7 +43,8 @@ export default function OurStory() {
             style={{
               fontFamily: "'Caveat',cursive",
               fontSize: 'var(--fs-h1)',
-              fontWeight: 600,
+              // 400 is Caveat's lightest cut, as with the tagline below.
+              fontWeight: 400,
               color: '#7fa99a',
               lineHeight: 1,
               margin: '18px 0 22px',
