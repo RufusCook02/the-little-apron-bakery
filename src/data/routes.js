@@ -46,7 +46,7 @@ export const ROUTES = [
     path: '/sweet-stuff',
     title: 'Custom Cakes, Cupcakes & More — The Little Apron',
     description:
-      'Everything The Little Apron makes: signature celebration cakes, cupcakes by the box, and cake decorating workshops in Hamilton, Waikato.',
+      'Everything The Little Apron makes: signature celebration cakes, cupcakes by the box, and custom cakes designed around your celebration. Hamilton, Waikato.',
   },
   {
     key: 'signature',
@@ -76,6 +76,17 @@ export const ROUTES = [
       'Beginner-friendly, hands-on cake decorating workshops in Hamilton, NZ. Learn to layer, fill and finish a cake you take home. Register your interest.',
   },
   {
+    key: 'gallery',
+    label: 'Gallery',
+    // Lives under Our Story in the nav, so the breadcrumb follows the nav
+    // rather than the subject matter.
+    parent: 'our-story',
+    path: '/gallery',
+    title: 'Cake Gallery — The Little Apron',
+    description:
+      'A look through cakes, cupcakes and celebration bakes from The Little Apron in Hamilton, Waikato. Browse the gallery for inspiration, then order yours.',
+  },
+  {
     key: 'order',
     label: 'Order',
     path: '/order',
@@ -94,6 +105,7 @@ export const ROUTES = [
   {
     key: 'blog',
     label: 'Blog',
+    parent: 'our-story',
     path: '/blog',
     title: 'Stories from the Kitchen — The Little Apron',
     description:

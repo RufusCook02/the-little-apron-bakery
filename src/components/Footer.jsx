@@ -92,6 +92,9 @@ export default function Footer() {
             <a href="/sweet-stuff" className="footer-link">
               Sweet Stuff
             </a>
+            <a href="/gallery" className="footer-link">
+              Gallery
+            </a>
             <a href="/workshops" className="footer-link">
               Workshops
             </a>

@@ -20,8 +20,8 @@ grows.
 
 ## Features
 
-- **12 pages** — home, our story, sweet stuff, signature cakes, cupcakes,
-  workshops, order, contact, blog, FAQs, cake care, terms
+- **13 pages** — home, our story, sweet stuff, signature cakes, cupcakes,
+  workshops, gallery, order, contact, blog, FAQs, cake care, terms
 - **Responsive layout** built mobile-first and reviewed at 390 / 820 / 1440px,
   with a shared type scale, a keyboard-accessible mobile drawer, 44px tap
   targets and no horizontal scroll on any route
@@ -87,8 +87,8 @@ scripts/        Image optimisation + screenshot tooling
 src/
   App.jsx       Client-side routing + shared form submission handler
   entry-server.jsx  Prerender entry (build-time only)
-  components/   Header, Footer, WaveDivider
-  data/         routes.js (paths + per-page metadata), cakes, socials
+  components/   Header, Footer, Img, WaveDivider, ImageSlider
+  data/         routes.js (paths + per-page metadata), cakes, gallery, socials
   lib/          head.js (metadata), navigation.js (link interception)
   pages/        One component per route, plus registry.js
 ```

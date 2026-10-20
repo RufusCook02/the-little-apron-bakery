@@ -551,6 +551,99 @@ textarea:focus {
   color: #8fb0a4;
 }
 
+/* ── Screen-reader-only text ── */
+/* Visually hidden but still announced — for a heading that would be noise on
+   screen but is needed as a landmark. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── Gallery grid ── */
+/* Uniform 4:5 tiles rather than masonry. CSS columns fill top-to-bottom, so
+   "newest first" would read down the left edge instead of across and the first
+   four photos wouldn't be the first four seen. 4:5 rather than square because
+   the cake photos are 3:4 or 1:1 and barely crop at that ratio — which matters
+   when the tile is the only view of the photo. */
+.la-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.la-gallery-tile {
+  border-radius: 18px;
+  overflow: hidden;
+  background: #f3f9f3;
+  border: 1px solid rgba(79, 111, 102, 0.12);
+}
+/* Descendant rather than a direct child: Img.jsx wraps every image in a
+   <picture>, which is display: contents. */
+.la-gallery-tile img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+/* ── Get-inspired slider ── */
+.la-slider-track {
+  overflow-x: auto;
+  /* Stops a swipe past the last slide from chaining into the browser's
+     back-navigation gesture. */
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  /* The reduced-motion block above forces this to auto, and scrollBy() with no
+     `behavior` key resolves to it — so the arrow buttons inherit the
+     preference without reading matchMedia. */
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #b9e5ca transparent;
+  /* Room for the focus ring (3px outline + 3px offset) and the scrollbar. */
+  padding: 6px 0 14px;
+}
+.la-slider-row {
+  display: flex;
+  gap: 18px;
+  list-style: none;
+}
+.la-slider-slide {
+  flex: 0 0 300px;
+  scroll-snap-align: start;
+}
+.la-slider-slide img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 18px;
+}
+.la-slider-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 6px;
+}
+.la-slider-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap);
+  height: var(--tap);
+  border: 1.5px solid #4f6f66;
+  border-radius: 999px;
+  color: #4f6f66;
+  transition: all 0.25s;
+}
+.la-slider-btn:hover {
+  background: #4f6f66;
+  color: #fff;
+}
+
 /* ── Section dividers ── */
 /* viewBox is a fixed 1200x48 and preserveAspectRatio is none, so the rendered
    height is what sets how deep the peaks and troughs read — taller on wider
@@ -563,9 +656,28 @@ textarea:focus {
 
 /* ── Responsive grids ── */
 /* grid containers keep inline style for desktop; these classes override on mobile */
+@media (max-width: 1100px) {
+  .la-gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media (max-width: 900px) {
   .wave-divider {
     height: 64px;
+  }
+
+  .la-slider-slide {
+    flex-basis: 260px;
+  }
+  /* Runs the slides out to the screen edge. The negative margin cancels the
+     section's own 28px padding, so the track is exactly viewport-wide — it
+     does not overhang, and the scroll container is the track itself, never an
+     ancestor, so the sticky header is unaffected. */
+  .la-slider-track {
+    margin: 0 -28px;
+    padding-left: 28px;
+    padding-right: 28px;
   }
 
   .la-burger {
@@ -716,9 +828,31 @@ textarea:focus {
   }
 }
 
+/* Two columns, not one. The .g4 rule drops to a single column at 480 because
+   those cards carry a price list; a photo with no text reads fine at ~162px,
+   and single-column would make the gallery one screen per photo. */
+@media (max-width: 700px) {
+  .la-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
 @media (max-width: 560px) {
   .wave-divider {
     height: 42px;
+  }
+
+  .la-gallery-grid {
+    gap: 10px;
+  }
+  /* 76vw leaves a sliver of the next photo showing — the affordance that says
+     "this scrolls" on touch, where there is no scrollbar. */
+  .la-slider-slide {
+    flex-basis: 76vw;
+  }
+  .la-slider-row {
+    gap: 12px;
   }
 
   .la-footer-inner {
