@@ -522,6 +522,9 @@ export default function Home() {
               fontFamily: "'Caveat',cursive",
               color: '#b9e5ca',
               fontSize: 22,
+              // Matches the script tagline on Our Story.
+              fontWeight: 400,
+              lineHeight: 1.15,
               marginTop: 14,
             }}
           >
