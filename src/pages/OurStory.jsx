@@ -50,6 +50,16 @@ function Arrow({ seed, flip }) {
   )
 }
 
+// Shared by the three Sugar Shed photos. The white border is what reads as a
+// print edge and keeps the overlaps legible where two photos meet.
+const collagePhoto = {
+  position: 'absolute',
+  objectFit: 'cover',
+  borderRadius: 14,
+  border: '6px solid #fff',
+  boxShadow: '0 18px 34px -18px rgba(79,111,102,.55)',
+}
+
 export default function OurStory() {
   return (
     <div className="la-page">
@@ -99,9 +109,9 @@ export default function OurStory() {
               lineHeight: 1.78,
             }}
           >
-            Chief baker, decorator, administrator, content creator and more for
-            The Little Apron. There was once a time when I was just a little
-            girl learning to bake.
+            I wear multiple aprons at The Little Apron – chief baker, decorator,
+            administrator, content creator and more. There was once a time when
+            I was just a little girl learning to bake.
           </p>
         </div>
       </section>
@@ -180,7 +190,7 @@ export default function OurStory() {
                 }}
               >
                 Every passion starts small. Mine started in the kitchen wearing
-                a tiny pink apron, baking alongside my mum and dreaming about
+                a tiny red apron, baking alongside my mum and dreaming about
                 cakes, cafés and creating something special. Those early days
                 sparked a love for baking that would follow me for years to
                 come.
@@ -253,11 +263,11 @@ export default function OurStory() {
                   lineHeight: 1.78,
                 }}
               >
-                As my passion grew, so did my curiosity to learn more — but
-                being from a small rural town there were no lessons in my area.
-                So we reached out, and many kind people took the time to teach
-                me properly: fondant making, cake decorating, and the endless
-                possibilities of design and creativity.
+                As my passion grew, so did my curiosity to learn more, but being
+                from a small rural town there were no lessons in my area. So we
+                reached out to the community. I was lucky enough to be taught by
+                others with the same passion. That's when I got the knack for
+                fondant design, baking and cake decorating.
               </p>
             </div>
           </div>
@@ -266,14 +276,11 @@ export default function OurStory() {
 
           {/* Sugar Shed */}
           <div
-            className="gshed pad-lg"
+            className="gstory"
             style={{
-              background: '#eef7f0',
-              borderRadius: 30,
-              padding: 48,
               display: 'grid',
-              gridTemplateColumns: '1.1fr 1fr',
-              gap: 46,
+              gridTemplateColumns: '1fr 1fr',
+              gap: 54,
               alignItems: 'center',
             }}
           >
@@ -288,7 +295,7 @@ export default function OurStory() {
                   color: '#9ec2b3',
                 }}
               >
-                Chapter three · age 15
+                Chapter three
               </span>
               <h2
                 style={{
@@ -310,54 +317,60 @@ export default function OurStory() {
                   lineHeight: 1.78,
                 }}
               >
-                At 15 I landed my dream first job at a dessert restaurant called
-                The Sugar Shed in Pukekohe — the best first job a baking gal
-                could ask for. That's where I learnt the art of buttercream
-                cakes, refined my decorating skills, and truly discovered the
-                joy of creating desserts that satisfied the ultimate sweet
-                tooth.
+                At 15, I landed my dream first job at a dessert restaurant
+                called The Sugar Shed in Pukekohe. With the mentorship of Fiona,
+                this was the best first job a gal could ask for. That's where I
+                learnt the art of buttercream cakes and truly discovered the joy
+                of creating desserts and custom cakes that satisfied the
+                ultimate sweet tooth.
               </p>
             </div>
-            <div
-              className="gpair"
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                gap: 12,
-              }}
-            >
+            {/* Overlapping collage. `picture { display: contents }` in index.css
+                means each <img> is itself the positioned element, so the photos
+                position directly against this container with no wrappers. All
+                offsets are percentages so the whole thing scales from 390px up
+                without a media query. */}
+            <div style={{ position: 'relative', aspectRatio: '1/1' }}>
               <Img
                 src="/assets/story/sugar-shed.jpg"
-                sizes="(max-width: 900px) 92vw, 540px"
+                sizes="(max-width: 900px) 50vw, 270px"
                 alt="Cake outside The Sugar Shed"
                 style={{
-                  width: '100%',
+                  ...collagePhoto,
+                  left: '1%',
+                  top: '2%',
+                  width: '54%',
                   aspectRatio: '3/4',
-                  objectFit: 'cover',
-                  borderRadius: 16,
-                  gridRow: 'span 2',
+                  transform: 'rotate(-3deg)',
+                  zIndex: 1,
                 }}
               />
               <Img
                 src="/assets/story/sugar-shed-crew.jpg"
-                sizes="(max-width: 900px) 45vw, 240px"
+                sizes="(max-width: 900px) 50vw, 250px"
                 alt="With the crew"
                 style={{
-                  width: '100%',
+                  ...collagePhoto,
+                  right: '1%',
+                  top: 0,
+                  width: '50%',
                   aspectRatio: '4/3',
-                  objectFit: 'cover',
-                  borderRadius: 16,
+                  transform: 'rotate(3deg)',
+                  zIndex: 2,
                 }}
               />
               <Img
                 src="/assets/story/learning.jpg"
-                sizes="(max-width: 900px) 45vw, 240px"
+                sizes="(max-width: 900px) 50vw, 260px"
                 alt="Decorating"
                 style={{
-                  width: '100%',
+                  ...collagePhoto,
+                  left: '24%',
+                  bottom: 0,
+                  width: '52%',
                   aspectRatio: '4/3',
-                  objectFit: 'cover',
-                  borderRadius: 16,
+                  transform: 'rotate(-2deg)',
+                  zIndex: 3,
                 }}
               />
             </div>
@@ -417,7 +430,7 @@ export default function OurStory() {
                   margin: '10px 0 16px',
                 }}
               >
-                My first stand mixer
+                First big purchase
               </h2>
               <p
                 style={{
@@ -428,10 +441,10 @@ export default function OurStory() {
                 }}
               >
                 I saved up my first few pay cheques and bought my very first
-                stand mixer — that little mint green machine that started it
-                all. For years, baking remained something I did for family and
-                friends: birthday cakes, celebration cakes, cupcakes for special
-                moments, each one made with love.
+                stand mixer. The little mint green machine that started it all
+                and still goes strong. For years, baking remained something I
+                did for family and friends: birthday cakes, celebration cakes,
+                cupcakes – you name it.
               </p>
             </div>
           </div>
@@ -577,11 +590,11 @@ export default function OurStory() {
                   marginBottom: 18,
                 }}
               >
-                The Little Apron is where everything came together — a new
-                chapter, and most importantly, a new apron. From being that kid
-                in the kitchen, to learning, to working, to where I am now, the
-                brand signifies the journey I've been on, those involved, and
-                the love I have for it.
+                The Little Apron is where everything came together – a new
+                chapter, and most importantly, a new apron. From being that
+                little kid in the kitchen to where I am today, the brand
+                represents the journey, the people who've been part of it, and
+                the love I've always had for it all.
               </p>
               <p
                 style={{
@@ -592,7 +605,7 @@ export default function OurStory() {
                   marginBottom: 8,
                 }}
               >
-                A place where I can:
+                The Little Apron is a place where I can:
               </p>
               <div
                 style={{
@@ -605,9 +618,9 @@ export default function OurStory() {
                 }}
               >
                 <span>♡ Create beautiful custom cakes</span>
-                <span>♡ Bring customers' visions to life</span>
-                <span>♡ Teach kids and adults the joy of baking</span>
-                <span>♡ Share creativity through workshops</span>
+                <span>♡ Bring your visions to life</span>
+                <span>♡ Teach kids and adults the art of baking</span>
+                <span>♡ Share my passion through workshops and events</span>
               </div>
               <p
                 style={{

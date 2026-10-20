@@ -753,11 +753,6 @@ textarea:focus {
   .g4 {
     grid-template-columns: 1fr !important;
   }
-  /* Photo pairs inside a story section: these had no responsive class at all
-     and stayed two-up at ~137px each. */
-  .gpair {
-    grid-template-columns: 1fr !important;
-  }
   .pad-lg {
     padding: 36px 20px !important;
   }
