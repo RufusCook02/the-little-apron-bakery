@@ -1,3 +1,5 @@
+import { inspired } from '../data/gallery.js'
+import ImageSlider from '../components/ImageSlider.jsx'
 import Img from '../components/Img.jsx'
 
 export default function SweetStuff() {
@@ -49,10 +51,9 @@ export default function SweetStuff() {
               lineHeight: 1.78,
             }}
           >
-            Explore our range of cakes, cupcakes and workshops. Whether you're
-            planning something extra special or keeping it sweet and simple, The
-            Little Apron is here to make every celebration that little bit
-            sweeter.
+            Explore our range of cakes and cupcakes. Whether you're planning
+            something extra special or keeping it sweet and simple, The Little
+            Apron is here to make every celebration that little bit sweeter.
           </p>
         </div>
       </section>
@@ -81,7 +82,7 @@ export default function SweetStuff() {
             }}
           >
             <Img
-              src="/assets/cakes/floral.jpg"
+              src="/assets/cakes/vintage-bow.jpg"
               sizes="(max-width: 900px) 92vw, 360px"
               alt="Signature cakes"
               style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover' }}
@@ -159,7 +160,7 @@ export default function SweetStuff() {
             </div>
           </a>
           <a
-            href="/workshops"
+            href="/order"
             className="card-hover-lg"
             style={{
               display: 'block',
@@ -170,9 +171,9 @@ export default function SweetStuff() {
             }}
           >
             <Img
-              src="/assets/cakes/vintage-piped.jpg"
+              src="/assets/cakes/wedding.jpg"
               sizes="(max-width: 900px) 92vw, 360px"
-              alt="Cake decorating workshops"
+              alt="Custom cakes"
               style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover' }}
             />
             <div style={{ padding: '28px 28px 32px' }}>
@@ -185,7 +186,7 @@ export default function SweetStuff() {
                   marginBottom: 8,
                 }}
               >
-                Workshops
+                Custom Cakes
               </h2>
               <p
                 style={{
@@ -196,82 +197,135 @@ export default function SweetStuff() {
                   marginBottom: 16,
                 }}
               >
-                Hands-on classes to learn the art of baking and decorating.
+                Have something special in mind or a unique birthday party theme?
+                We would love to help bring your vision to life.
               </p>
-              <span className="text-link-green">See workshops →</span>
+              <span className="text-link-green">Chat custom designs →</span>
             </div>
           </a>
         </div>
       </section>
 
-      <section style={{ padding: '0 0 90px' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 28px' }}>
+      {/* GET INSPIRED */}
+      <section style={{ background: '#f6fbf3', padding: '70px 0 78px' }}>
+        <div style={{ maxWidth: 1180, margin: '0 auto', padding: '0 28px' }}>
+          <span
+            style={{
+              fontFamily: "'Mulish'",
+              textTransform: 'uppercase',
+              letterSpacing: '.22em',
+              fontSize: 13,
+              fontWeight: 700,
+              color: '#6f9486',
+            }}
+          >
+            Straight from the kitchen
+          </span>
+          <h2
+            style={{
+              fontFamily: "'Cormorant Garamond',serif",
+              fontWeight: 600,
+              color: '#3f5750',
+              fontSize: 'var(--fs-h2)',
+              lineHeight: 1.1,
+              margin: '12px 0 14px',
+            }}
+          >
+            Get inspired
+          </h2>
+          <p
+            style={{
+              fontFamily: "'Mulish'",
+              color: '#5e6d67',
+              fontSize: 17,
+              lineHeight: 1.75,
+              maxWidth: 560,
+              marginBottom: 28,
+            }}
+          >
+            A few of the cakes we've loved making. Have a scroll — then bring
+            your favourite along to your enquiry.
+          </p>
+          <ImageSlider photos={inspired} label="Get inspired photos" />
+          <div style={{ marginTop: 30 }}>
+            <a href="/gallery" className="btn-outline">
+              Browse our gallery
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* LEARN TO DO IT YOURSELF */}
+      <section style={{ background: '#fff', padding: '84px 0 92px' }}>
+        <div style={{ maxWidth: 920, margin: '0 auto', padding: '0 28px' }}>
           <div
+            className="pad-lg"
             style={{
               position: 'relative',
-              borderRadius: 28,
-              overflow: 'hidden',
-              minHeight: 340,
-              display: 'flex',
-              alignItems: 'center',
+              background: '#eef7f0',
+              border: '1px solid rgba(79,111,102,.12)',
+              borderRadius: 30,
+              padding: '58px 48px',
+              textAlign: 'center',
+              overflow: 'visible',
             }}
           >
             <Img
-              src="/assets/cakes/wedding.jpg"
-              sizes="(max-width: 1100px) 100vw, 1050px"
+              src="/assets/bow.png"
+              sizes="96px"
               alt=""
               style={{
                 position: 'absolute',
-                inset: 0,
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
+                top: -26,
+                left: 0,
+                width: 'clamp(64px, 18vw, 96px)',
+                height: 'auto',
+                transform: 'translateX(-30%) rotate(-18deg)',
+                filter: 'drop-shadow(0 8px 14px rgba(79,111,102,.25))',
               }}
             />
-            <div
+            <span
               style={{
-                position: 'absolute',
-                inset: 0,
-                background:
-                  'linear-gradient(90deg,rgba(63,87,80,.92) 0%,rgba(63,87,80,.7) 55%,rgba(63,87,80,.3) 100%)',
-              }}
-            />
-            <div
-              className="pad-lg"
-              style={{
-                position: 'relative',
-                padding: 56,
-                maxWidth: 560,
-                color: '#fff',
+                fontFamily: "'Mulish'",
+                textTransform: 'uppercase',
+                letterSpacing: '.22em',
+                fontSize: 13,
+                fontWeight: 700,
+                color: '#6f9486',
               }}
             >
-              <h2
-                style={{
-                  fontFamily: "'Cormorant Garamond',serif",
-                  fontWeight: 600,
-                  fontSize: 'var(--fs-h2)',
-                  lineHeight: 1.1,
-                  marginBottom: 14,
-                }}
-              >
-                Have another cake design in mind?
-              </h2>
-              <p
-                style={{
-                  fontFamily: "'Mulish'",
-                  color: '#e3efe9',
-                  fontSize: 17,
-                  lineHeight: 1.75,
-                  marginBottom: 26,
-                }}
-              >
-                Let's make something special together. We'd love to help bring
-                your cake to life.
-              </p>
-              <a href="/order" className="btn-white">
-                Custom cake enquiry
-              </a>
-            </div>
+              Want to have a go?
+            </span>
+            <h2
+              style={{
+                fontFamily: "'Cormorant Garamond',serif",
+                fontWeight: 600,
+                color: '#3f5750',
+                fontSize: 'var(--fs-h2)',
+                lineHeight: 1.12,
+                margin: '12px 0 14px',
+              }}
+            >
+              Learn to do it yourself
+            </h2>
+            <p
+              style={{
+                fontFamily: "'Mulish'",
+                color: '#5e6d67',
+                fontSize: 17,
+                lineHeight: 1.75,
+                maxWidth: 560,
+                margin: '0 auto 28px',
+              }}
+            >
+              Find your passion and try our hands-on classes to learn the art of
+              baking and decorating.
+            </p>
+            {/* Workshops are still "register your interest", not bookable —
+                this copy deliberately doesn't imply dates. */}
+            <a href="/workshops" className="btn-primary">
+              See our workshops →
+            </a>
           </div>
         </div>
       </section>

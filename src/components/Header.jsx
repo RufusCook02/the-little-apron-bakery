@@ -125,9 +125,34 @@ export default function Header({ menuOpen, setMenuOpen }) {
             whiteSpace: 'nowrap',
           }}
         >
-          <a href="/our-story" className="nav-link">
-            Our Story
-          </a>
+          <div className="la-drop">
+            <a href="/our-story" className="nav-link la-drop-trigger">
+              Our Story
+              <svg
+                className="la-drop-caret"
+                width="10"
+                height="10"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                aria-hidden="true"
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </a>
+            <div className="la-drop-menu">
+              <div className="la-drop-panel">
+                <a href="/gallery" className="nav-link">
+                  Gallery
+                </a>
+                <a href="/blog" className="nav-link">
+                  Blog
+                </a>
+              </div>
+            </div>
+          </div>
           <span className="la-div" />
           <div className="la-drop">
             <a href="/sweet-stuff" className="nav-link la-drop-trigger">
@@ -163,10 +188,6 @@ export default function Header({ menuOpen, setMenuOpen }) {
           <span className="la-div" />
           <a href="/workshops" className="nav-link">
             Workshops
-          </a>
-          <span className="la-div" />
-          <a href="/blog" className="nav-link">
-            Blog
           </a>
           <span className="la-div" />
           <a href="/contact" className="nav-link">

@@ -9,6 +9,7 @@ import SweetStuff from './SweetStuff.jsx'
 import SignatureCakes from './SignatureCakes.jsx'
 import Cupcakes from './Cupcakes.jsx'
 import Workshops from './Workshops.jsx'
+import Gallery from './Gallery.jsx'
 import Order from './Order.jsx'
 import Contact from './Contact.jsx'
 import Blog from './Blog.jsx'
@@ -24,6 +25,7 @@ export const PAGES = {
   signature: SignatureCakes,
   cupcakes: Cupcakes,
   workshops: Workshops,
+  gallery: Gallery,
   order: Order,
   contact: Contact,
   blog: Blog,
